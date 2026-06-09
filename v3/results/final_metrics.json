@@ -1,0 +1,14 @@
+{
+  "model": "Qwen3.5-0.8B-Base",
+  "data_files": 6,
+  "data_chunks": 1598,
+  "train_samples": 1438,
+  "val_samples": 160,
+  "total_steps": 181,
+  "initial_train_loss": 2.84206485748291,
+  "final_train_loss": 0.009311657398939133,
+  "final_val_loss": 0.49785929918289185,
+  "final_perplexity": 1.6451956267495842,
+  "final_token_accuracy": 0.9164138943248532,
+  "loss_improvement": 2.832753200083971
+}

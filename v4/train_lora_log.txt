@@ -1,0 +1,68 @@
+(wt) isadmin@is-ai2:~/tracking/v4$ python train_lora.py 
+Using CUDA device: cuda:6
+Model:    /tracking/v4/models
+Data:     /tracking/v4/qa_dataset.jsonl
+Output:   /tracking/v4/results/lora_model
+
+[1/6] Loading tokenizer...
+Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}
+  Vocab size: 248044
+  Pad token: <|endoftext|>
+
+[2/6] Loading data...
+  Loaded 199 QA pairs
+  Train: 179 | Val: 20
+  Tokenizing...
+Map: 100%|███████████████████████████████████████████████████████████| 179/179 [00:00<00:00, 4562.43 examples/s]
+Map: 100%|█████████████████████████████████████████████████████████████| 20/20 [00:00<00:00, 2995.61 examples/s]
+
+[3/6] Loading model...
+Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}
+`torch_dtype` is deprecated! Use `dtype` instead!
+The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights: 100%|██████████████████████████████████████████████████████| 320/320 [00:00<00:00, 1313.54it/s]
+trainable params: 3,194,880 || all params: 755,587,904 || trainable%: 0.4228
+  Model loaded with LoRA
+  Device: cuda:0
+
+[4/6] Starting training...
+  Training...
+{'loss': '2.228', 'grad_norm': 'nan', 'learning_rate': '0', 'epoch': '0.08889'}                                 
+{'loss': '2.229', 'grad_norm': '1.582', 'learning_rate': '4e-05', 'epoch': '0.4444'}                            
+{'eval_loss': '1.943', 'eval_accuracy': '0.633', 'eval_runtime': '2.127', 'eval_samples_per_second': '9.405', 'eval_steps_per_second': '2.351', 'epoch': '0.4444'}                                                              
+{'loss': '1.839', 'grad_norm': '0.4405', 'learning_rate': '9e-05', 'epoch': '0.8889'}                           
+{'eval_loss': '1.671', 'eval_accuracy': '0.7', 'eval_runtime': '2.078', 'eval_samples_per_second': '9.625', 'eval_steps_per_second': '2.406', 'epoch': '0.8889'}                                                                
+{'loss': '1.616', 'grad_norm': '0.3483', 'learning_rate': '8.462e-05', 'epoch': '1.267'}                        
+{'eval_loss': '1.571', 'eval_accuracy': '0.7087', 'eval_runtime': '2.109', 'eval_samples_per_second': '9.483', 'eval_steps_per_second': '2.371', 'epoch': '1.267'}                                                              
+{'loss': '1.521', 'grad_norm': '0.3102', 'learning_rate': '6.538e-05', 'epoch': '1.711'}                        
+{'eval_loss': '1.514', 'eval_accuracy': '0.7204', 'eval_runtime': '2.147', 'eval_samples_per_second': '9.314', 'eval_steps_per_second': '2.329', 'epoch': '1.711'}                                                              
+{'loss': '1.564', 'grad_norm': '0.3228', 'learning_rate': '4.615e-05', 'epoch': '2.089'}                        
+{'eval_loss': '1.474', 'eval_accuracy': '0.7214', 'eval_runtime': '1.94', 'eval_samples_per_second': '10.31', 'eval_steps_per_second': '2.578', 'epoch': '2.089'}                                                               
+{'loss': '1.38', 'grad_norm': '0.3672', 'learning_rate': '2.692e-05', 'epoch': '2.533'}                         
+{'eval_loss': '1.454', 'eval_accuracy': '0.7252', 'eval_runtime': '1.942', 'eval_samples_per_second': '10.3', 'eval_steps_per_second': '2.575', 'epoch': '2.533'}                                                               
+{'loss': '1.42', 'grad_norm': '0.3561', 'learning_rate': '7.692e-06', 'epoch': '2.978'}                         
+{'eval_loss': '1.447', 'eval_accuracy': '0.7238', 'eval_runtime': '2.131', 'eval_samples_per_second': '9.385', 'eval_steps_per_second': '2.346', 'epoch': '2.978'}                                                              
+{'eval_loss': '1.447', 'eval_accuracy': '0.7238', 'eval_runtime': '2.133', 'eval_samples_per_second': '9.377', 'eval_steps_per_second': '2.344', 'epoch': '3'}                                                                  
+{'train_runtime': '99.1', 'train_samples_per_second': '5.419', 'train_steps_per_second': '0.363', 'train_loss': '1.642', 'epoch': '3'}                                                                                          
+100%|███████████████████████████████████████████████████████████████████████████| 36/36 [01:39<00:00,  2.75s/it]
+
+[5/6] Saving model...
+  LoRA model saved to: /tracking/v4/results/lora_model
+
+[6/6] Generating evaluation report...
+  Metrics saved to: /tracking/v4/results/lora_training_metrics.csv
+  Chart saved to: /tracking/v4/results/lora_training_metrics.png
+  Loss curve saved to: /tracking/v4/results/lora_loss_curve.png
+  Final metrics saved to: /tracking/v4/results/lora_final_metrics.json
+
+============================================================
+  TRAINING COMPLETE
+============================================================
+  Output:     /tracking/v4/results/lora_model
+  Metrics:    lora_training_metrics.csv
+  Charts:     lora_training_metrics.png, lora_loss_curve.png
+  Report:     lora_final_metrics.json
+
+  Final Val Loss:   1.4465
+  Final Perplexity: 4.25
+  Loss Reduction:   36.3%

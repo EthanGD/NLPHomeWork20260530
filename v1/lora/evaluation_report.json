@@ -1,0 +1,22 @@
+{
+  "train_set_size": 166,
+  "test_set_size": 42,
+  "train_results": {
+    "name": "Train",
+    "accuracy": 1.0,
+    "avg_sim_positive": 0.6231356859207153,
+    "avg_sim_negative": 0.2661656439304352,
+    "avg_margin": 0.35697007179260254
+  },
+  "test_results": {
+    "name": "Test",
+    "accuracy": 1.0,
+    "avg_sim_positive": 0.6000772714614868,
+    "avg_sim_negative": 0.27021798491477966,
+    "avg_margin": 0.32985931634902954
+  },
+  "overfitting_check": {
+    "accuracy_gap": 0.0,
+    "margin_gap": 0.027110755443572998
+  }
+}

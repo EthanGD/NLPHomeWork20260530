@@ -1,0 +1,7 @@
+pip download matplotlib -d ./lib --python-version 311 --platform manylinux2014_x86_64 --implementation cp --abi cp311 --only-binary=:all:
+
+pip install --no-index --find-links=. matplotlib
+
+
+pip download datasets -d ./lib --python-version 311 --platform manylinux2014_x86_64 --implementation cp --abi cp311 --only-binary=:all:
+pip install --no-index --find-links=. datasets

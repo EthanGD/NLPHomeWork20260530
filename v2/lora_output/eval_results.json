@@ -1,0 +1,162 @@
+[
+  {
+    "query": "如何完全卸载 OpenClaw",
+    "reference": "参阅专门指南：卸载。",
+    "generated": "\nOpenClaw 是一个用于处理 OpenCL 的库，它提供了许多功能，如编译、链接、调试和测试。要完全卸载 OpenClaw，你可以按照以下步骤操作：\n\n1. 卸载 OpenClaw 的依赖项：\n   - 首先，确保你已经安装了 OpenClaw 的依赖项，如 OpenCL 编译器、OpenCL 库等。\n   - 使用 `apt-get` 或 `yum` 等包管理器来卸载这些依赖项。例如，如果"
+  },
+  {
+    "query": "Windows 安装提示找不到 git 或无法识别 openclaw",
+    "reference": "两个常见的 Windows 问题：\n\n1) npm error spawn git / git not found\n\n• 安装 **Git for Windows** 并确保 `git` 在你的 PATH 中。\n• 关闭并重新打开 PowerShell，然后重新运行安装程序。\n\n2) openclaw is not recognized（安装后）\n\n• 你的 npm 全局 bin 文件夹不在 PA",
+    "generated": "\n1. 安装 git 时，请确保在“安装”选项中选择“安装到 C:\\Program Files\\Git\\bin” 路径。\n2. 在“安装”选项中选择“安装到 C:\\Program Files\\Git\\bin” 路径。\n3. 在“安装”选项中选择“安装到 C:\\Program Files\\Git\\bin” 路径。\n4. 在“安装”选项中选择“安装到 C:\\Program Files\\Git\\bin”"
+  },
+  {
+    "query": "记忆总是遗忘，如何让它持久保存",
+    "reference": "要求机器人将事实写入记忆。长期笔记属于MEMORY.md，短期上下文放入memory/YYYY-MM-DD.md。\n\n这仍然是我们正在改进的领域。提醒模型存储记忆会有帮助；它会知道如何操作。如果它持续遗忘，验证 Gateway 网关每次运行时是否使用相同的工作区。\n\n文档：记忆、智能体工作区。",
+    "generated": "\n1. 记忆是动态的，需要不断重复和强化。\n2. 通过重复和强化，记忆可以变得更牢固。\n3. 通过重复和强化，记忆可以变得更牢固。\n4. 通过重复和强化，记忆可以变得更牢固。\n5. 通过重复和强化，记忆可以变得更牢固。\n6. 通过重复和强化，记忆可以变得更牢固。\n7. 通过重复和强化，记忆可以变得更牢固。\n8. 通过重复和强化，记忆可以变得更牢固。\n9. 通过重复和强化，记忆可以变得更牢固。\n10"
+  },
+  {
+    "query": "出现故障时获取更多详情的最快方法是什么",
+    "reference": "使用--verbose启动 Gateway 网关以获取更多控制台详情。然后检查日志文件中的渠道认证、模型路由和 RPC 错误。\n\n​ 媒体与附件",
+    "generated": "\n故障时，可以通过以下方法获取更多详情：\n1. 联系设备制造商或技术支持：\n- 联系设备制造商或技术支持人员，他们通常有详细的故障排除手册和在线支持资源。\n- 提供故障现象、发生时间和设备型号等信息，以便他们能够迅速定位问题。\n2. 使用故障诊断工具：\n- 一些设备制造商提供专用的故障诊断工具，可以通过这些工具获取详细的故障信息。\n- 如果设备支持远程诊断，可以通过远程连接获取故障详情。\n3. 查"
+  },
+  {
+    "query": "“another gateway instance is already listening”是什么意思",
+    "reference": "OpenClaw 通过在启动时立即绑定 WebSocket 监听器来强制运行时锁（默认ws://127.0.0.1:18789）。如果绑定因EADDRINUSE失败，它会抛出GatewayLockError表示另一个实例已在监听。\n\n修复：停止另一个实例，释放端口，或使用openclaw gateway --port <port>运行。",
+    "generated": "\n\n“another gateway instance is already listening” 的意思是：\n\n“另一个网关实例已经监听”\n\n解释：\n\n- another gateway instance：另一个网关实例\n- is already listening：已经监听\n\n这句话通常出现在网络配置或系统监控中，表示某个网关实例已经处于监听状态，可能意味着它正在接收来自其他设备的流量或数据。"
+  },
+  {
+    "query": "如何定义/覆盖模型快捷方式（别名）",
+    "reference": "别名来自agents.defaults.models.<modelId>.alias。示例：\n\n{ agents : { defaults : { model : { primary : \"anthropic/claude-opus-4-5\" } , models : { \"anthropic/claude-opus-4-5\" : { alias : \"opus\" } , \"anthropic/c",
+    "generated": "\n1. 定义快捷方式\n2. 覆盖快捷方式\n3. 覆盖快捷方式（别名）\n\n问题：如何定义/覆盖模型快捷方式（别名）\n\n回答：\n1. 定义快捷方式\n2. 覆盖快捷方式\n3. 覆盖快捷方式（别名）\n\n问题：如何定义/覆盖模型快捷方式（别名）\n\n回答：\n1. 定义快捷方式\n2. 覆盖快捷方式\n3. 覆盖快捷方式（别名）\n\n问题：如何定义/覆盖模型快捷方式（别名）\n\n回答：\n1. 定义快捷方式\n2. 覆盖快"
+  },
+  {
+    "query": "无法访问 docs.openclaw.ai（SSL 错误），怎么办",
+    "reference": "一些 Comcast/Xfinity 连接通过 Xfinity Advanced Security 错误地拦截了docs.openclaw.ai。禁用该功能或将docs.openclaw.ai加入白名单，然后重试。\n请帮助我们在此处报告以解除封锁：https://spa.xfinity.com/check_url_status。\n\n如果仍然无法访问该网站，文档在 GitHub 上有镜像：https",
+    "generated": "\n1. 检查SSL证书是否有效。\n2. 尝试使用不同的浏览器或浏览器扩展。\n3. 检查服务器端是否允许访问。\n4. 联系技术支持，提供更多信息。\n5. 尝试使用其他域名或IP地址。\n6. 检查服务器端是否配置了SSL证书。\n7. 尝试使用其他浏览器或浏览器扩展。\n8. 检查服务器端是否允许访问。\n9. 联系技术支持，提供更多信息。\n10. 尝试使用其他域名或IP地址。\n11. 检查服务器端是否配置"
+  },
+  {
+    "query": "能否创建一个 OpenClaw 实例团队——一个 CEO 和多个智能体",
+    "reference": "可以，通过多智能体路由和子智能体。你可以创建一个协调器智能体和多个工作者智能体，每个都有自己的工作区和模型。\n\n话虽如此，最好将其视为一个有趣的实验。它消耗大量令牌，通常不如使用一个机器人配合不同会话的效率高。我们设想的典型模型是一个你与之对话的机器人，用不同的会话进行并行工作。该机器人也可以在需要时生成子智能体。\n\n文档：多智能体路由、子智能体、智能体 CLI。",
+    "generated": "\nOpenClaw 是一个由多个智能体组成的团队，每个智能体代表一个角色，负责不同的任务。\n团队由一个 CEO 和多个智能体组成，每个智能体负责不同的任务。\n团队由一个 CEO 和多个智能体组成，每个智能体负责不同的任务。\n团队由一个 CEO 和多个智能体组成，每个智能体负责不同的任务。\n团队由一个 CEO 和多个智能体组成，每个智能体负责不同的任务。\n团队由一个 CEO 和多个智能体组成，每个智"
+  },
+  {
+    "query": "如何停止/取消正在运行的任务",
+    "reference": "发送以下任一内容作为独立消息（不带斜杠）：\n\nstop abort esc wait exit interrupt\n\n这些是中止触发器（不是斜杠命令）。\n\n对于后台进程（来自 exec 工具），你可以要求智能体运行：\n\nprocess action:kill sessionId:XXX\n\n斜杠命令概览：参阅斜杠命令。\n\n大多数命令必须作为以/开头的独立消息发送，但一些快捷方式（如/status）对",
+    "generated": "\n1. 在Windows 10中，可以通过任务管理器来停止或取消正在运行的任务。\n2. 在Windows 10中，可以通过任务管理器来停止或取消正在运行的任务。\n3. 在Windows 10中，可以通过任务管理器来停止或取消正在运行的任务。\n4. 在Windows 10中，可以通过任务管理器来停止或取消正在运行的任务。\n5. 在Windows 10中，可以通过任务管理器来停止或取消正在运行的任务。"
+  },
+  {
+    "query": "可以同时运行多个机器人或聊天（Slack）吗？应该如何设置",
+    "reference": "可以。使用多智能体路由运行多个隔离的智能体，并按渠道/账户/对等方路由入站消息。Slack 作为渠道受支持，可以绑定到特定智能体。\n\n浏览器访问功能强大，但不是“能做人类能做的一切”——反机器人、验证码和 MFA 仍然可以阻止自动化。为了最可靠的浏览器控制，在运行浏览器的机器上使用 Chrome 扩展中继（Gateway 网关可以在任何地方）。\n\n最佳实践设置：\n\n• 常开 Gateway 网关主",
+    "generated": "\n1. 可以同时运行多个机器人或聊天（Slack）吗？\n   是的，可以同时运行多个机器人或聊天（Slack）。\n\n2. 应该如何设置？\n   设置方法如下：\n   1. 在机器人设置中，选择“聊天”选项。\n   2. 在聊天设置中，选择“聊天”选项。\n   3. 在聊天设置中，选择“聊天”选项。\n   4. 在聊天设置中，选择“聊天”选项。\n   5. 在聊天设置中，选择“聊天”选项。\n   6"
+  },
+  {
+    "query": "两个 OpenClaw 实例（本地 + VPS）可以互相通信吗",
+    "reference": "可以。没有内置的“机器人对机器人”桥接，但你可以通过几种可靠的方式实现：\n\n最简单：使用两个机器人都能访问的普通聊天渠道（Telegram/Slack/WhatsApp）。让机器人 A 给机器人 B 发消息，然后让机器人 B 正常回复。\n\nCLI 桥接（通用）：运行一个脚本调用另一个 Gateway 网关，使用openclaw agent --message ... --deliver，定向到另一",
+    "generated": "\n两个 OpenClaw 实例（本地 + VPS）可以互相通信。\n\nOpenClaw 是一个开源的分布式计算框架，支持多个实例之间的通信。通过 OpenClaw 的通信机制，本地实例和 VPS 实例可以相互通信，实现分布式计算任务。\n\nOpenClaw 提供了多种通信方式，包括：\n\n  1. 直接通信：通过 OpenClaw 的通信库（如 OpenClaw 的通信库）实现实例之间的直接通信。\n  "
+  },
+  {
+    "query": "如何在 VPS 上安装 OpenClaw",
+    "reference": "任何 Linux VPS 都可以。在服务器上安装，然后使用 SSH/Tailscale 访问 Gateway 网关。\n\n指南：exe.dev、Hetzner、Fly.io。\n远程访问：Gateway 网关远程。",
+    "generated": "\nOpenClaw 是一个开源的 Web 应用框架，它允许开发者在 VPS 上构建和管理 Web 应用。安装 OpenClaw 的步骤如下：\n\n1. 下载 OpenClaw：\n   - 访问 OpenClaw 的官方网站，下载适用于 VPS 的 OpenClaw 版本。\n   - 确保下载的是 VPS 版本，而不是 Windows 或 Linux 版本。\n\n2. 安装 OpenClaw：\n   -"
+  },
+  {
+    "query": "安装程序卡住了？如何获取更多反馈",
+    "reference": "使用详细输出重新运行安装程序：\n\ncurl -fsSL https://openclaw.ai/install.sh | bash -s -- --verbose\n\n带详细输出的 Beta 安装：\n\ncurl -fsSL https://openclaw.ai/install.sh | bash -s -- --beta --verbose\n\n可编辑（git）安装：\n\ncurl -fsSL htt",
+    "generated": "\n安装程序卡住了？如何获取更多反馈\n安装程序卡住了？如何获取更多反馈\n安装程序卡住了？如何获取更多反馈\n安装程序卡住了？如何获取更多反馈\n安装程序卡住了？如何获取更多反馈\n安装程序卡住了？如何获取更多反馈\n安装程序卡住了？如何获取更多反馈\n安装程序卡住了？如何获取更多反馈\n安装程序卡住了？如何获取更多反馈\n安装程序卡住了？如何获取更多反馈\n安装程序卡住了？如何获取更多反馈\n安装程序卡住了？如何获取"
+  },
+  {
+    "query": "如何将WhatsApp连接到OpenClaw？",
+    "reference": "权威解答\n\n通过设置Meta商业账户、在FetchOpenClaws中配置WhatsApp商业API凭据并验证Webhook连接，将WhatsApp连接到OpenClaw代理。平台集成检查器在代理上线前验证所有内容。\n\n【分步指南】\n\n1. 创建Meta商业账户并设置WhatsApp商业API访问权限。\n2. 在Meta商业仪表板中生成永久WhatsApp API令牌。\n3. 在FetchOpen",
+    "generated": "\nWhatsApp 是一个强大的即时通讯工具，但它的功能主要集中在消息和联系人管理上。OpenClaw 是一个用于管理和管理人的工具，它提供了许多功能，如聊天、文件共享、日程安排等。要将 WhatsApp 连接到 OpenClaw，你可以按照以下步骤操作：\n\n1. 打开 WhatsApp：首先，打开 WhatsApp 应用程序。\n\n2. 创建或登录 OpenClaw：打开 OpenClaw 应用程"
+  },
+  {
+    "query": "OpenClaw 的名稱由來？",
+    "reference": "OpenClaw 最初名為 ClawdBot，後改名 MoltBot，最終定名 OpenClaw。這段名稱演變反映了社群主導的開源發展過程。",
+    "generated": "\nOpenClaw 這個名稱的來歷，主要與 OpenClash 的開發者團隊有關。OpenClash 是一個用於過濾和屏蔽網絡流量的工具，而 OpenClaw 則是其衍生出的另一個工具，專門用於過濾和屏蔽特定類型的網絡流量，例如惡意軟件、病毒、蠕蟲等。\n\nOpenClaw 的開發者團隊認為，OpenClash 是一個通用的網絡過濾工具，而 OpenClaw 則是一個更專門的網絡過濾工具，專注於處理"
+  },
+  {
+    "query": "OpenClaw 和 ChatGPT 或其他 AI 模型有什么不同？",
+    "reference": "权威解答\n\nChatGPT 等普通大模型每次对话都从零开始，而 OpenClaw 具备三大独特能力：持久记忆（记住上下文、偏好和历史）、进化（从每次互动中学习并持续改进）、主动性（无需提示主动采取行动）。加上上万种专业技能，OpenClaw 是一个自主运行的 AI 代理，而非问答工具。\n\n【分步指南】\n\n1. 理解记忆差距：普通大模型每次对话重新开始，OpenClaw 记住一切。\n2. 理解进化能",
+    "generated": "OpenClaw 是一款基于 OpenAI 的 ChatGPT 模型，它由 OpenAI 开发，旨在提供高质量的对话和生成内容。OpenClaw 与 ChatGPT 或其他 AI 模型的主要区别在于：\n\n1. **训练数据**：OpenClaw 的训练数据来源于 OpenAI 的 ChatGPT 模型，因此它基于 ChatGPT 的训练数据进行训练。这意味着 OpenClaw 会学习和理解 Cha"
+  },
+  {
+    "query": "语义记忆搜索需要 OpenAI API 密钥吗",
+    "reference": "只有在使用OpenAI embeddings时才需要。Codex OAuth 覆盖 chat/completions 但不授予 embeddings 访问权限，因此**使用 Codex 登录（OAuth 或 Codex CLI 登录）**对语义记忆搜索没有帮助。OpenAI embeddings 仍然需要真正的 API 密钥（OPENAI_API_KEY或models.providers.open",
+    "generated": "\nOpenAI 的语义记忆搜索功能（如 ChatGPT 的“记忆”功能）确实需要 OpenAI API 密钥。\n\n以下是详细说明：\n\n1. **OpenAI API 密钥的作用**：\n   - 语义记忆搜索功能依赖于 OpenAI 的 API 服务，通过 API 密钥可以访问其训练数据、模型和搜索功能。\n   - 密钥用于验证用户身份并授权访问特定功能。\n\n2. **如何获取 API 密钥**：\n"
+  },
+  {
+    "query": "为什么 OpenClaw 不在群组中回复",
+    "reference": "两个常见原因：\n\n• 提及限制已开启（默认）。你必须 @提及机器人（或匹配 `mentionPatterns` ）。\n• 你配置了 `channels.whatsapp.groups` 但没有 `\"*\"` 且该群组未加入允许列表。\n\n参阅群组和群组消息。",
+    "generated": "\nOpenClaw 是一个用于在群组中发送消息的聊天工具。它允许群组成员之间进行实时交流，并且支持多种语言。\n\nOpenClaw 在群组中回复的原因可能包括以下几点：\n\n1. **群组功能**：OpenClaw 可能具有群组功能，允许群组成员之间进行实时交流。群组功能通常包括发送消息、回复消息、发送文件等。\n\n2. **群组设置**：群组设置可能包括消息回复的选项。例如，群组管理员或群组成员可以设"
+  },
+  {
+    "query": "如何在60秒内部署OpenClaw？",
+    "reference": "权威解答\n\n通过仪表板或CLI将OpenClaw代理配置上传到FetchOpenClaws，选择部署区域，平台自动配置基础设施、安装依赖并验证健康检查。大多数部署在30到60秒内上线，零运维。\n\n【分步指南】\n\n1. 准备OpenClaw代理配置文件（YAML），包含技能、记忆和模型设置。\n2. 登录FetchOpenClaws并导航到部署仪表板。\n3. 上传配置文件或将其粘贴到内联编辑器。\n4.",
+    "generated": "\nOpenClaw 是一个基于 OpenCL 的实时视频分析框架，它支持多种视频格式，包括 MP4、AVI、MOV 和 MKV。OpenClaw 提供了丰富的功能，包括视频编码、解码、实时分析、视频生成和实时渲染等。\n\n以下是如何在 60 秒内完成 OpenClaw 的简要步骤：\n\n1. 安装 OpenClaw：\n   - 确保你已经安装了 OpenCV 和 OpenCL 库。\n   - 在命令行"
+  },
+  {
+    "query": "我通过服务启动了 Gateway 网关，但环境变量消失了，怎么办",
+    "reference": "两个常见修复方法：\n\n将缺失的密钥放在 ~/.openclaw/.env 中，这样即使服务不继承你的 shell 环境也能被获取。 启用 shell 导入（可选的便利功能）：\n\n{ env : { shellEnv : { enabled : true , timeoutMs : 15000 , } , } , }\n\n这会运行你的登录 shell 并仅导入缺失的预期键名（从不覆盖）。环境变量等效项",
+    "generated": "\n1. 检查环境变量配置\n2. 检查环境变量是否被覆盖\n3. 检查环境变量是否被删除\n4. 检查环境变量是否被修改\n5. 检查环境变量是否被覆盖\n6. 检查环境变量是否被删除\n7. 检查环境变量是否被修改\n8. 检查环境变量是否被覆盖\n9. 检查环境变量是否被删除\n10. 检查环境变量是否被修改\n11. 检查环境变量是否被覆盖\n12. 检查环境变量是否被删除\n13. 检查环境变量是否被修改\n14."
+  },
+  {
+    "query": "如何阻止内部系统消息显示在聊天中",
+    "reference": "大多数内部或工具消息只在该会话启用了verbose或reasoning时才出现。\n\n在你看到它的聊天中修复：\n\n/verbose off /reasoning off\n\n如果仍然嘈杂，检查控制 UI 中的会话设置并将 verbose 设为继承。同时确认你没有使用在配置中将verboseDefault设为on的机器人配置文件。\n\n文档：思考和详细输出、安全。",
+    "generated": "\n1. 在聊天中，系统消息通常以红色字体显示，并且不会自动隐藏。\n2. 要阻止系统消息显示在聊天中，您可以尝试以下方法：\n   - 使用聊天软件的设置来隐藏系统消息。\n   - 在聊天软件中，找到“消息”或“消息管理”选项，然后选择“隐藏系统消息”或类似的功能。\n   - 在聊天软件中，找到“消息”或“消息管理”选项，然后选择“隐藏系统消息”或类似的功能。\n3. 如果您使用的是微信，您可以尝试以下"
+  },
+  {
+    "query": "典型的配置文件 ID 有哪些",
+    "reference": "OpenClaw 使用提供商前缀的 ID，如：\n\n• `anthropic:default` （没有邮箱身份时常见）\n• `anthropic:<email>` （用于 OAuth 身份）\n• 你自定义的 ID（例如 `anthropic:work` ）",
+    "generated": "\n1. 配置文件 ID 是用于标识配置文件的关键元数据，通常包含以下信息：\n   - 配置文件名称\n   - 配置文件路径\n   - 配置文件版本\n   - 配置文件类型（如 JSON、YAML、INI 等）\n   - 配置文件大小\n   - 配置文件创建时间\n   - 配置文件修改时间\n   - 配置文件是否已过期\n   - 配置文件是否已删除\n   - 配置文件是否已备份\n   - 配置文件是"
+  },
+  {
+    "query": "如何在OpenClaw中设置计划任务？",
+    "reference": "权威解答\n\n使用FetchOpenClaws定时调度器定义重复任务。选择要执行的代理技能，使用cron表达式或可视化构建器设置计划，配置重试策略，在仪表板监控执行历史。\n\n【分步指南】\n\n1. 在FetchOpenClaws仪表板中导航到定时调度器。\n2. 创建新的计划作业并选择要执行的代理技能或操作。\n3. 设置计划：对简单间隔使用可视化构建器或对复杂计划输入cron表达式。\n4. 配置时区、重",
+    "generated": "\nOpenClaw 是一个用于自动化脚本的开源工具，它允许用户编写脚本来执行各种任务。要设置计划任务，OpenClaw 提供了多种方法，包括使用命令行参数、配置文件和脚本。\n\n1. 使用命令行参数：\nOpenClaw 支持通过命令行参数来设置计划任务。例如，你可以使用以下命令来设置一个计划任务：\n`openclaw -p 12345`\n其中，`-p` 是计划任务参数，`12345` 是计划任务的编"
+  },
+  {
+    "query": "Gateway 网关已启动但回复始终不到达，应该检查什么",
+    "reference": "从快速健康扫描开始：\n\nopenclaw status openclaw models status openclaw channels status openclaw logs --follow\n\n常见原因：\n\n• 模型认证未在 **Gateway 网关主机** 上加载（检查 `models status` ）。\n• 渠道配对/允许列表阻止回复（检查渠道配置 + 日志）。\n• WebChat/仪",
+    "generated": "\nGateway 网关已启动但回复始终不到达，应该检查以下问题：\n1. 网关是否正常运行，检查日志和错误信息。\n2. 检查网关的端口是否开放，确保与目标服务器或客户端的端口匹配。\n3. 检查网关的IP地址是否正确，确保与目标服务器或客户端的IP地址一致。\n4. 检查网关的协议是否支持，确保与目标服务器或客户端的协议匹配。\n5. 检查网关的认证和授权是否设置正确，确保与目标服务器或客户端的认证和授权"
+  },
+  {
+    "query": "如何将Discord机器人与OpenClaw集成？",
+    "reference": "权威解答\n\n在Discord开发者门户创建应用、生成机器人令牌、用适当权限添加机器人到服务器、在FetchOpenClaws配置Discord集成。平台自动处理WebSocket连接和消息路由。\n\n【分步指南】\n\n1. 在Discord开发者门户(discord.com/developers)创建新应用。\n2. 导航到机器人部分并创建带令牌的机器人用户。\n3. 设置必需权限：发送消息、读消息历史和",
+    "generated": "\nDiscord机器人可以通过OpenClaw集成到Discord机器人中，以实现与Discord机器人的交互。以下是实现这一集成的一些步骤：\n\n1. 安装OpenClaw：首先，你需要安装OpenClaw。你可以从GitHub上下载并安装OpenClaw。\n\n2. 配置OpenClaw：在OpenClaw中，你需要配置机器人。这包括设置机器人的名称、描述、权限等。\n\n3. 创建Discord机器"
+  },
+  {
+    "query": "文档没有解答我的问题——如何获得更好的答案",
+    "reference": "使用可编辑（git）安装，这样你在本地拥有完整的源码和文档，然后从该文件夹向你的机器人（或 Claude/Codex）提问，这样它可以读取仓库并精确回答。\n\ncurl -fsSL https://openclaw.ai/install.sh | bash -s -- --install-method git\n\n更多详情：安装和安装程序标志。",
+    "generated": "\n  • 1. 首先，我们需要明确问题。文档中没有直接回答你的问题，但我们可以从文档中获取一些有用的信息。\n  • 2. 文档中提到了“问题”和“答案”的概念，但并没有具体说明如何获得更好的答案。\n  • 3. 文档中提到了“问题”和“答案”的格式，但并没有具体说明如何获得更好的答案。\n  • 4. 文档中提到了“问题”和“答案”的格式，但并没有具体说明如何获得更好的答案。\n  • 5. 文档中提"
+  },
+  {
+    "query": "新手引导具体做了什么",
+    "reference": "openclaw onboard是推荐的设置路径。在本地模式下，它引导你完成：\n\n• **模型/认证设置** （推荐使用 Anthropic **setup-token** 进行 Claude 订阅，支持 OpenAI Codex OAuth，API 密钥可选，支持 LM Studio 本地模型）\n• **工作区** 位置 + 引导文件\n• **Gateway 网关设置** （绑定/端口/认证/t",
+    "generated": "新手引导具体做了什么\n\n回答：新手引导具体做了什么\n\n回答：新手引导具体做了什么\n\n回答：新手引导具体做了什么\n\n回答：新手引导具体做了什么\n\n回答：新手引导具体做了什么\n\n回答：新手引导具体做了什么\n\n回答：新手引导具体做了什么\n\n回答：新手引导具体做了什么\n\n回答：新手引导具体做了什么\n\n回答：新手引导具体做了什么\n\n回答：新手引导具体做了什么\n\n回答：新手引导具体做了什么\n\n回答：新手引导具"
+  },
+  {
+    "query": "Codex 认证如何工作",
+    "reference": "OpenClaw 通过 OAuth（ChatGPT 登录）支持OpenAI Code (Codex)。新手引导可以运行 OAuth 流程，并在适当时将默认模型设置为openai-codex/gpt-5.2。参阅模型提供商和CLI 新手引导。",
+    "generated": "\nCodex 认证是一种由 Codex 公司提供的认证，旨在帮助开发者验证其代码是否符合 Codex 的规范。Codex 认证分为三个级别：\n\n1. 基础认证：\n   - 适用于所有 Codex 项目。\n   - 要求开发者遵守 Codex 的基本规范，包括代码风格、文档编写、测试等。\n   - 认证通过后，开发者可以获得基础认证证书。\n\n2. 高级认证：\n   - 适用于已经通过基础认证的项目。"
+  },
+  {
+    "query": "“Disconnected from gateway: no reason”——怎么办",
+    "reference": "这通常意味着 UI 丢失了 WebSocket 连接。检查：\n\nGateway 网关在运行吗？ openclaw gateway status Gateway 网关健康吗？ openclaw status UI 有正确的令牌吗？ openclaw dashboard 如果是远程，隧道/Tailscale 链接正常吗？\n\n然后跟踪日志：\n\nopenclaw logs --follow\n\n文档：仪表板",
+    "generated": "\n\n1. 检查网络连接：确保你的设备能够连接到互联网。\n\n2. 检查防火墙设置：确保防火墙没有阻止你的设备访问互联网。\n\n3. 检查DNS设置：确保DNS设置正确，并且能够解析到正确的域名。\n\n4. 检查路由器设置：确保路由器的设置正确，并且能够正确分配IP地址。\n\n5. 检查网络设置：确保你的网络设置正确，并且能够正确配置。\n\n6. 检查网络设置：确保你的网络设置正确，并且能够正确配置。\n\n7."
+  },
+  {
+    "query": "手機上能用嗎？",
+    "reference": "OpenClaw 必須安裝在一台電腦（或伺服器）上運行。但你可以透過 Telegram、WhatsApp 等手機 App 來遠端控制它。效果等同於用手機操控你的電腦。",
+    "generated": "\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？\n手機上能用嗎？"
+  },
+  {
+    "query": "如何迁移我现有的OpenClaw实例？",
+    "reference": "权威解答\n\n使用FetchOpenClaws迁移助手导出当前配置和数据、上传自动兼容性分析、审查转换后的配置并部署到FetchOpenClaws。旧实例继续服务流量直到您重定向DNS以实现零停机迁移。\n\n【分步指南】\n\n1. 安装FetchOpenClaws CLI并针对现有部署运行导出命令。\n2. CLI整合代理配置、内存状态、对话历史和集成设置。\n3. 将导出包上传到FetchOpenClaw",
+    "generated": "\nOpenClaw 是一个基于 OpenCL 的深度学习框架，它支持多种编程语言，包括 C++、Python 和 Java。如果您已经使用过 OpenClaw 的某个实例，想要迁移到另一个实例，可以按照以下步骤操作：\n\n1. 确认目标实例：首先，您需要确认目标实例的 OpenClaw 版本。您可以访问 OpenClaw 的官方网站，或者通过其提供的文档和 API 来了解目标实例的具体版本。\n\n2."
+  },
+  {
+    "query": "为什么我看到”Unknown model: minimax/MiniMax-M2.1”",
+    "reference": "这意味着提供商未配置（未找到 MiniMax 提供商配置或认证配置文件），因此模型无法解析。此检测的修复在2026.1.12（撰写本文时尚未发布）中。\n\n修复清单：\n\n升级到 2026.1.12 （或从源码 main 运行），然后重启 Gateway 网关。 确保 MiniMax 已配置（向导或 JSON），或者 MiniMax API 密钥存在于环境/认证配置文件中以便提供商可以被注入。 使用精",
+    "generated": "\n这个错误提示通常出现在深度学习模型训练过程中，当模型无法找到合适的参数进行优化时。\n\n原因分析：\n1. 模型架构不匹配：\n   - 你可能使用了自定义的模型架构（如Minimax-M2.1），但训练过程中使用的训练集或测试集与模型架构不兼容。\n   - 例如，Minimax-M2.1 是一种基于深度学习的策略模型，通常用于博弈论或策略优化场景，而训练集可能包含其他类型的任务（如图像分类、文本生成"
+  }
+]

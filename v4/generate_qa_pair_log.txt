@@ -1,0 +1,851 @@
+  所有解析策略失败
+生成 0 个问答对
+  处理块 9/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5660
+  策略 1 成功：找到 4 个问答对
+生成 4 个问答对
+  处理块 10/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6093
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  已保存 69 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 11/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5218
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 12/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5579
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 13/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5501
+  策略 1 成功：找到 4 个问答对
+生成 4 个问答对
+  处理块 14/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5547
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 15/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 4718
+  策略 2 成功：找到 2 个问答对
+生成 2 个问答对
+  已保存 78 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 16/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5465
+  策略 2 成功：找到 2 个问答对
+生成 2 个问答对
+  处理块 17/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5706
+  策略 3 成功：找到 4 个问答对
+生成 4 个问答对
+  处理块 18/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 4672
+  策略 3 成功：找到 4 个问答对
+生成 4 个问答对
+  处理块 19/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5418
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 20/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5476
+  策略 2 成功：找到 2 个问答对
+生成 2 个问答对
+  已保存 91 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 21/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 4578
+  所有解析策略失败
+生成 0 个问答对
+  处理块 22/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6133
+  所有解析策略失败
+生成 0 个问答对
+  处理块 23/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5527
+  策略 1 成功：找到 5 个问答对
+生成 5 个问答对
+  处理块 24/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5570
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 25/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6407
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  已保存 98 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 26/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5067
+  策略 3 成功：找到 3 个问答对
+生成 3 个问答对
+  处理块 27/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5866
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 28/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5328
+  策略 3 成功：找到 3 个问答对
+生成 3 个问答对
+  处理块 29/29...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5648
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+
+处理：针灸甲乙经.md
+  分割成 57 个文本块
+  处理块 1/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6094
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 2/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5320
+  所有解析策略失败
+生成 0 个问答对
+  处理块 3/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5495
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 4/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6114
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 5/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5694
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  已保存 110 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 6/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5912
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 7/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 7242
+  所有解析策略失败
+生成 0 个问答对
+  处理块 8/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5560
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 9/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6198
+  策略 3 成功：找到 3 个问答对
+生成 3 个问答对
+  处理块 10/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5117
+  策略 3 成功：找到 3 个问答对
+生成 3 个问答对
+  已保存 118 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 11/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5793
+  所有解析策略失败
+生成 0 个问答对
+  处理块 12/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5371
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 13/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6574
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 14/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5279
+  策略 1 成功：找到 5 个问答对
+生成 5 个问答对
+  处理块 15/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5981
+  策略 1 成功：找到 5 个问答对
+生成 5 个问答对
+  已保存 130 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 16/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5457
+  策略 1 成功：找到 5 个问答对
+生成 5 个问答对
+  处理块 17/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5782
+  策略 2 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 18/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5399
+  策略 2 成功：找到 2 个问答对
+生成 2 个问答对
+  处理块 19/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5436
+  策略 2 成功：找到 2 个问答对
+生成 2 个问答对
+  处理块 20/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6158
+  策略 3 成功：找到 2 个问答对
+生成 2 个问答对
+  已保存 142 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 21/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5446
+  策略 3 成功：找到 2 个问答对
+生成 2 个问答对
+  处理块 22/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6125
+  所有解析策略失败
+生成 0 个问答对
+  处理块 23/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5131
+  所有解析策略失败
+生成 0 个问答对
+  处理块 24/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6028
+  所有解析策略失败
+生成 0 个问答对
+  处理块 25/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6176
+  策略 3 成功：找到 2 个问答对
+生成 2 个问答对
+  已保存 146 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 26/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5277
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 27/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6234
+  策略 3 成功：找到 3 个问答对
+生成 3 个问答对
+  处理块 28/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5914
+  策略 3 成功：找到 3 个问答对
+生成 3 个问答对
+  处理块 29/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5823
+  策略 1 成功：找到 4 个问答对
+生成 4 个问答对
+  处理块 30/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5450
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  已保存 158 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 31/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6348
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 32/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6179
+  策略 1 成功：找到 5 个问答对
+生成 5 个问答对
+  处理块 33/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6454
+  策略 3 成功：找到 2 个问答对
+生成 2 个问答对
+  处理块 34/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5892
+  策略 2 成功：找到 2 个问答对
+生成 2 个问答对
+  处理块 35/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6278
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  已保存 169 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 36/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6527
+  策略 2 成功：找到 2 个问答对
+生成 2 个问答对
+  处理块 37/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 4741
+  策略 3 成功：找到 3 个问答对
+生成 3 个问答对
+  处理块 38/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6290
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 39/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6320
+  所有解析策略失败
+生成 0 个问答对
+  处理块 40/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6132
+  策略 1 成功：找到 5 个问答对
+生成 5 个问答对
+  已保存 180 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 41/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6007
+  所有解析策略失败
+生成 0 个问答对
+  处理块 42/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6378
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 43/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5528
+  策略 1 成功：找到 4 个问答对
+生成 4 个问答对
+  处理块 44/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5391
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 45/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5798
+  所有解析策略失败
+生成 0 个问答对
+  已保存 186 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 46/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5211
+  策略 3 成功：找到 2 个问答对
+生成 2 个问答对
+  处理块 47/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6246
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 48/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5299
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 49/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6035
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 50/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5982
+  策略 3 成功：找到 3 个问答对
+生成 3 个问答对
+  已保存 194 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 51/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6164
+  策略 3 成功：找到 5 个问答对
+生成 5 个问答对
+  处理块 52/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6558
+  策略 3 成功：找到 2 个问答对
+生成 2 个问答对
+  处理块 53/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6431
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 54/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 4875
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 55/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5451
+  策略 1 成功：找到 5 个问答对
+生成 5 个问答对
+  已保存 208 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 56/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5202
+  策略 1 成功：找到 5 个问答对
+生成 5 个问答对
+  处理块 57/57...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5008
+  策略 1 成功：找到 5 个问答对
+生成 5 个问答对
+
+处理：黄帝内经_灵枢.md
+  分割成 34 个文本块
+  处理块 1/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5097
+  所有解析策略失败
+生成 0 个问答对
+  处理块 2/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5026
+  策略 3 成功：找到 6 个问答对
+生成 6 个问答对
+  处理块 3/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5397
+  策略 1 成功：找到 4 个问答对
+生成 4 个问答对
+  处理块 4/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6001
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 5/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6313
+  策略 3 成功：找到 4 个问答对
+生成 4 个问答对
+  已保存 233 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 6/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6523
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 7/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5315
+  策略 3 成功：找到 3 个问答对
+生成 3 个问答对
+  处理块 8/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5388
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 9/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5470
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 10/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6873
+  策略 3 成功：找到 3 个问答对
+生成 3 个问答对
+  已保存 242 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 11/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6614
+  所有解析策略失败
+生成 0 个问答对
+  处理块 12/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5983
+  策略 3 成功：找到 3 个问答对
+生成 3 个问答对
+  处理块 13/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6777
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 14/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6553
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 15/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6439
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  已保存 248 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 16/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5492
+  所有解析策略失败
+生成 0 个问答对
+  处理块 17/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5233
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 18/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5497
+  策略 1 成功：找到 4 个问答对
+生成 4 个问答对
+  处理块 19/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5917
+  所有解析策略失败
+生成 0 个问答对
+  处理块 20/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6465
+  策略 2 成功：找到 2 个问答对
+生成 2 个问答对
+  已保存 255 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 21/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6281
+  策略 1 成功：找到 5 个问答对
+生成 5 个问答对
+  处理块 22/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6013
+  策略 3 成功：找到 5 个问答对
+生成 5 个问答对
+  处理块 23/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5234
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 24/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5675
+  所有解析策略失败
+生成 0 个问答对
+  处理块 25/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5058
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  已保存 267 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 26/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6738
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 27/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5847
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 28/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5471
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 29/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5361
+  策略 3 成功：找到 6 个问答对
+生成 6 个问答对
+  处理块 30/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5164
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  已保存 277 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 31/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6127
+  策略 2 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 32/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5755
+  所有解析策略失败
+生成 0 个问答对
+  处理块 33/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6126
+  策略 2 成功：找到 4 个问答对
+生成 4 个问答对
+  处理块 34/34...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6556
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+
+处理：黄帝内经_素问.md
+  分割成 46 个文本块
+  处理块 1/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5590
+  策略 3 成功：找到 7 个问答对
+生成 7 个问答对
+  处理块 2/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5765
+  策略 3 成功：找到 2 个问答对
+生成 2 个问答对
+  处理块 3/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6492
+  所有解析策略失败
+生成 0 个问答对
+  处理块 4/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5470
+  策略 2 成功：找到 2 个问答对
+生成 2 个问答对
+  处理块 5/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5982
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  已保存 295 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 6/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5108
+  所有解析策略失败
+生成 0 个问答对
+  处理块 7/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6297
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 8/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6751
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 9/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5229
+  策略 3 成功：找到 3 个问答对
+生成 3 个问答对
+  处理块 10/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5856
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  已保存 301 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 11/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5519
+  所有解析策略失败
+生成 0 个问答对
+  处理块 12/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6193
+  所有解析策略失败
+生成 0 个问答对
+  处理块 13/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6114
+  策略 2 成功：找到 2 个问答对
+生成 2 个问答对
+  处理块 14/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5618
+  策略 3 成功：找到 5 个问答对
+生成 5 个问答对
+  处理块 15/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5748
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  已保存 309 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 16/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6156
+  策略 3 成功：找到 3 个问答对
+生成 3 个问答对
+  处理块 17/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6518
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 18/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5843
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 19/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5316
+  策略 3 成功：找到 2 个问答对
+生成 2 个问答对
+  处理块 20/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6663
+  所有解析策略失败
+生成 0 个问答对
+  已保存 316 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 21/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6836
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 22/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6004
+  策略 3 成功：找到 2 个问答对
+生成 2 个问答对
+  处理块 23/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5515
+  策略 3 成功：找到 3 个问答对
+生成 3 个问答对
+  处理块 24/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5300
+  策略 3 成功：找到 5 个问答对
+生成 5 个问答对
+  处理块 25/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5798
+  策略 3 成功：找到 5 个问答对
+生成 5 个问答对
+  已保存 332 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 26/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6088
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 27/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6104
+  策略 3 成功：找到 2 个问答对
+生成 2 个问答对
+  处理块 28/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6237
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 29/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6247
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 30/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6322
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  已保存 338 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 31/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6520
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 32/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6611
+  策略 3 成功：找到 2 个问答对
+生成 2 个问答对
+  处理块 33/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 4920
+  策略 3 成功：找到 2 个问答对
+生成 2 个问答对
+  处理块 34/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5589
+  策略 1 成功：找到 5 个问答对
+生成 5 个问答对
+  处理块 35/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6005
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  已保存 349 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 36/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6733
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 37/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6376
+  所有解析策略失败
+生成 0 个问答对
+  处理块 38/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5803
+  所有解析策略失败
+生成 0 个问答对
+  处理块 39/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5346
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 40/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6556
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  已保存 352 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 41/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5844
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  处理块 42/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5438
+  策略 2 成功：找到 5 个问答对
+生成 5 个问答对
+  处理块 43/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 4888
+  策略 3 成功：找到 3 个问答对
+生成 3 个问答对
+  处理块 44/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6066
+  策略 3 成功：找到 4 个问答对
+生成 4 个问答对
+  处理块 45/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 5684
+  策略 3 成功：找到 1 个问答对
+生成 1 个问答对
+  已保存 366 个问答对到 \NLP\v4\qa_dataset.jsonl
+  处理块 46/46...   Response status: 200
+  API result keys: dict_keys(['id', 'object', 'created', 'model', 'choices', 'service_tier', 'system_fingerprint', 'usage', 'prompt_logprobs', 'prompt_token_ids', 'kv_transfer_params'])
+  Content length: 6639
+  所有解析策略失败
+生成 0 个问答对
+
+[3/3] 保存结果...
+
+============================================================
+完成！共生成 366 个问答对
+已保存到：\NLP\v4\qa_dataset.jsonl
+============================================================
+
+样本问答对:
+
+1. Q: ......
+   A: ......
+   来源：十二经脉_动画图.md
+
+2. Q: 经络系统主要由哪两部分组成？...
+   A: 经络包括经脉和络脉两部分。经有路径的意思，是纵行的干线。络有网络的意思，是经脉的分支。...
+   来源：十二经脉_动画图.md
+
+3. Q: 手太阴肺经的循行方向和主要作用是什么？...
+   A: 手太阴肺经由上而下，自胸走手，主降。其金气具有

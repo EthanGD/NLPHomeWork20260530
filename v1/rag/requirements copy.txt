@@ -1,0 +1,21 @@
+Flask==2.3.3
+SQLAlchemy==2.0.23
+FlagEmbedding==1.2.8
+numpy>=1.26.0,<2.0.0
+requests==2.31.0
+python-dotenv==1.0.0
+openai>=1.3.0
+
+# ==================== CPU 專用修改區 ====================
+
+# CPU-only Torch（避免下載超大的 CUDA 版本）
+torch>=2.1.0; sys_platform != "win32"
+torchvision>=0.16.0; sys_platform != "win32"
+torchaudio>=2.1.0; sys_platform != "win32"
+
+# BGE-M3 相關依賴（CPU 可正常運行）
+transformers>=4.36.0
+accelerate>=0.25.0
+
+# 可選：如果想更穩定，可以固定 torch 版本
+# torch==2.4.1; sys_platform != "win32"     # 目前 CPU 常用穩定版

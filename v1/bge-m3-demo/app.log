@@ -1,0 +1,235 @@
+2026-03-27 10:28:49,325 - __main__ - INFO - 数据库初始化完成
+2026-03-27 10:28:49,325 - __main__ - INFO - ==================================================
+2026-03-27 10:28:49,325 - __main__ - INFO - API 服务启动中...
+2026-03-27 10:28:49,325 - __main__ - INFO - 模型: BAAI/bge-m3
+2026-03-27 10:28:49,325 - __main__ - INFO - 使用 FP16: False
+2026-03-27 10:28:49,326 - __main__ - INFO - 数据库: qa_vectors.db
+2026-03-27 10:28:49,326 - __main__ - INFO - ==================================================
+2026-03-27 10:28:49,326 - __main__ - INFO - 生产环境建议使用: gunicorn -w 2 -b 0.0.0.0:5000 app:app
+2026-03-27 10:28:49,332 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://ethanchenyansong:5000
+2026-03-27 10:28:49,333 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-03-27 10:29:53,652 - werkzeug - INFO - 192.168.208.1 - - [27/Mar/2026 10:29:53] "GET /api/health HTTP/1.1" 200 -
+2026-03-27 10:30:15,623 - werkzeug - INFO - 192.168.208.1 - - [27/Mar/2026 10:30:15] "[31m[1mPOST /api/add HTTP/1.1[0m" 400 -
+2026-03-27 10:30:42,458 - werkzeug - INFO - 192.168.208.1 - - [27/Mar/2026 10:30:42] "[31m[1mPOST /api/add HTTP/1.1[0m" 400 -
+2026-03-27 10:31:28,674 - werkzeug - INFO - 192.168.208.1 - - [27/Mar/2026 10:31:28] "[31m[1mPOST /api/add HTTP/1.1[0m" 400 -
+2026-03-27 10:32:20,676 - __main__ - INFO - 正在加载模型 BAAI/bge-m3...
+2026-03-27 10:33:11,614 - __main__ - INFO - 模型加载完成！
+2026-03-27 10:33:11,912 - __main__ - INFO - 成功添加 QA: 什么是机器学习？...
+2026-03-27 10:33:11,915 - werkzeug - INFO - 192.168.208.1 - - [27/Mar/2026 10:33:11] "[35m[1mPOST /api/add HTTP/1.1[0m" 201 -
+2026-03-27 10:33:12,031 - __main__ - INFO - 搜索 '机器学习相关...' 返回 1 条结果
+2026-03-27 10:33:12,032 - werkzeug - INFO - 192.168.208.1 - - [27/Mar/2026 10:33:12] "POST /api/search HTTP/1.1" 200 -
+2026-03-27 10:33:47,744 - __main__ - WARNING - 问题已存在: 什么是机器学习？...
+2026-03-27 10:33:47,746 - werkzeug - INFO - 192.168.208.1 - - [27/Mar/2026 10:33:47] "[31m[1mPOST /api/add HTTP/1.1[0m" 409 -
+2026-03-27 10:33:47,858 - __main__ - INFO - 搜索 '机器学习相关...' 返回 1 条结果
+2026-03-27 10:33:47,858 - werkzeug - INFO - 192.168.208.1 - - [27/Mar/2026 10:33:47] "POST /api/search HTTP/1.1" 200 -
+2026-03-27 10:34:03,123 - __main__ - INFO - 成功添加 QA: 什么是机器学习？？...
+2026-03-27 10:34:03,126 - werkzeug - INFO - 192.168.208.1 - - [27/Mar/2026 10:34:03] "[35m[1mPOST /api/add HTTP/1.1[0m" 201 -
+2026-03-27 10:34:03,240 - __main__ - INFO - 搜索 '机器学习相关...' 返回 2 条结果
+2026-03-27 10:34:03,241 - werkzeug - INFO - 192.168.208.1 - - [27/Mar/2026 10:34:03] "POST /api/search HTTP/1.1" 200 -
+2026-03-27 10:35:14,463 - __main__ - INFO - 成功添加 QA: 什么是机器学习？123...
+2026-03-27 10:35:14,466 - werkzeug - INFO - 127.0.0.1 - - [27/Mar/2026 10:35:14] "[35m[1mPOST /api/add HTTP/1.1[0m" 201 -
+2026-03-27 10:35:34,413 - __main__ - INFO - 搜索 '机器学习相关技术...' 返回 3 条结果
+2026-03-27 10:35:34,414 - werkzeug - INFO - 127.0.0.1 - - [27/Mar/2026 10:35:34] "POST /api/search HTTP/1.1" 200 -
+2026-03-27 10:36:40,673 - __main__ - INFO - 成功添加 QA: 什么是机器学习？？444...
+2026-03-27 10:36:40,677 - werkzeug - INFO - 192.168.208.1 - - [27/Mar/2026 10:36:40] "[35m[1mPOST /api/add HTTP/1.1[0m" 201 -
+2026-03-27 10:36:40,797 - __main__ - INFO - 搜索 '机器学习相关...' 返回 4 条结果
+2026-03-27 10:36:40,798 - werkzeug - INFO - 192.168.208.1 - - [27/Mar/2026 10:36:40] "POST /api/search HTTP/1.1" 200 -
+2026-03-27 10:43:02,321 - __main__ - INFO - 数据库初始化完成
+2026-03-27 10:43:02,322 - __main__ - INFO - ==================================================
+2026-03-27 10:43:02,322 - __main__ - INFO - API 服务启动中...
+2026-03-27 10:43:02,322 - __main__ - INFO - 模型: BAAI/bge-m3
+2026-03-27 10:43:02,322 - __main__ - INFO - 使用 FP16: False
+2026-03-27 10:43:02,322 - __main__ - INFO - 数据库: qa_vectors.db
+2026-03-27 10:43:02,323 - __main__ - INFO - ==================================================
+2026-03-27 10:43:02,323 - __main__ - INFO - 生产环境建议使用: gunicorn -w 2 -b 0.0.0.0:5000 app:app
+2026-03-27 10:43:02,326 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://ethanchenyansong:5000
+2026-03-27 10:43:02,326 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-03-27 10:43:20,898 - __main__ - INFO - 正在从本地加载模型 ./models...
+2026-03-27 10:43:20,904 - __main__ - ERROR - 添加 QA 失败: Incorrect path_or_model_id: './models/BAAI/bge-m3'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+Traceback (most recent call last):
+  File "/mnt/c/py12/lib/python3.12/site-packages/transformers/utils/hub.py", line 402, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 106, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/mnt/c/py12/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 154, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': './models/BAAI/bge-m3'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "bge-m3-demo/app.py", line 186, in add_qa_pair
+    embeddings = get_model().encode([question], convert_to_numpy=True)
+                 ^^^^^^^^^^^
+  File "bge-m3-demo/app.py", line 54, in get_model
+    _model = FlagModel(
+             ^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/FlagEmbedding/inference/embedder/encoder_only/base.py", line 74, in __init__
+    self.tokenizer = AutoTokenizer.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 834, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 666, in get_tokenizer_config
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/transformers/utils/hub.py", line 466, in cached_file
+    raise EnvironmentError(
+OSError: Incorrect path_or_model_id: './models/BAAI/bge-m3'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+2026-03-27 10:43:21,001 - werkzeug - INFO - 192.168.208.1 - - [27/Mar/2026 10:43:21] "[35m[1mPOST /api/add HTTP/1.1[0m" 500 -
+2026-03-27 10:43:21,014 - __main__ - INFO - 正在从本地加载模型 ./models...
+2026-03-27 10:43:21,015 - __main__ - ERROR - 搜索失败: Incorrect path_or_model_id: './models/BAAI/bge-m3'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+Traceback (most recent call last):
+  File "/mnt/c/py12/lib/python3.12/site-packages/transformers/utils/hub.py", line 402, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 106, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/mnt/c/py12/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 154, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': './models/BAAI/bge-m3'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "bge-m3-demo/app.py", line 292, in search_qa_pair
+    query_embedding = get_model().encode([question], convert_to_numpy=True)[0]
+                      ^^^^^^^^^^^
+  File "bge-m3-demo/app.py", line 54, in get_model
+    _model = FlagModel(
+             ^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/FlagEmbedding/inference/embedder/encoder_only/base.py", line 74, in __init__
+    self.tokenizer = AutoTokenizer.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 834, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 666, in get_tokenizer_config
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/transformers/utils/hub.py", line 466, in cached_file
+    raise EnvironmentError(
+OSError: Incorrect path_or_model_id: './models/BAAI/bge-m3'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+2026-03-27 10:43:21,102 - werkzeug - INFO - 192.168.208.1 - - [27/Mar/2026 10:43:21] "[35m[1mPOST /api/search HTTP/1.1[0m" 500 -
+2026-03-27 10:43:29,244 - __main__ - INFO - 正在从本地加载模型 ./models...
+2026-03-27 10:43:29,246 - __main__ - ERROR - 添加 QA 失败: Incorrect path_or_model_id: './models/BAAI/bge-m3'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+Traceback (most recent call last):
+  File "/mnt/c/py12/lib/python3.12/site-packages/transformers/utils/hub.py", line 402, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 106, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/mnt/c/py12/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 154, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': './models/BAAI/bge-m3'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "bge-m3-demo/app.py", line 186, in add_qa_pair
+    embeddings = get_model().encode([question], convert_to_numpy=True)
+                 ^^^^^^^^^^^
+  File "bge-m3-demo/app.py", line 54, in get_model
+    _model = FlagModel(
+             ^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/FlagEmbedding/inference/embedder/encoder_only/base.py", line 74, in __init__
+    self.tokenizer = AutoTokenizer.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 834, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 666, in get_tokenizer_config
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/transformers/utils/hub.py", line 466, in cached_file
+    raise EnvironmentError(
+OSError: Incorrect path_or_model_id: './models/BAAI/bge-m3'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+2026-03-27 10:43:29,342 - werkzeug - INFO - 192.168.208.1 - - [27/Mar/2026 10:43:29] "[35m[1mPOST /api/add HTTP/1.1[0m" 500 -
+2026-03-27 10:43:29,356 - __main__ - INFO - 正在从本地加载模型 ./models...
+2026-03-27 10:43:29,359 - __main__ - ERROR - 搜索失败: Incorrect path_or_model_id: './models/BAAI/bge-m3'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+Traceback (most recent call last):
+  File "/mnt/c/py12/lib/python3.12/site-packages/transformers/utils/hub.py", line 402, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 106, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/mnt/c/py12/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 154, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': './models/BAAI/bge-m3'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "bge-m3-demo/app.py", line 292, in search_qa_pair
+    query_embedding = get_model().encode([question], convert_to_numpy=True)[0]
+                      ^^^^^^^^^^^
+  File "bge-m3-demo/app.py", line 54, in get_model
+    _model = FlagModel(
+             ^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/FlagEmbedding/inference/embedder/encoder_only/base.py", line 74, in __init__
+    self.tokenizer = AutoTokenizer.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 834, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 666, in get_tokenizer_config
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/mnt/c/py12/lib/python3.12/site-packages/transformers/utils/hub.py", line 466, in cached_file
+    raise EnvironmentError(
+OSError: Incorrect path_or_model_id: './models/BAAI/bge-m3'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+2026-03-27 10:43:29,486 - werkzeug - INFO - 192.168.208.1 - - [27/Mar/2026 10:43:29] "[35m[1mPOST /api/search HTTP/1.1[0m" 500 -
+2026-03-27 10:47:58,379 - __main__ - INFO - 数据库初始化完成
+2026-03-27 10:47:58,380 - __main__ - INFO - ==================================================
+2026-03-27 10:47:58,380 - __main__ - INFO - API 服务启动中...
+2026-03-27 10:47:58,381 - __main__ - INFO - 模型: BAAI/bge-m3
+2026-03-27 10:47:58,381 - __main__ - INFO - 使用 FP16: False
+2026-03-27 10:47:58,381 - __main__ - INFO - 数据库: qa_vectors.db
+2026-03-27 10:47:58,382 - __main__ - INFO - ==================================================
+2026-03-27 10:47:58,382 - __main__ - INFO - 生产环境建议使用: gunicorn -w 2 -b 0.0.0.0:5000 app:app
+2026-03-27 10:47:58,389 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://ethanchenyansong:5000
+2026-03-27 10:47:58,389 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-03-27 10:48:09,552 - __main__ - INFO - 正在初始化模型 (本地路径: bge-m3-demo/models/bge-m3)...
+2026-03-27 10:48:09,612 - __main__ - INFO - 本地路径无效或模型不完整，准备从 Hub 下载...
+2026-03-27 10:48:09,613 - __main__ - INFO - 正在从 HuggingFace Hub 下载 BAAI/bge-m3 到 bge-m3-demo/models/bge-m3...
+2026-03-27 10:48:50,029 - __main__ - INFO - ✅ 模型下载并加载成功！
+2026-03-27 10:48:52,653 - __main__ - INFO - 成功添加 QA: 什么是机器学习？？555...
+2026-03-27 10:48:52,657 - werkzeug - INFO - 192.168.208.1 - - [27/Mar/2026 10:48:52] "[35m[1mPOST /api/add HTTP/1.1[0m" 201 -
+2026-03-27 10:48:52,779 - __main__ - INFO - 搜索 '机器学习相关...' 返回 5 条结果
+2026-03-27 10:48:52,780 - werkzeug - INFO - 192.168.208.1 - - [27/Mar/2026 10:48:52] "POST /api/search HTTP/1.1" 200 -
+2026-03-27 10:49:39,802 - werkzeug - INFO - 127.0.0.1 - - [27/Mar/2026 10:49:39] "GET /api/list HTTP/1.1" 200 -
+2026-03-27 10:51:34,236 - werkzeug - INFO - 127.0.0.1 - - [27/Mar/2026 10:51:34] "GET /api/health HTTP/1.1" 200 -
+2026-03-27 10:51:34,249 - werkzeug - INFO - 127.0.0.1 - - [27/Mar/2026 10:51:34] "GET /api/list HTTP/1.1" 200 -
+2026-03-27 10:51:34,264 - werkzeug - INFO - 127.0.0.1 - - [27/Mar/2026 10:51:34] "GET /api/list?page=2&limit=5 HTTP/1.1" 200 -
+2026-03-27 10:51:34,279 - werkzeug - INFO - 127.0.0.1 - - [27/Mar/2026 10:51:34] "GET /api/list?page=1&limit=200 HTTP/1.1" 200 -
+2026-03-27 10:51:34,291 - werkzeug - INFO - 127.0.0.1 - - [27/Mar/2026 10:51:34] "GET /api/list HTTP/1.1" 200 -
+2026-03-27 10:51:34,301 - werkzeug - INFO - 127.0.0.1 - - [27/Mar/2026 10:51:34] "GET /api/list?page HTTP/1.1" 200 -
+2026-03-27 10:51:34,328 - werkzeug - INFO - 127.0.0.1 - - [27/Mar/2026 10:51:34] "GET /api/list?page HTTP/1.1" 200 -
+2026-03-27 10:51:34,360 - werkzeug - INFO - 127.0.0.1 - - [27/Mar/2026 10:51:34] "GET /api/list?limit HTTP/1.1" 200 -
+2026-03-27 10:51:34,372 - werkzeug - INFO - 127.0.0.1 - - [27/Mar/2026 10:51:34] "GET /api/list?page HTTP/1.1" 200 -
+2026-03-27 10:51:34,382 - werkzeug - INFO - 127.0.0.1 - - [27/Mar/2026 10:51:34] "GET /api/list?limit=1 HTTP/1.1" 200 -
+2026-03-27 10:51:34,396 - werkzeug - INFO - 127.0.0.1 - - [27/Mar/2026 10:51:34] "GET /api/list?page=1&limit=5 HTTP/1.1" 200 -
+2026-03-27 10:51:34,407 - werkzeug - INFO - 127.0.0.1 - - [27/Mar/2026 10:51:34] "GET /api/list?page=2&limit=5 HTTP/1.1" 200 -
+2026-03-27 15:13:37,059 - __main__ - INFO - 数据库初始化完成
+2026-03-27 15:13:37,060 - __main__ - INFO - ==================================================
+2026-03-27 15:13:37,060 - __main__ - INFO - API 服务启动中...
+2026-03-27 15:13:37,060 - __main__ - INFO - 模型: BAAI/bge-m3
+2026-03-27 15:13:37,061 - __main__ - INFO - 使用 FP16: False
+2026-03-27 15:13:37,061 - __main__ - INFO - 数据库: qa_vectors.db
+2026-03-27 15:13:37,061 - __main__ - INFO - ==================================================
+2026-03-27 15:13:37,061 - __main__ - INFO - 生产环境建议使用: gunicorn -w 2 -b 0.0.0.0:5000 app:app
+2026-03-27 15:13:37,064 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://ethanchenyansong:5000
+2026-03-27 15:13:37,064 - werkzeug - INFO - [33mPress CTRL+C to quit[0m

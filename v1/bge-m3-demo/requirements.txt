@@ -1,0 +1,9 @@
+# requirements.txt - 兼容版本鎖定
+transformers>=4.40.0,<4.45.0    # 關鍵：避免 5.x
+FlagEmbedding>=1.2.0,<2.0.0
+flask>=2.3.0
+flask-cors>=4.0.0               # 跨域支持
+numpy>=1.24.0,<2.0.0            # 2.x 可能有兼容問題
+torch>=2.1.0,<2.5.0             # 根據 CUDA 版本調整
+sentence-transformers>=2.7.0
+gunicorn>=21.0.0                # 生產環境 WSGI 服務器

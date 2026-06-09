@@ -1,0 +1,172 @@
+(wt) :~/wt/llm$ CUDA_VISIBLE_DEVICES=6 python train_lora.py
+208
+Total QA pairs: 207
+Using device: cuda
+GPU: NVIDIA L20, Memory: 47.7GB
+Train: 175, Val: 32
+Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}
+Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}
+The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights: 100%|█████████████████████████████████████████| 473/473 [00:00<00:00, 1732.07it/s]
+Model device: cuda:0
+trainable params: 3,194,880 || all params: 856,180,800 || trainable%: 0.3732
+Epoch 1/30 [Train]: 100%|█████████████████████████████| 22/22 [00:18<00:00,  1.19it/s, loss=1.0881]
+Epoch 1/30 [Val]: 100%|██████████████████████████████████████████████| 4/4 [00:01<00:00,  3.74it/s]
+Epoch 1: Train Loss=2.9288, Val Loss=1.1088, LR=6.67e-05
+Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}
+  -> Saved best model (val_loss=1.1088)
+Epoch 2/30 [Train]: 100%|█████████████████████████████| 22/22 [00:17<00:00,  1.22it/s, loss=1.3935]
+Epoch 2/30 [Val]: 100%|██████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 2: Train Loss=1.1225, Val Loss=0.9299, LR=1.33e-04
+Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}
+  -> Saved best model (val_loss=0.9299)
+Epoch 3/30 [Train]: 100%|█████████████████████████████| 22/22 [00:17<00:00,  1.24it/s, loss=1.0306]
+Epoch 3/30 [Val]: 100%|██████████████████████████████████████████████| 4/4 [00:01<00:00,  3.76it/s]
+Epoch 3: Train Loss=0.9265, Val Loss=0.7968, LR=2.00e-04
+Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}
+  -> Saved best model (val_loss=0.7968)
+Epoch 4/30 [Train]: 100%|█████████████████████████████| 22/22 [00:17<00:00,  1.23it/s, loss=0.8654]
+Epoch 4/30 [Val]: 100%|██████████████████████████████████████████████| 4/4 [00:01<00:00,  3.76it/s]
+Epoch 4: Train Loss=0.7738, Val Loss=0.7644, LR=1.93e-04
+Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}
+  -> Saved best model (val_loss=0.7644)
+Epoch 5/30 [Train]: 100%|█████████████████████████████| 22/22 [00:17<00:00,  1.24it/s, loss=0.5935]
+Epoch 5/30 [Val]: 100%|██████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 5: Train Loss=0.6360, Val Loss=0.7798, LR=1.85e-04
+Epoch 6/30 [Train]: 100%|█████████████████████████████| 22/22 [00:17<00:00,  1.24it/s, loss=0.4671]
+Epoch 6/30 [Val]: 100%|██████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 6: Train Loss=0.5065, Val Loss=0.8269, LR=1.78e-04
+Epoch 7/30 [Train]: 100%|█████████████████████████████| 22/22 [00:17<00:00,  1.23it/s, loss=0.4477]
+Epoch 7/30 [Val]: 100%|██████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 7: Train Loss=0.3897, Val Loss=0.8925, LR=1.70e-04
+Epoch 8/30 [Train]: 100%|█████████████████████████████| 22/22 [00:17<00:00,  1.24it/s, loss=0.4254]
+Epoch 8/30 [Val]: 100%|██████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 8: Train Loss=0.2920, Val Loss=0.9623, LR=1.63e-04
+Epoch 9/30 [Train]: 100%|█████████████████████████████| 22/22 [00:17<00:00,  1.24it/s, loss=0.1880]
+Epoch 9/30 [Val]: 100%|██████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 9: Train Loss=0.2101, Val Loss=1.0195, LR=1.56e-04
+Epoch 10/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.24it/s, loss=0.1945]
+Epoch 10/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.76it/s]
+Epoch 10: Train Loss=0.1514, Val Loss=1.1032, LR=1.48e-04
+Epoch 11/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.23it/s, loss=0.1344]
+Epoch 11/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 11: Train Loss=0.1089, Val Loss=1.1590, LR=1.41e-04
+Epoch 12/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.24it/s, loss=0.0898]
+Epoch 12/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 12: Train Loss=0.0776, Val Loss=1.2091, LR=1.33e-04
+Epoch 13/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.24it/s, loss=0.0518]
+Epoch 13/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 13: Train Loss=0.0568, Val Loss=1.2640, LR=1.26e-04
+Epoch 14/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.23it/s, loss=0.0445]
+Epoch 14/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 14: Train Loss=0.0459, Val Loss=1.3143, LR=1.19e-04
+Epoch 15/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.24it/s, loss=0.0430]
+Epoch 15/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 15: Train Loss=0.0382, Val Loss=1.3246, LR=1.11e-04
+Epoch 16/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.24it/s, loss=0.0290]
+Epoch 16/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 16: Train Loss=0.0310, Val Loss=1.3629, LR=1.04e-04
+Epoch 17/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.23it/s, loss=0.0277]
+Epoch 17/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 17: Train Loss=0.0263, Val Loss=1.4024, LR=9.63e-05
+Epoch 18/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.24it/s, loss=0.0211]
+Epoch 18/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 18: Train Loss=0.0219, Val Loss=1.4309, LR=8.89e-05
+Epoch 19/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.23it/s, loss=0.0213]
+Epoch 19/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 19: Train Loss=0.0193, Val Loss=1.4503, LR=8.15e-05
+Epoch 20/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.24it/s, loss=0.0212]
+Epoch 20/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 20: Train Loss=0.0177, Val Loss=1.4857, LR=7.41e-05
+Epoch 21/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.24it/s, loss=0.0180]
+Epoch 21/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 21: Train Loss=0.0166, Val Loss=1.4987, LR=6.67e-05
+Epoch 22/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.25it/s, loss=0.0178]
+Epoch 22/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.85it/s]
+Epoch 22: Train Loss=0.0158, Val Loss=1.5182, LR=5.93e-05
+Epoch 23/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.23it/s, loss=0.0171]
+Epoch 23/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 23: Train Loss=0.0153, Val Loss=1.5247, LR=5.19e-05
+Epoch 24/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.24it/s, loss=0.0168]
+Epoch 24/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 24: Train Loss=0.0149, Val Loss=1.5360, LR=4.44e-05
+Epoch 25/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.24it/s, loss=0.0156]
+Epoch 25/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 25: Train Loss=0.0145, Val Loss=1.5435, LR=3.70e-05
+Epoch 26/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.23it/s, loss=0.0133]
+Epoch 26/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 26: Train Loss=0.0142, Val Loss=1.5525, LR=2.96e-05
+Epoch 27/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.24it/s, loss=0.0152]
+Epoch 27/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 27: Train Loss=0.0141, Val Loss=1.5539, LR=2.22e-05
+Epoch 28/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.24it/s, loss=0.0139]
+Epoch 28/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.75it/s]
+Epoch 28: Train Loss=0.0138, Val Loss=1.5615, LR=1.48e-05
+Epoch 29/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.24it/s, loss=0.0139]
+Epoch 29/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.85it/s]
+Epoch 29: Train Loss=0.0136, Val Loss=1.5637, LR=7.41e-06
+Epoch 30/30 [Train]: 100%|████████████████████████████| 22/22 [00:17<00:00,  1.25it/s, loss=0.0140]
+Epoch 30/30 [Val]: 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.86it/s]
+Epoch 30: Train Loss=0.0135, Val Loss=1.5646, LR=0.00e+00
+Unrecognized keys in `rope_parameters` for 'rope_type'='default': {'mrope_section', 'mrope_interleaved'}
+Training complete!
+Loss curve saved
+
+--- Evaluation ---
+/wt/lib/python3.11/site-packages/peft/tuners/tuners_utils.py:285: UserWarning: Already found a `peft_config` attribute in the model. This will lead to having multiple adapters in the model. Make sure to know what you are doing!
+  warnings.warn(
+/wt/lib/python3.11/site-packages/peft/peft_model.py:598: UserWarning: Found missing adapter keys while loading the checkpoint: ['base_model.model.base_model.model.model.language_model.layers.0.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.0.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.0.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.0.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.0.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.0.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.1.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.1.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.1.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.1.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.1.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.1.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.2.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.2.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.2.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.2.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.2.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.2.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.3.self_attn.q_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.3.self_attn.q_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.3.self_attn.k_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.3.self_attn.k_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.3.self_attn.v_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.3.self_attn.v_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.3.self_attn.o_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.3.self_attn.o_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.3.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.3.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.3.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.3.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.3.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.3.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.4.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.4.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.4.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.4.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.4.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.4.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.5.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.5.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.5.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.5.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.5.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.5.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.6.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.6.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.6.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.6.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.6.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.6.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.7.self_attn.q_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.7.self_attn.q_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.7.self_attn.k_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.7.self_attn.k_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.7.self_attn.v_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.7.self_attn.v_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.7.self_attn.o_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.7.self_attn.o_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.7.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.7.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.7.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.7.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.7.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.7.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.8.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.8.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.8.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.8.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.8.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.8.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.9.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.9.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.9.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.9.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.9.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.9.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.10.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.10.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.10.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.10.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.10.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.10.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.11.self_attn.q_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.11.self_attn.q_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.11.self_attn.k_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.11.self_attn.k_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.11.self_attn.v_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.11.self_attn.v_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.11.self_attn.o_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.11.self_attn.o_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.11.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.11.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.11.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.11.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.11.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.11.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.12.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.12.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.12.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.12.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.12.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.12.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.13.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.13.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.13.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.13.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.13.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.13.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.14.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.14.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.14.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.14.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.14.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.14.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.15.self_attn.q_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.15.self_attn.q_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.15.self_attn.k_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.15.self_attn.k_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.15.self_attn.v_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.15.self_attn.v_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.15.self_attn.o_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.15.self_attn.o_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.15.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.15.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.15.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.15.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.15.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.15.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.16.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.16.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.16.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.16.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.16.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.16.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.17.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.17.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.17.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.17.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.17.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.17.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.18.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.18.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.18.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.18.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.18.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.18.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.19.self_attn.q_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.19.self_attn.q_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.19.self_attn.k_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.19.self_attn.k_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.19.self_attn.v_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.19.self_attn.v_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.19.self_attn.o_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.19.self_attn.o_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.19.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.19.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.19.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.19.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.19.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.19.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.20.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.20.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.20.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.20.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.20.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.20.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.21.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.21.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.21.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.21.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.21.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.21.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.22.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.22.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.22.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.22.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.22.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.22.mlp.down_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.23.self_attn.q_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.23.self_attn.q_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.23.self_attn.k_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.23.self_attn.k_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.23.self_attn.v_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.23.self_attn.v_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.23.self_attn.o_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.23.self_attn.o_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.23.mlp.gate_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.23.mlp.gate_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.23.mlp.up_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.23.mlp.up_proj.lora_B.default.weight', 'base_model.model.base_model.model.model.language_model.layers.23.mlp.down_proj.lora_A.default.weight', 'base_model.model.base_model.model.model.language_model.layers.23.mlp.down_proj.lora_B.default.weight'].
+  warnings.warn(warn_message)
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+
+Q: 如何完全卸载 OpenClaw...
+Ref: 参阅专门指南：卸载。...
+Gen: 
+OpenClaw 是一个用于处理 OpenCL 的库，它提供了许多功能，如编译、链接、调试和测试。要完全卸载 OpenClaw，你可以按照以下步骤操作：
+
+1...
+
+Q: Windows 安装提示找不到 git 或无法识别 openclaw...
+Ref: 两个常见的 Windows 问题：
+
+1) npm error spawn git / git not found
+
+• 安装 **Git for Window...
+Gen: 
+1. 安装 git 时，请确保在“安装”选项中选择“安装到 C:\Program Files\Git\bin” 路径。
+2. 在“安装”选项中选择“安装到 C...
+
+Q: 记忆总是遗忘，如何让它持久保存...
+Ref: 要求机器人将事实写入记忆。长期笔记属于MEMORY.md，短期上下文放入memory/YYYY-MM-DD.md。
+
+这仍然是我们正在改进的领域。提醒模型存储记...
+Gen: 
+1. 记忆是动态的，需要不断重复和强化。
+2. 通过重复和强化，记忆可以变得更牢固。
+3. 通过重复和强化，记忆可以变得更牢固。
+4. 通过重复和强化，记忆可...
+
+Q: 出现故障时获取更多详情的最快方法是什么...
+Ref: 使用--verbose启动 Gateway 网关以获取更多控制台详情。然后检查日志文件中的渠道认证、模型路由和 RPC 错误。
+
+​ 媒体与附件...
+Gen: 
+故障时，可以通过以下方法获取更多详情：
+1. 联系设备制造商或技术支持：
+- 联系设备制造商或技术支持人员，他们通常有详细的故障排除手册和在线支持资源。
+- ...
+
+Q: “another gateway instance is already listening”是什么意思...
+Ref: OpenClaw 通过在启动时立即绑定 WebSocket 监听器来强制运行时锁（默认ws://127.0.0.1:18789）。如果绑定因EADDRINUSE...
+Gen: 
+
+“another gateway instance is already listening” 的意思是：
+
+“另一个网关实例已经监听”
+
+解释：
+
+- a...
+Eval graph saved
+
+All done! Results in: /wt/llm/lora_output

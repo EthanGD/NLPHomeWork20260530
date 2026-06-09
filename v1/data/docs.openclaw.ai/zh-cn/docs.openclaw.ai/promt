@@ -1,0 +1,37 @@
+https://docs.openclaw.ai/zh-CN/help/faq
+寫一個python爬蟲採集以上鏈接的問答對
+目標保存成元素是dict的list
+如
+{
+        "query":"新手引导后如何打开仪表板 VPS?",
+        "pos": """
+新手引导现在会在完成后立即使用带令牌的仪表板 URL 打开浏览器，并在摘要中打印完整链接（带令牌）。保持该标签页打开；如果没有自动启动，请在同一台机器上复制/粘贴打印的 URL。令牌保持在本地主机上，不会从浏览器获取任何内容。
+""",
+    }
+
+原型如
+<h3 class="flex whitespace-pre-wrap group font-semibold" id="如何在本地和远程环境中验证仪表板令牌"><div class="absolute" tabindex="-1"><a href="#如何在本地和远程环境中验证仪表板令牌" class="-ml-10 flex items-center opacity-0 border-0 group-hover:opacity-100 focus:opacity-100 focus:outline-0 group/link" aria-label="导航到标题">​<div class="w-6 h-6 rounded-md flex items-center justify-center shadow-sm text-gray-400 dark:text-white/50 dark:bg-background-dark dark:brightness-[1.35] dark:ring-1 dark:hover:brightness-150 bg-white ring-1 ring-gray-400/30 dark:ring-gray-700/25 hover:ring-gray-400/60 dark:hover:ring-white/20 group-focus/link:border-2 group-focus/link:border-primary dark:group-focus/link:border-primary-light"><svg xmlns="http://www.w3.org/2000/svg" fill="gray" height="12px" viewBox="0 0 576 512"><path d="M0 256C0 167.6 71.6 96 160 96h72c13.3 0 24 10.7 24 24s-10.7 24-24 24H160C98.1 144 48 194.1 48 256s50.1 112 112 112h72c13.3 0 24 10.7 24 24s-10.7 24-24 24H160C71.6 416 0 344.4 0 256zm576 0c0 88.4-71.6 160-160 160H344c-13.3 0-24-10.7-24-24s10.7-24 24-24h72c61.9 0 112-50.1 112-112s-50.1-112-112-112H344c-13.3 0-24-10.7-24-24s10.7-24 24-24h72c88.4 0 160 71.6 160 160zM184 232H392c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z"></path></svg></div></a></div><span class="cursor-pointer">如何在本地和远程环境中验证仪表板令牌</span></h3>
+
+
+h3是問題
+h3與h3之間是答案如
+
+<h3 class="flex whitespace-pre-wrap group font-semibold" id="新手引导后如何打开仪表板"><div class="absolute" tabindex="-1"><a href="#新手引导后如何打开仪表板" class="-ml-10 flex items-center opacity-0 border-0 group-hover:opacity-100 focus:opacity-100 focus:outline-0 group/link" aria-label="导航到标题">​<div class="w-6 h-6 rounded-md flex items-center justify-center shadow-sm text-gray-400 dark:text-white/50 dark:bg-background-dark dark:brightness-[1.35] dark:ring-1 dark:hover:brightness-150 bg-white ring-1 ring-gray-400/30 dark:ring-gray-700/25 hover:ring-gray-400/60 dark:hover:ring-white/20 group-focus/link:border-2 group-focus/link:border-primary dark:group-focus/link:border-primary-light"><svg xmlns="http://www.w3.org/2000/svg" fill="gray" height="12px" viewBox="0 0 576 512"><path d="M0 256C0 167.6 71.6 96 160 96h72c13.3 0 24 10.7 24 24s-10.7 24-24 24H160C98.1 144 48 194.1 48 256s50.1 112 112 112h72c13.3 0 24 10.7 24 24s-10.7 24-24 24H160C71.6 416 0 344.4 0 256zm576 0c0 88.4-71.6 160-160 160H344c-13.3 0-24-10.7-24-24s10.7-24 24-24h72c61.9 0 112-50.1 112-112s-50.1-112-112-112H344c-13.3 0-24-10.7-24-24s10.7-24 24-24h72c88.4 0 160 71.6 160 160zM184 232H392c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z"></path></svg></div></a></div><span class="cursor-pointer">新手引导后如何打开仪表板</span></h3>
+<span data-as="p">新手引导现在会在完成后立即使用带令牌的仪表板 URL 打开浏览器，并在摘要中打印完整链接（带令牌）。保持该标签页打开；如果没有自动启动，请在同一台机器上复制/粘贴打印的 URL。令牌保持在本地主机上，不会从浏览器获取任何内容。</span>
+<h3 class="flex whitespace-pre-wrap group font-semibold" id="如何在本地和远程环境中验证仪表板令牌"><div class="absolute" tabindex="-1"><a href="#如何在本地和远程环境中验证仪表板令牌" class="-ml-10 flex items-center opacity-0 border-0 group-hover:opacity-100 focus:opacity-100 focus:outline-0 group/link" aria-label="导航到标题">​<div class="w-6 h-6 rounded-md flex items-center justify-center shadow-sm text-gray-400 dark:text-white/50 dark:bg-background-dark dark:brightness-[1.35] dark:ring-1 dark:hover:brightness-150 bg-white ring-1 ring-gray-400/30 dark:ring-gray-700/25 hover:ring-gray-400/60 dark:hover:ring-white/20 group-focus/link:border-2 group-focus/link:border-primary dark:group-focus/link:border-primary-light"><svg xmlns="http://www.w3.org/2000/svg" fill="gray" height="12px" viewBox="0 0 576 512"><path d="M0 256C0 167.6 71.6 96 160 96h72c13.3 0 24 10.7 24 24s-10.7 24-24 24H160C98.1 144 48 194.1 48 256s50.1 112 112 112h72c13.3 0 24 10.7 24 24s-10.7 24-24 24H160C71.6 416 0 344.4 0 256zm576 0c0 88.4-71.6 160-160 160H344c-13.3 0-24-10.7-24-24s10.7-24 24-24h72c61.9 0 112-50.1 112-112s-50.1-112-112-112H344c-13.3 0-24-10.7-24-24s10.7-24 24-24h72c88.4 0 160 71.6 160 160zM184 232H392c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z"></path></svg></div></a></div><span class="cursor-pointer">如何在本地和远程环境中验证仪表板令牌</span></h3>
+<span data-as="p"><strong>本地（同一台机器）：</strong></span>
+<ul>
+<li>打开 <code>http://127.0.0.1:18789/</code>。</li>
+<li>如果要求认证，运行 <code>openclaw dashboard</code> 并使用带令牌的链接（<code>?token=...</code>）。</li>
+<li>令牌与 <code>gateway.auth.token</code>（或 <code>OPENCLAW_GATEWAY_TOKEN</code>）的值相同，UI 在首次加载后会存储它。</li>
+</ul>
+<span data-as="p"><strong>非本地环境：</strong></span>
+<ul>
+<li><strong>Tailscale Serve</strong>（推荐）：保持绑定 loopback，运行 <code>openclaw gateway --tailscale serve</code>，打开 <code>https://&lt;magicdns&gt;/</code>。如果 <code>gateway.auth.allowTailscale</code> 为 <code>true</code>，身份标头满足认证要求（无需令牌）。</li>
+<li><strong>Tailnet 绑定</strong>：运行 <code>openclaw gateway --bind tailnet --token "&lt;token&gt;"</code>，打开 <code>http://&lt;tailscale-ip&gt;:18789/</code>，在仪表板设置中粘贴令牌。</li>
+<li><strong>SSH 隧道</strong>：<code>ssh -N -L 18789:127.0.0.1:18789 user@host</code>，然后从 <code>openclaw dashboard</code> 打开 <code>http://127.0.0.1:18789/?token=...</code>。</li>
+</ul>
+<span data-as="p">参阅<a class="link" href="/web/dashboard">仪表板</a>和 <a class="link" href="/web">Web 界面</a>了解绑定模式和认证详情。</span>
+<h3 class="flex whitespace-pre-wrap group font-semibold" id="我需要什么运行时"><div class="absolute" tabindex="-1"><a href="#我需要什么运行时" class="-ml-10 flex items-center opacity-0 border-0 group-hover:opacity-100 focus:opacity-100 focus:outline-0 group/link" aria-label="导航到标题">​<div class="w-6 h-6 rounded-md flex items-center justify-center shadow-sm text-gray-400 dark:text-white/50 dark:bg-background-dark dark:brightness-[1.35] dark:ring-1 dark:hover:brightness-150 bg-white ring-1 ring-gray-400/30 dark:ring-gray-700/25 hover:ring-gray-400/60 dark:hover:ring-white/20 group-focus/link:border-2 group-focus/link:border-primary dark:group-focus/link:border-primary-light"><svg xmlns="http://www.w3.org/2000/svg" fill="gray" height="12px" viewBox="0 0 576 512"><path d="M0 256C0 167.6 71.6 96 160 96h72c13.3 0 24 10.7 24 24s-10.7 24-24 24H160C98.1 144 48 194.1 48 256s50.1 112 112 112h72c13.3 0 24 10.7 24 24s-10.7 24-24 24H160C71.6 416 0 344.4 0 256zm576 0c0 88.4-71.6 160-160 160H344c-13.3 0-24-10.7-24-24s10.7-24 24-24h72c61.9 0 112-50.1 112-112s-50.1-112-112-112H344c-13.3 0-24-10.7-24-24s10.7-24 24-24h72c88.4 0 160 71.6 160 160zM184 232H392c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z"></path></svg></div></a></div><span class="cursor-pointer">我需要什么运行时</span></h3>
+
+包含了3個問題和前兩個問題的答案

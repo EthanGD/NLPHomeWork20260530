@@ -1,0 +1,27 @@
+CUDA_VISIBLE_DEVICES=6 python train_lora.py
+訓練了20分鐘
+lora 用qa的方式訓練llm很難手機問答集，怎麼辦
+val loss 在 epoch 3-4 後就開始反彈，表示第 4 epoch 以後都是在浪費時間——模型只是在記訓練集的標準答案，對新問題反而越學越差。
+
+
+pip download tensorboard -d ./lib --python-version 311 --platform manylinux2014_x86_64 --implementation cp --abi cp311 --only-binary=:all:
+
+uv pip install --no-index --find-links=. tensorboard
+
+
++-----------------------------------------+------------------------+----------------------+
+|   6  NVIDIA L20                     Off |   00000000:1F:00.0 Off |                    0 |
+| N/A   48C    P0            236W /  350W |   38117MiB /  46068MiB |     91%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
+CUDA_VISIBLE_DEVICES=6 python api_server.py
+
+curl http://192.168.208.31:8000/v1/chat/completions -H "Content-Type: application/json" -d "{\"messages\":[{\"role\":\"user\",\"content\":\"OpenClaw 是什麼？\"}]}"
+curl http://192.168.208.31:8000/v1/chat/completions -H "Content-Type: application/json" -d "{\"messages\":[{\"role\":\"user\",\"content\":\"OpenClaw 和 ChatGPT 或其他 AI 模型有什么不同？\"}]}"
+curl http://192.168.208.31:8000/v1/chat/completions -H "Content-Type: application/json" -d "{\"messages\":[{\"role\":\"user\",\"content\":\"寫一個python發郵件案例\"}]}"
+curl http://192.168.208.31:8000/v1/chat/completions -H "Content-Type: application/json" -d "{\"messages\":[{\"role\":\"user\",\"content\":\"用歐拉公式推導一下歐拉恆等式\"}]}"
+
+
+python generate_qa_pairs.py
+python train_lora.py

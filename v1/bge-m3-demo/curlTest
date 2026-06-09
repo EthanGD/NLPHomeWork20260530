@@ -1,0 +1,39 @@
+# 1. 激活虚拟环境
+source /mnt/c/py12/Scripts/activate
+
+# 2. 安装依赖（先修复 transformers 版本）
+pip install -r requirements.txt
+
+# 3. 运行应用
+python app.py
+
+# 4. 测试 API（新终端）
+# 健康检查
+curl http://localhost:5000/api/health
+{"model":"BAAI/bge-m3","model_loaded":false,"status":"healthy"}
+
+# 全部写在一行，用单引号包裹整个 JSON
+curl -X POST http://localhost:5000/api/add -H "Content-Type: application/json" -d '{"question": "什么是机器学习？", "answer": "机器学习是人工智能的一个分支..."}'
+{"message":"\u6dfb\u52a0\u6210\u529f","question":"\u4ec0\u4e48\u662f\u673a\u5668\u5b66\u4e60\uff1f123","vector_shape":[1024]}
+
+# 搜索
+curl -X POST http://localhost:5000/api/search   -H "Content-Type: application/json"   -d '{"question": "机器学习相关技术", "top_k": 5}'
+{"count":3,"query":"\u673a\u5668\u5b66\u4e60\u76f8\u5173\u6280\u672f","results":[{"answer":"\u673a\u5668\u5b66\u4e60\u662f\u4eba\u5de5\u667a\u80fd\u7684\u4e00\u4e2a\u5206\u652f...","distance":0.3646,"id":1,"question":"\u4ec0\u4e48\u662f\u673a\u5668\u5b66\u4e60\uff1f","similarity":0.6354},{"answer":"\u673a\u5668\u5b66\u4e60\u662f\u4eba\u5de5\u667a\u80fd\u7684\u4e00\u4e2a\u5206\u652f...","distance":0.3716,"id":2,"question":"\u4ec0\u4e48\u662f\u673a\u5668\u5b66\u4e60\uff1f\uff1f","similarity":0.6284},{"answer":"\u673a\u5668\u5b66\u4e60\u662f\u4eba\u5de5\u667a\u80fd\u7684\u4e00\u4e2a\u5206\u652f...","distance":0.3762,"id":3,"question":"\u4ec0\u4e48\u662f\u673a\u5668\u5b66\u4e60\uff1f123","similarity":0.6238}],"total_in_db":3}
+
+# 批量添加
+curl -X POST http://localhost:5000/api/batch_add \
+  -H "Content-Type: application/json" \
+  -d '{
+    "items": [
+      {"question": "Q1", "answer": "A1"},
+      {"question": "Q2", "answer": "A2"}
+    ]
+  }'
+
+# 列表（分页）
+curl "http://localhost:5000/api/list?page=1&limit=10"
+
+# 删除
+curl -X DELETE http://localhost:5000/api/delete \
+  -H "Content-Type: application/json" \
+  -d '{"question": "什么是机器学习？"}'

@@ -1,0 +1,15 @@
+{
+  "model": "Qwen3.5-0.8B-Base + LoRA",
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "train_samples": 179,
+  "val_samples": 20,
+  "total_steps": 8,
+  "initial_train_loss": 2.2275805473327637,
+  "final_train_loss": 1.4197060585021972,
+  "final_val_loss": 1.4465105533599854,
+  "final_perplexity": 4.248264528733577,
+  "loss_reduction": 0.8078744888305665,
+  "loss_reduction_percent": 36.26690356036241,
+  "timestamp": "2026-06-05T10:00:20.215614"
+}

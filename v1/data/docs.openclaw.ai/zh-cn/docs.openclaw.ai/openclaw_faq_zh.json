@@ -1,0 +1,670 @@
+[
+  {
+    "query": "我卡住了，最快的排障方法是什么",
+    "pos": "使用能看到你机器的本地 AI 智能体。这比在 Discord 上提问有效得多，因为大多数“卡住了”的情况都是本地配置或环境问题，远程帮助者无法检查。\n\n• **Claude Code** ： https://www.anthropic.com/claude-code/(https://www.anthropic.com/claude-code/)\n• **OpenAI Codex** ： https://openai.com/codex/(https://openai.com/codex/)\n\n这些工具可以读取仓库、运行命令、检查日志，并帮助修复你的机器级别设置（PATH、服务、权限、认证文件）。通过可编辑（git）安装提供完整源代码：\n\ncurl -fsSL https://openclaw.ai/install.sh | bash -s -- --install-method git\n\n这会从git checkout安装 OpenClaw，这样智能体可以读取代码 + 文档，并推理你正在运行的确切版本。你可以随时通过不带--install-method git重新运行安装程序切回稳定版。\n\n提示：要求智能体计划并监督修复（逐步进行），然后只执行必要的命令。这样改动较小，更容易审查。\n\n如果你发现了真正的 bug 或修复方案，请提交 GitHub issue 或发送 PR：https://github.com/openclaw/openclaw/issueshttps://github.com/openclaw/openclaw/pulls\n\n从以下命令开始（在寻求帮助时分享输出）：\n\nopenclaw status openclaw models status openclaw doctor\n\n它们的作用：\n\n• `openclaw status` ：Gateway 网关/智能体健康状况 + 基本配置的快速快照。\n• `openclaw models status` ：检查提供商认证 + 模型可用性。\n• `openclaw doctor` ：验证并修复常见的配置/状态问题。\n\n其他有用的 CLI 检查：openclaw status --all、openclaw logs --follow、openclaw gateway status、openclaw health --verbose。\n\n快速调试流程：出问题后的最初六十秒。\n安装文档：安装、安装程序标志、更新。"
+  },
+  {
+    "query": "安装和设置 OpenClaw 的推荐方式是什么",
+    "pos": "仓库推荐从源码运行并使用新手引导：\n\ncurl -fsSL https://openclaw.ai/install.sh | bash openclaw onboard --install-daemon\n\n新手引导还可以自动构建 UI 资源。新手引导后，通常在端口18789上运行 Gateway 网关。\n\n从源码安装（贡献者/开发者）：\n\ngit clone https://github.com/openclaw/openclaw.git cd openclaw pnpm install pnpm build pnpm ui:build # 首次运行时自动安装 UI 依赖 openclaw onboard\n\n如果你还没有全局安装，通过pnpm openclaw onboard运行。"
+  },
+  {
+    "query": "新手引导后如何打开仪表板",
+    "pos": "新手引导现在会在完成后立即使用带令牌的仪表板 URL 打开浏览器，并在摘要中打印完整链接（带令牌）。保持该标签页打开；如果没有自动启动，请在同一台机器上复制/粘贴打印的 URL。令牌保持在本地主机上，不会从浏览器获取任何内容。"
+  },
+  {
+    "query": "如何在本地和远程环境中验证仪表板令牌",
+    "pos": "本地（同一台机器）：\n\n• 打开 `http://127.0.0.1:18789/` 。\n• 如果要求认证，运行 `openclaw dashboard` 并使用带令牌的链接（ `?token=...` ）。\n• 令牌与 `gateway.auth.token` （或 `OPENCLAW_GATEWAY_TOKEN` ）的值相同，UI 在首次加载后会存储它。\n\n非本地环境：\n\n• **Tailscale Serve** （推荐）：保持绑定 loopback，运行 `openclaw gateway --tailscale serve` ，打开 `https://<magicdns>/` 。如果 `gateway.auth.allowTailscale` 为 `true` ，身份标头满足认证要求（无需令牌）。\n• **Tailnet 绑定** ：运行 `openclaw gateway --bind tailnet --token \"<token>\"` ，打开 `http://<tailscale-ip>:18789/` ，在仪表板设置中粘贴令牌。\n• **SSH 隧道** ： `ssh -N -L 18789:127.0.0.1:18789 user@host` ，然后从 `openclaw dashboard` 打开 `http://127.0.0.1:18789/?token=...` 。\n\n参阅仪表板和Web 界面了解绑定模式和认证详情。"
+  },
+  {
+    "query": "我需要什么运行时",
+    "pos": "Node>= 22是必需的。推荐使用pnpm。不推荐使用 Bun 运行 Gateway 网关。"
+  },
+  {
+    "query": "能在 Raspberry Pi 上运行吗",
+    "pos": "可以。Gateway 网关是轻量级的——文档列出512MB-1GB RAM、1 核和约500MB磁盘空间足够个人使用，并指出Raspberry Pi 4 可以运行。\n\n如果你需要额外的余量（日志、媒体、其他服务），推荐 2GB，但这不是硬性最低要求。\n\n提示：小型 Pi/VPS 可以托管 Gateway 网关，你可以在笔记本/手机上配对节点以获取本地屏幕/摄像头/画布或命令执行能力。参阅节点。"
+  },
+  {
+    "query": "Raspberry Pi 安装有什么建议",
+    "pos": "简短回答：可以运行，但预期会有一些粗糙之处。\n\n• 使用 **64 位** 操作系统并保持 Node >= 22。\n• 优先选择 **可编辑（git）安装** ，以便查看日志和快速更新。\n• 先不启用渠道/Skills，然后逐个添加。\n• 如果遇到奇怪的二进制问题，通常是 **ARM 兼容性** 问题。\n\n文档：Linux、安装。"
+  },
+  {
+    "query": "卡在 wake up my friend / 新手引导无法启动，怎么办",
+    "pos": "该界面依赖于 Gateway 网关可达且已认证。TUI 也会在首次启动时自动发送”Wake up, my friend!”。如果你看到该行但没有回复且令牌保持为 0，说明智能体从未运行。\n\n重启 Gateway 网关：\n\nopenclaw gateway restart\n\n检查状态和认证：\n\nopenclaw status openclaw models status openclaw logs --follow\n\n如果仍然挂起，运行：\n\nopenclaw doctor\n\n如果 Gateway 网关在远程，确保隧道/Tailscale 连接正常，且 UI 指向正确的 Gateway 网关。参阅远程访问。"
+  },
+  {
+    "query": "能否将我的设置迁移到新机器（Mac mini）而不重新进行新手引导",
+    "pos": "可以。复制状态目录和工作区，然后运行一次 Doctor。只要你同时复制两个位置，就能保持你的机器人“完全一样”（记忆、会话历史、认证和渠道状态）：\n\n在新机器上安装 OpenClaw。 从旧机器复制 $OPENCLAW_STATE_DIR （默认： ~/.openclaw ）。 复制你的工作区（默认： ~/.openclaw/workspace ）。 运行 openclaw doctor 并重启 Gateway 网关服务。\n\n这会保留配置、认证配置文件、WhatsApp 凭据、会话和记忆。如果你处于远程模式，请记住 Gateway 网关主机拥有会话存储和工作区。\n\n重要：如果你只将工作区提交/推送到 GitHub，你只备份了记忆 + 引导文件，但不包括会话历史或认证。它们位于~/.openclaw/下（例如~/.openclaw/agents/<agentId>/sessions/）。\n\n相关：迁移、磁盘上的文件位置、智能体工作区、Doctor、远程模式。"
+  },
+  {
+    "query": "在哪里查看最新版本的更新内容",
+    "pos": "查看 GitHub 变更日志：https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md\n\n最新条目在顶部。如果顶部部分标记为Unreleased，则下一个带日期的部分是最新发布版本。条目按亮点、变更和修复分组（需要时还有文档/其他部分）。"
+  },
+  {
+    "query": "无法访问 docs.openclaw.ai（SSL 错误），怎么办",
+    "pos": "一些 Comcast/Xfinity 连接通过 Xfinity Advanced Security 错误地拦截了docs.openclaw.ai。禁用该功能或将docs.openclaw.ai加入白名单，然后重试。\n请帮助我们在此处报告以解除封锁：https://spa.xfinity.com/check_url_status。\n\n如果仍然无法访问该网站，文档在 GitHub 上有镜像：https://github.com/openclaw/openclaw/tree/main/docs"
+  },
+  {
+    "query": "stable 和 beta 有什么区别",
+    "pos": "Stable和beta是npm dist-tags，不是独立的代码分支：\n\n• `latest` = stable\n• `beta` = 用于测试的早期构建\n\n我们将构建发布到beta，测试后，一旦构建稳定，就会将同一版本提升为latest。这就是为什么 beta 和 stable 可以指向相同版本。\n\n查看变更：https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md"
+  },
+  {
+    "query": "如何安装 beta 版本，beta 和 dev 有什么区别",
+    "pos": "Beta是 npm dist-tagbeta（可能与latest相同）。Dev是main的滚动头部（git）；发布时使用 npm dist-tagdev。\n\n一行命令（macOS/Linux）：\n\ncurl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --beta\n\ncurl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --install-method git\n\nWindows 安装程序（PowerShell）：https://openclaw.ai/install.ps1\n\n更多详情：开发渠道和安装程序标志。"
+  },
+  {
+    "query": "安装和新手引导通常需要多长时间",
+    "pos": "大致指南：\n\n• **安装：** 2-5 分钟\n• **新手引导：** 5-15 分钟，取决于配置多少渠道/模型\n\n如果挂起，请参阅安装程序卡住和我卡住了中的快速调试流程。"
+  },
+  {
+    "query": "如何试用最新代码",
+    "pos": "两个选项：\n\nDev 渠道（git checkout）：\n\nopenclaw update --channel dev\n\n这会切换到main分支并从源码更新。\n\n可编辑安装（从安装程序网站）：\n\ncurl -fsSL https://openclaw.ai/install.sh | bash -s -- --install-method git\n\n这会给你一个可编辑的本地仓库，然后通过 git 更新。\n\n如果你更喜欢手动克隆，使用：\n\ngit clone https://github.com/openclaw/openclaw.git cd openclaw pnpm install pnpm build\n\n文档：更新、开发渠道、安装。"
+  },
+  {
+    "query": "安装程序卡住了？如何获取更多反馈",
+    "pos": "使用详细输出重新运行安装程序：\n\ncurl -fsSL https://openclaw.ai/install.sh | bash -s -- --verbose\n\n带详细输出的 Beta 安装：\n\ncurl -fsSL https://openclaw.ai/install.sh | bash -s -- --beta --verbose\n\n可编辑（git）安装：\n\ncurl -fsSL https://openclaw.ai/install.sh | bash -s -- --install-method git --verbose\n\n更多选项：安装程序标志。"
+  },
+  {
+    "query": "Windows 安装提示找不到 git 或无法识别 openclaw",
+    "pos": "两个常见的 Windows 问题：\n\n1) npm error spawn git / git not found\n\n• 安装 **Git for Windows** 并确保 `git` 在你的 PATH 中。\n• 关闭并重新打开 PowerShell，然后重新运行安装程序。\n\n2) openclaw is not recognized（安装后）\n\n• 你的 npm 全局 bin 文件夹不在 PATH 中。\n• 检查路径： npm config get prefix\n• 确保 `<prefix>\\\\bin` 在 PATH 中（在大多数系统上是 `%AppData%\\\\npm` ）。\n• 更新 PATH 后关闭并重新打开 PowerShell。\n\n如果你想要最顺畅的 Windows 设置，请使用WSL2而不是原生 Windows。\n文档：Windows。"
+  },
+  {
+    "query": "文档没有解答我的问题——如何获得更好的答案",
+    "pos": "使用可编辑（git）安装，这样你在本地拥有完整的源码和文档，然后从该文件夹向你的机器人（或 Claude/Codex）提问，这样它可以读取仓库并精确回答。\n\ncurl -fsSL https://openclaw.ai/install.sh | bash -s -- --install-method git\n\n更多详情：安装和安装程序标志。"
+  },
+  {
+    "query": "如何在 Linux 上安装 OpenClaw",
+    "pos": "简短回答：按照 Linux 指南操作，然后运行新手引导。\n\n• Linux 快速路径 + 服务安装： Linux(https://docs.openclaw.ai/platforms/linux) 。\n• 完整指南： 入门(https://docs.openclaw.ai/start/getting-started) 。\n• 安装和更新： 安装与更新(https://docs.openclaw.ai/install/updating) 。"
+  },
+  {
+    "query": "如何在 VPS 上安装 OpenClaw",
+    "pos": "任何 Linux VPS 都可以。在服务器上安装，然后使用 SSH/Tailscale 访问 Gateway 网关。\n\n指南：exe.dev、Hetzner、Fly.io。\n远程访问：Gateway 网关远程。"
+  },
+  {
+    "query": "云/VPS 安装指南在哪里",
+    "pos": "我们维护了一个托管中心，涵盖常见提供商。选择一个并按指南操作：\n\n• VPS 托管(https://docs.openclaw.ai/vps) （所有提供商汇总）\n• Fly.io(https://docs.openclaw.ai/install/fly)\n• Hetzner(https://docs.openclaw.ai/install/hetzner)\n• exe.dev(https://docs.openclaw.ai/install/exe-dev)\n\n在云端的工作方式：Gateway 网关运行在服务器上，你通过控制 UI（或 Tailscale/SSH）从笔记本/手机访问。你的状态 + 工作区位于服务器上，因此将主机视为数据来源并做好备份。\n\n你可以将节点（Mac/iOS/Android/无头）配对到云端 Gateway 网关，以访问本地屏幕/摄像头/画布或在笔记本上执行命令，同时 Gateway 网关保持在云端。\n\n中心：平台。远程访问：Gateway 网关远程。\n节点：节点、节点 CLI。"
+  },
+  {
+    "query": "可以让 OpenClaw 自行更新吗",
+    "pos": "简短回答：可以，但不推荐。更新流程可能重启 Gateway 网关（这会中断活跃会话），可能需要干净的 git checkout，并且可能提示确认。更安全的做法：作为运维人员从 shell 运行更新。\n\n使用 CLI：\n\nopenclaw update openclaw update status openclaw update --channel stable | beta | dev openclaw update --tag < dist-tag | version > openclaw update --no-restart\n\n如果必须从智能体自动化：\n\nopenclaw update --yes --no-restart openclaw gateway restart\n\n文档：更新、更新指南。"
+  },
+  {
+    "query": "新手引导具体做了什么",
+    "pos": "openclaw onboard是推荐的设置路径。在本地模式下，它引导你完成：\n\n• **模型/认证设置** （推荐使用 Anthropic **setup-token** 进行 Claude 订阅，支持 OpenAI Codex OAuth，API 密钥可选，支持 LM Studio 本地模型）\n• **工作区** 位置 + 引导文件\n• **Gateway 网关设置** （绑定/端口/认证/tailscale）\n• **渠道** （WhatsApp、Telegram、Discord、Mattermost（插件）、Signal、iMessage）\n• **守护进程安装** （macOS 上的 LaunchAgent；Linux/WSL2 上的 systemd 用户单元）\n• **健康检查** 和 **Skills** 选择\n\n如果你配置的模型未知或缺少认证，它还会发出警告。"
+  },
+  {
+    "query": "运行 OpenClaw 需要 Claude 或 OpenAI 订阅吗",
+    "pos": "不需要。你可以使用API 密钥（Anthropic/OpenAI/其他）或纯本地模型运行 OpenClaw，这样你的数据留在你的设备上。订阅（Claude Pro/Max 或 OpenAI Codex）是这些提供商的可选认证方式。\n\n文档：Anthropic、OpenAI、本地模型、模型。"
+  },
+  {
+    "query": "能否使用 Claude Max 订阅而不需要 API 密钥",
+    "pos": "可以。你可以使用setup-token代替 API 密钥进行认证。这是订阅路径。\n\nClaude Pro/Max 订阅不包含 API 密钥，因此这是订阅账户的正确方式。重要提示：你必须向 Anthropic 确认此用法是否符合其订阅政策和条款。如果你想要最明确、受支持的方式，请使用 Anthropic API 密钥。"
+  },
+  {
+    "query": "Anthropic setup-token 认证如何工作",
+    "pos": "claude setup-token通过 Claude Code CLI 生成一个令牌字符串（在 Web 控制台中不可用）。你可以在任何机器上运行它。在新手引导中选择Anthropic token (paste setup-token)或使用openclaw models auth paste-token --provider anthropic粘贴。令牌作为anthropic提供商的认证配置文件存储，像 API 密钥一样使用（无自动刷新）。更多详情：OAuth。"
+  },
+  {
+    "query": "在哪里获取 Anthropic setup-token",
+    "pos": "它不在Anthropic Console 中。setup-token 由Claude Code CLI在任何机器上生成：\n\nclaude setup-token\n\n复制它打印的令牌，然后在新手引导中选择Anthropic token (paste setup-token)。如果你想在 Gateway 网关主机上运行，使用openclaw models auth setup-token --provider anthropic。如果你在其他地方运行了claude setup-token，在 Gateway 网关主机上使用openclaw models auth paste-token --provider anthropic粘贴。参阅Anthropic。"
+  },
+  {
+    "query": "是否支持 Claude 订阅认证（Claude Pro/Max）",
+    "pos": "是的——通过setup-token。OpenClaw 不再复用 Claude Code CLI OAuth 令牌；请使用 setup-token 或 Anthropic API 密钥。在任何地方生成令牌并在 Gateway 网关主机上粘贴。参阅Anthropic和OAuth。\n\n注意：Claude 订阅访问受 Anthropic 条款约束。对于生产或多用户工作负载，API 密钥通常是更安全的选择。"
+  },
+  {
+    "query": "为什么我看到 HTTP 429 rate_limit_error（来自 Anthropic）",
+    "pos": "这意味着你当前窗口的Anthropic 配额/速率限制已耗尽。如果你使用Claude 订阅（setup-token 或 Claude Code OAuth），请等待窗口重置或升级你的计划。如果你使用Anthropic API 密钥，请在 Anthropic Console 中检查使用量/计费并根据需要提高限制。\n\n提示：设置一个备用模型，这样 OpenClaw 在某个提供商被限速时仍能继续回复。\n参阅模型和OAuth。"
+  },
+  {
+    "query": "支持 AWS Bedrock 吗",
+    "pos": "是的——通过 pi-ai 的Amazon Bedrock (Converse)提供商进行手动配置。你必须在 Gateway 网关主机上提供 AWS 凭据/区域，并在模型配置中添加 Bedrock 提供商条目。参阅Amazon Bedrock和模型提供商。如果你更喜欢托管密钥流程，在 Bedrock 前面使用兼容 OpenAI 的代理仍然是有效选项。"
+  },
+  {
+    "query": "Codex 认证如何工作",
+    "pos": "OpenClaw 通过 OAuth（ChatGPT 登录）支持OpenAI Code (Codex)。新手引导可以运行 OAuth 流程，并在适当时将默认模型设置为openai-codex/gpt-5.2。参阅模型提供商和CLI 新手引导。"
+  },
+  {
+    "query": "是否支持 OpenAI 订阅认证（Codex OAuth）",
+    "pos": "是的。OpenClaw 完全支持OpenAI Code (Codex) 订阅 OAuth。新手引导可以为你运行 OAuth 流程。\n\n参阅OAuth、模型提供商和CLI 新手引导。"
+  },
+  {
+    "query": "如何设置 Gemini CLI OAuth",
+    "pos": "Gemini CLI 使用插件认证流程，而不是openclaw.json中的 client id 或 secret。\n\n步骤：\n\n启用插件： openclaw plugins enable google 登录： openclaw models auth login --provider google-gemini-cli --set-default\n\n这会在 Gateway 网关主机上将 OAuth 令牌存储为认证配置文件。详情：模型提供商。"
+  },
+  {
+    "query": "本地模型适合日常聊天吗",
+    "pos": "通常不适合。OpenClaw 需要大上下文 + 强安全性；小显卡会截断且泄漏。如果必须使用，请在本地运行你能运行的最大MiniMax M2.1 版本（LM Studio），参阅/gateway/local-models。较小/量化的模型会增加提示注入风险——参阅安全。"
+  },
+  {
+    "query": "如何将托管模型流量限制在特定区域",
+    "pos": "选择区域固定的端点。OpenRouter 为 MiniMax、Kimi 和 GLM 提供美国托管选项；选择美国托管变体以保持数据在区域内。你仍然可以通过使用models.mode: \"merge\"在这些旁边列出 Anthropic/OpenAI，这样故障转移保持可用，同时尊重你选择的区域提供商。"
+  },
+  {
+    "query": "我必须购买 Mac Mini 才能安装吗",
+    "pos": "不需要。OpenClaw 运行在 macOS 或 Linux 上（Windows 通过 WSL2）。Mac mini 是可选的——有些人买一台作为常开主机，但小型 VPS、家庭服务器或 Raspberry Pi 级别的设备也可以。\n\n你只有在使用macOS 专用工具时才需要 Mac。对于 iMessage，你可以将 Gateway 网关保持在 Linux 上，通过将channels.imessage.cliPath指向 SSH 包装器在任何 Mac 上运行imsg。如果你需要其他 macOS 专用工具，在 Mac 上运行 Gateway 网关或配对一个 macOS 节点。\n\n文档：iMessage、节点、Mac 远程模式。"
+  },
+  {
+    "query": "iMessage 支持需要 Mac mini 吗",
+    "pos": "你需要某台登录了 Messages 的 macOS 设备。它不一定是 Mac mini——任何 Mac 都可以。OpenClaw 的 iMessage 集成在 macOS 上运行（BlueBubbles 或imsg），而 Gateway 网关可以在其他地方运行。\n\n常见设置：\n\n• 在 Linux/VPS 上运行 Gateway 网关，将 `channels.imessage.cliPath` 指向在 Mac 上运行 `imsg` 的 SSH 包装器。\n• 如果你想要最简单的单机设置，在 Mac 上运行所有组件。\n\n文档：iMessage、BlueBubbles、Mac 远程模式。"
+  },
+  {
+    "query": "如果我买了 Mac mini 运行 OpenClaw，能连接到我的 MacBook Pro 吗",
+    "pos": "可以。Mac mini 可以运行 Gateway 网关，你的 MacBook Pro 可以作为节点（伴随设备）连接。节点不运行 Gateway 网关——它们提供额外功能，如该设备上的屏幕/摄像头/画布和system.run。\n\n常见模式：\n\n• Gateway 网关在 Mac mini 上（常开）。\n• MacBook Pro 运行 macOS 应用或节点主机并配对到 Gateway 网关。\n• 使用 `openclaw nodes status` / `openclaw nodes list` 查看它。\n\n文档：节点、节点 CLI。"
+  },
+  {
+    "query": "可以使用 Bun 吗",
+    "pos": "Bun不推荐。我们观察到运行时 bug，特别是在 WhatsApp 和 Telegram 方面。\n使用Node以获得稳定的 Gateway 网关。\n\n如果你仍想尝试 Bun，请在没有 WhatsApp/Telegram 的非生产 Gateway 网关上进行。"
+  },
+  {
+    "query": "Telegram：allowFrom 填什么",
+    "pos": "channels.telegram.allowFrom是人类发送者的 Telegram 用户 ID（数字，推荐）或@username。它不是机器人用户名。\n\n更安全的方式（无需第三方机器人）：\n\n• 给你的机器人发私信，然后运行 `openclaw logs --follow` 并读取 `from.id` 。\n\n官方 Bot API：\n\n• 给你的机器人发私信，然后调用 `https://api.telegram.org/bot<bot_token>/getUpdates` 并读取 `message.from.id` 。\n\n第三方（隐私性较低）：\n\n• 给 `@userinfobot` 或 `@getidsbot` 发私信。\n\n参阅/channels/telegram。"
+  },
+  {
+    "query": "多人能否使用同一个 WhatsApp 号码配合不同的 OpenClaw 实例",
+    "pos": "可以，通过多智能体路由。将每个发送者的 WhatsApp私信（peerkind: \"dm\"，发送者 E.164 格式如+15551234567）绑定到不同的agentId，这样每个人获得自己的工作区和会话存储。回复仍然来自同一个 WhatsApp 账户，且私信访问控制（channels.whatsapp.dmPolicy/channels.whatsapp.allowFrom）对每个 WhatsApp 账户是全局的。参阅多智能体路由和WhatsApp。"
+  },
+  {
+    "query": "能否同时运行一个“快速聊天”智能体和一个“用 Opus 编程”的智能体",
+    "pos": "可以。使用多智能体路由：为每个智能体设置自己的默认模型，然后将入站路由（提供商账户或特定对等方）绑定到每个智能体。示例配置位于多智能体路由。另参阅模型和配置。"
+  },
+  {
+    "query": "Homebrew 在 Linux 上可用吗",
+    "pos": "可以。Homebrew 支持 Linux（Linuxbrew）。快速设置：\n\n/bin/bash -c \"$( curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh )\" echo 'eval \"$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)\"' >> ~/.profile eval \"$( /home/linuxbrew/.linuxbrew/bin/brew shellenv )\" brew install < formul a >\n\n如果你通过 systemd 运行 OpenClaw，确保服务 PATH 包含/home/linuxbrew/.linuxbrew/bin（或你的 brew 前缀），以便brew安装的工具在非登录 shell 中可解析。\n最近的构建还会在 Linux systemd 服务上自动添加常见的用户 bin 目录（例如~/.local/bin、~/.npm-global/bin、~/.local/share/pnpm、~/.bun/bin），并在设置时尊重PNPM_HOME、NPM_CONFIG_PREFIX、BUN_INSTALL、VOLTA_HOME、ASDF_DATA_DIR、NVM_DIR和FNM_DIR。"
+  },
+  {
+    "query": "可编辑（git）安装和 npm 安装有什么区别",
+    "pos": "• **可编辑（git）安装：** 完整源码 checkout，可编辑，最适合贡献者。你在本地运行构建并可以修补代码/文档。\n• **npm 安装：** 全局 CLI 安装，无仓库，最适合“直接运行”。更新来自 npm dist-tags。\n\n文档：入门、更新。"
+  },
+  {
+    "query": "之后可以在 npm 和 git 安装之间切换吗",
+    "pos": "可以。安装另一种方式，然后运行 Doctor 使 Gateway 网关服务指向新的入口点。\n这不会删除你的数据——它只改变 OpenClaw 代码的安装位置。你的状态\n（~/.openclaw）和工作区（~/.openclaw/workspace）保持不变。\n\n从 npm → git：\n\ngit clone https://github.com/openclaw/openclaw.git cd openclaw pnpm install pnpm build openclaw doctor openclaw gateway restart\n\n从 git → npm：\n\nnpm install -g openclaw@latest openclaw doctor openclaw gateway restart\n\nDoctor 会检测 Gateway 网关服务入口点不匹配，并提供重写服务配置以匹配当前安装的选项（在自动化中使用--repair）。\n\n备份提示：参阅备份策略。"
+  },
+  {
+    "query": "应该在笔记本电脑还是 VPS 上运行 Gateway 网关简短回答：如果你想要 24/7 可靠性，使用 VPS。如果你想要最低摩擦且能接受休眠/重启，在本地运行。",
+    "pos": "笔记本（本地 Gateway 网关）\n\n• **优点：** 无服务器成本，直接访问本地文件，实时浏览器窗口。\n• **缺点：** 休眠/网络中断 = 断连，操作系统更新/重启会中断，必须保持唤醒。\n\nVPS / 云\n\n• **优点：** 常开，网络稳定，无笔记本休眠问题，更容易保持运行。\n• **缺点：** 通常无头运行（使用截图），仅远程文件访问，更新需要 SSH。\n\nOpenClaw 特定说明：WhatsApp/Telegram/Slack/Mattermost（插件）/Discord 在 VPS 上都能正常工作。唯一的真正权衡是无头浏览器与可见窗口。参阅浏览器。\n\n推荐默认值：如果之前遇到过 Gateway 网关断连，使用 VPS。当你正在积极使用 Mac 并且需要本地文件访问或可见浏览器的 UI 自动化时，本地运行很好。"
+  },
+  {
+    "query": "在专用机器上运行 OpenClaw 有多重要",
+    "pos": "不是必需的，但推荐用于可靠性和隔离。\n\n• **专用主机（VPS/Mac mini/Pi）：** 常开，更少的休眠/重启中断，更干净的权限，更容易保持运行。\n• **共享的笔记本/台式机：** 完全适合测试和活跃使用，但当机器休眠或更新时预期会有暂停。\n\n如果你想要两全其美，将 Gateway 网关保持在专用主机上，并将笔记本配对为节点以获取本地屏幕/摄像头/执行工具。参阅节点。\n安全指南请阅读安全。"
+  },
+  {
+    "query": "VPS 的最低要求和推荐操作系统是什么",
+    "pos": "OpenClaw 是轻量级的。对于基本的 Gateway 网关 + 一个聊天渠道：\n\n• **绝对最低：** 1 vCPU，1GB RAM，约 500MB 磁盘。\n• **推荐：** 1-2 vCPU，2GB RAM 或更多以留有余量（日志、媒体、多渠道）。节点工具和浏览器自动化可能消耗较多资源。\n\n操作系统：使用Ubuntu LTS（或任何现代 Debian/Ubuntu）。Linux 安装路径在那里测试得最充分。\n\n文档：Linux、VPS 托管。"
+  },
+  {
+    "query": "可以在虚拟机中运行 OpenClaw 吗？有什么要求",
+    "pos": "可以。将虚拟机视为与 VPS 相同：它需要常开、可达，并有足够的 RAM 用于 Gateway 网关和你启用的任何渠道。\n\n基准指南：\n\n• **绝对最低：** 1 vCPU，1GB RAM。\n• **推荐：** 2GB RAM 或更多，如果你运行多个渠道、浏览器自动化或媒体工具。\n• **操作系统：** Ubuntu LTS 或其他现代 Debian/Ubuntu。\n\n如果你使用 Windows，WSL2 是最简单的虚拟机式设置，具有最佳的工具兼容性。参阅Windows、VPS 托管。\n如果你在虚拟机中运行 macOS，参阅macOS VM。\n\n​ 什么是 OpenClaw？"
+  },
+  {
+    "query": "用一段话描述 OpenClaw",
+    "pos": "OpenClaw 是一个运行在你自己设备上的个人 AI 助手。它在你已经使用的消息平台上回复（WhatsApp、Telegram、Slack、Mattermost（插件）、Discord、Google Chat、Signal、iMessage、WebChat），还可以在支持的平台上进行语音和实时 Canvas。Gateway 网关是常开的控制平面；助手是产品。"
+  },
+  {
+    "query": "价值主张是什么",
+    "pos": "OpenClaw 不是“只是一个 Claude 包装器”。它是一个本地优先的控制平面，让你在自己的硬件上运行强大的助手，可从你已经使用的聊天应用访问，具有有状态会话、记忆和工具——无需将工作流程的控制权交给托管 SaaS。\n\n亮点：\n\n• **你的设备，你的数据：** 在任何你想要的地方运行 Gateway 网关（Mac、Linux、VPS），并将工作区 + 会话历史保持在本地。\n• **真实渠道，而非 Web 沙箱：** WhatsApp/Telegram/Slack/Discord/Signal/iMessage/等，加上支持平台上的移动语音和 Canvas。\n• **模型无关：** 使用 Anthropic、OpenAI、MiniMax、OpenRouter 等，支持按智能体路由和故障转移。\n• **纯本地选项：** 运行本地模型，让 **所有数据都保留在你的设备上** 。\n• **多智能体路由：** 按渠道、账户或任务分配不同的智能体，每个都有自己的工作区和默认值。\n• **开源且可编辑：** 无供应商锁定地检查、扩展和自托管。\n\n文档：Gateway 网关、渠道、多智能体、记忆。"
+  },
+  {
+    "query": "刚设置好，应该先做什么",
+    "pos": "好的入门项目：\n\n• 建一个网站（WordPress、Shopify 或简单的静态站点）。\n• 做一个移动应用原型（大纲、界面、API 计划）。\n• 整理文件和文件夹（清理、命名、打标签）。\n• 连接 Gmail 并自动化摘要或跟进。\n\n它可以处理大型任务，但最好将其拆分为多个阶段，并使用子智能体进行并行工作。"
+  },
+  {
+    "query": "OpenClaw 日常最常用的五个场景是什么",
+    "pos": "日常收益通常包括：\n\n• **个人简报：** 收件箱、日历和你关心的新闻摘要。\n• **研究和起草：** 快速研究、摘要以及邮件或文档的初稿。\n• **提醒和跟进：** 定时任务或心跳驱动的提醒和检查清单。\n• **浏览器自动化：** 填写表单、收集数据和重复性网页任务。\n• **跨设备协调：** 从手机发送任务，让 Gateway 网关在服务器上运行，然后在聊天中获取结果。"
+  },
+  {
+    "query": "OpenClaw 能否帮助 SaaS 进行获客、外联、广告和博客",
+    "pos": "可以用于调研、筛选和起草。它可以扫描网站、建立候选名单、总结潜在客户，并撰写外联或广告文案草稿。\n\n对于外联或广告投放，请保持人工审核。避免垃圾邮件，遵守当地法律和平台政策，在发送之前审查所有内容。最安全的模式是让 OpenClaw 起草，由你批准。\n\n文档：安全。"
+  },
+  {
+    "query": "相比 Claude Code，在 Web 开发方面有什么优势",
+    "pos": "OpenClaw 是一个个人助手和协调层，不是 IDE 替代品。使用 Claude Code 或 Codex 在仓库中进行最快的直接编码循环。当你需要持久记忆、跨设备访问和工具编排时，使用 OpenClaw。\n\n优势：\n\n• 跨会话的 **持久记忆 + 工作区**\n• **多平台访问** （WhatsApp、Telegram、TUI、WebChat）\n• **工具编排** （浏览器、文件、调度、钩子）\n• **常开 Gateway 网关** （在 VPS 上运行，从任何地方交互）\n• 用于本地浏览器/屏幕/摄像头/执行的 **节点**\n\n展示：https://openclaw.ai/showcase\n\n​ Skills 与自动化"
+  },
+  {
+    "query": "如何自定义 Skills 而不弄脏仓库",
+    "pos": "使用托管覆盖而不是编辑仓库副本。将你的更改放在~/.openclaw/skills/<name>/SKILL.md（或通过~/.openclaw/openclaw.json中的skills.load.extraDirs添加文件夹）。优先级是<workspace>/skills>~/.openclaw/skills> 内置，所以托管覆盖优先生效而不会修改 git。只有值得上游合并的编辑才应该放在仓库中并作为 PR 提交。"
+  },
+  {
+    "query": "可以从自定义文件夹加载 Skills 吗",
+    "pos": "可以。通过~/.openclaw/openclaw.json中的skills.load.extraDirs添加额外目录（最低优先级）。默认优先级保持不变：<workspace>/skills→~/.openclaw/skills→ 内置 →skills.load.extraDirs。clawhub默认安装到./skills，OpenClaw 将其视为<workspace>/skills。"
+  },
+  {
+    "query": "如何为不同任务使用不同模型",
+    "pos": "目前支持的模式有：\n\n• **定时任务** ：隔离的任务可以为每个任务设置 `model` 覆盖。\n• **子智能体** ：将任务路由到具有不同默认模型的独立智能体。\n• **按需切换** ：使用 `/model` 随时切换当前会话模型。\n\n参阅定时任务、多智能体路由和斜杠命令。"
+  },
+  {
+    "query": "机器人在执行繁重工作时卡住了，如何卸载任务",
+    "pos": "使用子智能体处理长时间或并行任务。子智能体在自己的会话中运行，返回摘要，并保持你的主聊天响应。\n\n要求你的机器人“为这个任务生成一个子智能体”或使用/subagents。\n在聊天中使用/status查看 Gateway 网关当前正在做什么（以及是否忙碌）。\n\n令牌提示：长任务和子智能体都消耗令牌。如果关注成本，通过agents.defaults.subagents.model为子智能体设置更便宜的模型。\n\n文档：子智能体。"
+  },
+  {
+    "query": "定时任务或提醒没有触发，应该检查什么",
+    "pos": "定时任务在 Gateway 网关进程内运行。如果 Gateway 网关没有持续运行，计划任务将不会运行。\n\n检查清单：\n\n• 确认 cron 已启用（ `cron.enabled` ）且未设置 `OPENCLAW_SKIP_CRON` 。\n• 检查 Gateway 网关是否 24/7 运行（无休眠/重启）。\n• 验证任务的时区设置（ `--tz` 与主机时区）。\n\n调试：\n\nopenclaw cron run < jobI d > --force openclaw cron runs --id < jobI d > --limit 50\n\n文档：定时任务、定时任务 vs 心跳。"
+  },
+  {
+    "query": "如何在 Linux 上安装 Skills",
+    "pos": "使用ClawHub（CLI）或将 Skills 放入你的工作区。macOS Skills UI 在 Linux 上不可用。\n浏览 Skills：https://clawhub.com。\n\n安装 ClawHub CLI（选择一个包管理器）：\n\nnpm i -g clawhub\n\npnpm add -g clawhub"
+  },
+  {
+    "query": "OpenClaw 能否按计划或在后台持续运行任务",
+    "pos": "可以。使用 Gateway 网关调度器：\n\n• **定时任务** 用于计划或重复任务（跨重启持久化）。\n• **心跳** 用于“主会话”定期检查。\n• **隔离任务** 用于自主智能体发布摘要或投递到聊天。\n\n文档：定时任务、定时任务 vs 心跳、心跳。\n\n能否从 Linux 运行仅限 Apple/macOS 的 Skills\n\n不能直接运行。macOS Skills 受metadata.openclaw.os和所需二进制文件限制，Skills 只有在Gateway 网关主机上符合条件时才会出现在系统提示中。在 Linux 上，darwin专用 Skills（如apple-notes、apple-reminders、things-mac）不会加载，除非你覆盖限制。\n\n你有三种支持的模式：\n\n方案 A - 在 Mac 上运行 Gateway 网关（最简单）。在 macOS 二进制文件所在的地方运行 Gateway 网关，然后从 Linux 通过远程模式或 Tailscale 连接。Skills 正常加载，因为 Gateway 网关主机是 macOS。\n\n方案 B - 使用 macOS 节点（无需 SSH）。在 Linux 上运行 Gateway 网关，配对一个 macOS 节点（菜单栏应用），并在 Mac 上将节点运行命令设置为“始终询问”或“始终允许”。当所需二进制文件存在于节点上时，OpenClaw 可以将 macOS 专用 Skills 视为符合条件。智能体通过nodes工具运行这些 Skills。如果你选择“始终询问”，在提示中批准“始终允许”会将该命令添加到允许列表。\n\n方案 C - 通过 SSH 代理 macOS 二进制文件（高级）。保持 Gateway 网关在 Linux 上，但使所需的 CLI 二进制文件解析为在 Mac 上运行的 SSH 包装器。然后覆盖 Skills 以允许 Linux 使其保持符合条件。\n\n为二进制文件创建 SSH 包装器（示例： imsg ）： #!/usr/bin/env bash set -euo pipefail exec ssh -T user@mac-host /opt/homebrew/bin/imsg \"$@\" 将包装器放在 Linux 主机的 PATH 上（例如 ~/bin/imsg ）。 覆盖 Skills 元数据（工作区或 ~/.openclaw/skills ）以允许 Linux： --- name : imsg description : iMessage/SMS CLI for listing chats, history, watch, and sending. metadata : { \"openclaw\" : { \"os\" : [ \"darwin\" , \"linux\" ] , \"requires\" : { \"bins\" : [ \"imsg\" ] } } } --- 开始新会话以刷新 Skills 快照。\n\n对于 iMessage，你也可以将channels.imessage.cliPath指向 SSH 包装器（OpenClaw 只需要 stdio）。参阅iMessage。"
+  },
+  {
+    "query": "有 Notion 或 HeyGen 集成吗",
+    "pos": "目前没有内置集成。\n\n选项：\n\n• **自定义 Skills / 插件：** 最适合可靠的 API 访问（Notion/HeyGen 都有 API）。\n• **浏览器自动化：** 无需编码但更慢且更脆弱。\n\n如果你想按客户保留上下文（代理工作流），一个简单的模式是：\n\n• 每个客户一个 Notion 页面（上下文 + 偏好 + 当前工作）。\n• 在会话开始时要求智能体获取该页面。\n\n如果你想要原生集成，请提交功能请求或构建一个针对这些 API 的 Skills。\n\n安装 Skills：\n\nclawhub install < skill-slu g > clawhub update --all\n\nClawHub 安装到当前目录下的./skills（或回退到你配置的 OpenClaw 工作区）；OpenClaw 在下一个会话中将其视为<workspace>/skills。对于跨智能体共享的 Skills，将它们放在~/.openclaw/skills/<name>/SKILL.md。某些 Skills 期望通过 Homebrew 安装二进制文件；在 Linux 上意味着 Linuxbrew（参阅上面的 Homebrew Linux 常见问题条目）。参阅Skills和ClawHub。"
+  },
+  {
+    "query": "如何安装用于浏览器接管的 Chrome 扩展",
+    "pos": "使用内置安装程序，然后在 Chrome 中加载未打包的扩展：\n\nopenclaw browser extension install openclaw browser extension path\n\n然后 Chrome →chrome://extensions→ 启用“开发者模式” → “加载已解压的扩展程序” → 选择该文件夹。\n\n完整指南（包括远程 Gateway 网关 + 安全注意事项）：Chrome 扩展\n\n如果 Gateway 网关运行在与 Chrome 同一台机器上（默认设置），你通常不需要额外配置。\n如果 Gateway 网关运行在其他地方，在运行浏览器的机器上运行一个节点主机，以便 Gateway 网关可以代理浏览器操作。\n你仍然需要在要控制的标签页上点击扩展按钮（它不会自动附加）。\n\n​ 沙箱与记忆"
+  },
+  {
+    "query": "有专门的沙箱文档吗",
+    "pos": "有。参阅沙箱。对于 Docker 特定设置（完整 Gateway 网关在 Docker 中或沙箱镜像），参阅Docker。\n\n能否让私信保持私密，但群组用一个智能体公开沙箱隔离\n\n可以——如果你的私密流量是私信而公开流量是群组。\n\n使用agents.defaults.sandbox.mode: \"non-main\"，这样群组/频道会话（非主键）在 Docker 中运行，而主私信会话保持在主机上。然后通过tools.sandbox.tools限制沙箱会话中可用的工具。\n\n设置指南 + 示例配置：群组：个人私信 + 公开群组\n\n关键配置参考：Gateway 网关配置"
+  },
+  {
+    "query": "如何将主机文件夹绑定到沙箱中",
+    "pos": "将agents.defaults.sandbox.docker.binds设置为[\"host:path:mode\"]（例如\"/home/user/src:/src:ro\"）。全局 + 按智能体的绑定会合并；当scope: \"shared\"时按智能体的绑定会被忽略。对于敏感内容使用:ro，并记住绑定会绕过沙箱文件系统隔离。参阅沙箱和沙箱 vs 工具策略 vs 提权了解示例和安全注意事项。"
+  },
+  {
+    "query": "记忆是如何工作的",
+    "pos": "OpenClaw 记忆就是智能体工作区中的 Markdown 文件：\n\n• 每日笔记在 `memory/YYYY-MM-DD.md`\n• 精选的长期笔记在 `MEMORY.md` （仅限主/私密会话）\n\nOpenClaw 还会运行静默的预压缩记忆刷新，以提醒模型在自动压缩之前写入持久笔记。这只在工作区可写时运行（只读沙箱会跳过）。参阅记忆。"
+  },
+  {
+    "query": "记忆总是遗忘，如何让它持久保存",
+    "pos": "要求机器人将事实写入记忆。长期笔记属于MEMORY.md，短期上下文放入memory/YYYY-MM-DD.md。\n\n这仍然是我们正在改进的领域。提醒模型存储记忆会有帮助；它会知道如何操作。如果它持续遗忘，验证 Gateway 网关每次运行时是否使用相同的工作区。\n\n文档：记忆、智能体工作区。"
+  },
+  {
+    "query": "语义记忆搜索需要 OpenAI API 密钥吗",
+    "pos": "只有在使用OpenAI embeddings时才需要。Codex OAuth 覆盖 chat/completions 但不授予 embeddings 访问权限，因此**使用 Codex 登录（OAuth 或 Codex CLI 登录）**对语义记忆搜索没有帮助。OpenAI embeddings 仍然需要真正的 API 密钥（OPENAI_API_KEY或models.providers.openai.apiKey）。\n\n如果你没有明确设置提供商，OpenClaw 会在能解析 API 密钥（认证配置文件、models.providers.*.apiKey或环境变量）时自动选择提供商。如果 OpenAI 密钥可解析则优先使用 OpenAI，否则如果 Gemini 密钥可解析则使用 Gemini。如果两个密钥都不可用，记忆搜索保持禁用直到你配置它。如果你配置了本地模型路径且存在，OpenClaw 优先使用local。\n\n如果你更想保持本地运行，设置memorySearch.provider = \"local\"（可选memorySearch.fallback = \"none\"）。如果你想使用 Gemini embeddings，设置memorySearch.provider = \"gemini\"并提供GEMINI_API_KEY（或memorySearch.remote.apiKey）。我们支持OpenAI、Gemini 或本地embedding 模型——参阅记忆了解设置详情。"
+  },
+  {
+    "query": "记忆是否永久保留？有什么限制",
+    "pos": "记忆文件保存在磁盘上，持久存在直到你删除它们。限制是你的存储空间，而不是模型。会话上下文仍然受模型上下文窗口限制，所以长对话可能会压缩或截断。这就是记忆搜索存在的原因——它只将相关部分拉回上下文。\n\n文档：记忆、上下文。\n\n​ 磁盘上的文件位置"
+  },
+  {
+    "query": "OpenClaw 使用的所有数据都保存在本地吗",
+    "pos": "不是——OpenClaw 的状态是本地的，但外部服务仍然会看到你发送给它们的内容。\n\n• **默认本地：** 会话、记忆文件、配置和工作区位于 Gateway 网关主机上（ `~/.openclaw` + 你的工作区目录）。\n• **必然远程：** 你发送给模型提供商（Anthropic/OpenAI/等）的消息会发送到它们的 API，聊天平台（WhatsApp/Telegram/Slack/等）在它们的服务器上存储消息数据。\n• **你控制范围：** 使用本地模型可以将提示保留在你的机器上，但渠道流量仍然通过渠道的服务器。\n\n相关：智能体工作区、记忆。"
+  },
+  {
+    "query": "OpenClaw 将数据存储在哪里",
+    "pos": "所有内容位于$OPENCLAW_STATE_DIR（默认：~/.openclaw）下：\n\n路径 用途 $OPENCLAW_STATE_DIR/openclaw.json 主配置（JSON5） $OPENCLAW_STATE_DIR/credentials/oauth.json 旧版 OAuth 导入（首次使用时复制到认证配置文件） $OPENCLAW_STATE_DIR/agents/<agentId>/agent/auth-profiles.json 认证配置文件（OAuth + API 密钥） $OPENCLAW_STATE_DIR/agents/<agentId>/agent/auth.json 运行时认证缓存（自动管理） $OPENCLAW_STATE_DIR/credentials/ 提供商状态（例如 whatsapp/<accountId>/creds.json ） $OPENCLAW_STATE_DIR/agents/ 按智能体的状态（agentDir + 会话） $OPENCLAW_STATE_DIR/agents/<agentId>/sessions/ 对话历史和状态（按智能体） $OPENCLAW_STATE_DIR/agents/<agentId>/sessions/sessions.json 会话元数据（按智能体）\n\n旧版单智能体路径：~/.openclaw/agent/*（通过openclaw doctor迁移）。\n\n你的工作区（AGENTS.md、记忆文件、Skills 等）是独立的，通过agents.defaults.workspace配置（默认：~/.openclaw/workspace）。"
+  },
+  {
+    "query": "AGENTS.md / SOUL.md / USER.md / MEMORY.md 应该放在哪里",
+    "pos": "这些文件位于智能体工作区中，而不是~/.openclaw。\n\n• **工作区（按智能体）** ： `AGENTS.md` 、 `SOUL.md` 、 `IDENTITY.md` 、 `USER.md` 、 `MEMORY.md` （或 `memory.md` ）、 `memory/YYYY-MM-DD.md` 、可选的 `HEARTBEAT.md` 。\n• **状态目录（~/.openclaw）** ：配置、凭据、认证配置文件、会话、日志和共享 Skills（ `~/.openclaw/skills` ）。\n\n默认工作区是~/.openclaw/workspace，可通过以下方式配置：\n\n{ agents : { defaults : { workspace : \"~/.openclaw/workspace\" } } , }\n\n如果机器人在重启后“忘记”了内容，确认 Gateway 网关每次启动时都使用相同的工作区（记住：远程模式使用Gateway 网关主机的工作区，而不是你本地笔记本的）。\n\n提示：如果你想要一个持久的行为或偏好，要求机器人将其写入 AGENTS.md 或 MEMORY.md，而不是依赖聊天历史。\n\n参阅智能体工作区和记忆。"
+  },
+  {
+    "query": "推荐的备份策略是什么",
+    "pos": "将你的智能体工作区放入一个私有git 仓库，并备份到某个私有位置（例如 GitHub 私有仓库）。这会捕获记忆 + AGENTS/SOUL/USER 文件，让你以后可以恢复助手的“思维”。\n\n不要提交~/.openclaw下的任何内容（凭据、会话、令牌）。如果你需要完整恢复，将工作区和状态目录分别备份（参阅上面的迁移问题）。\n\n文档：智能体工作区。"
+  },
+  {
+    "query": "如何完全卸载 OpenClaw",
+    "pos": "参阅专门指南：卸载。"
+  },
+  {
+    "query": "智能体可以在工作区外工作吗",
+    "pos": "可以。工作区是默认 cwd和记忆锚点，不是硬沙箱。相对路径在工作区内解析，但绝对路径可以访问其他主机位置，除非启用了沙箱。如果你需要隔离，使用agents.defaults.sandbox或按智能体的沙箱设置。如果你希望某个仓库作为默认工作目录，将该智能体的workspace指向仓库根目录。OpenClaw 仓库只是源代码；除非你有意要让智能体在其中工作，否则保持工作区独立。\n\n示例（仓库作为默认 cwd）：\n\n{ agents : { defaults : { workspace : \"~/Projects/my-repo\" , } , } , }"
+  },
+  {
+    "query": "我处于远程模式——会话存储在哪里",
+    "pos": "会话状态归Gateway 网关主机所有。如果你处于远程模式，你关心的会话存储在远程机器上，而不是你的本地笔记本上。参阅会话管理。\n\n​ 配置基础"
+  },
+  {
+    "query": "配置文件是什么格式？在哪里",
+    "pos": "OpenClaw 从$OPENCLAW_CONFIG_PATH（默认：~/.openclaw/openclaw.json）读取可选的JSON5配置：\n\n$OPENCLAW_CONFIG_PATH\n\n如果文件不存在，使用安全的默认值（包括默认工作区~/.openclaw/workspace）。"
+  },
+  {
+    "query": "我设置了 gateway.bind: “lan”（或 “tailnet”），现在什么都监听不了 / UI 显示未授权",
+    "pos": "非 local loopback 绑定需要认证。配置gateway.auth.mode+gateway.auth.token（或使用OPENCLAW_GATEWAY_TOKEN）。\n\n{ gateway : { bind : \"lan\" , auth : { mode : \"token\" , token : \"replace-me\" , } , } , }\n\n注意：\n\n• `gateway.remote.token` 仅用于 **远程 CLI 调用** ；它不启用本地 Gateway 网关认证。\n• 控制 UI 通过 `connect.params.auth.token` （存储在应用/UI 设置中）进行认证。避免将令牌放在 URL 中。"
+  },
+  {
+    "query": "为什么现在在 localhost 也需要令牌",
+    "pos": "向导默认生成 Gateway 网关令牌（即使在 local loopback 上），因此本地 WS 客户端必须认证。这阻止了其他本地进程调用 Gateway 网关。在控制 UI 设置（或你的客户端配置）中粘贴令牌以连接。\n\n如果你确实想要开放 local loopback，从配置中移除gateway.auth。Doctor 可以随时为你生成令牌：openclaw doctor --generate-gateway-token。"
+  },
+  {
+    "query": "更改配置后需要重启吗",
+    "pos": "Gateway 网关监视配置文件并支持热重载：\n\n• `gateway.reload.mode: \"hybrid\"` （默认）：安全更改热应用，关键更改重启\n• 也支持 `hot` 、 `restart` 、 `off`"
+  },
+  {
+    "query": "如何启用网络搜索（和网页抓取）",
+    "pos": "web_fetch无需 API 密钥即可工作。web_search需要所选提供商的 API 密钥。推荐：运行openclaw configure --section web。新的提供商专属配置会存储在plugins.entries.<plugin>.config.webSearch.*下。环境变量替代方案：为 Gateway 网关进程设置相应的提供商环境变量。\n\n{ plugins : { entries : { brave : { config : { webSearch : { apiKey : \"BRAVE_API_KEY_HERE\" , } , } , } , } , } , tools : { web : { search : { enabled : true , provider : \"brave\" , maxResults : 5 , } , fetch : { enabled : true , } , } , } , }\n\n注意：\n\n• 如果你使用允许列表，添加 `web_search` / `web_fetch` 或 `group:web` 。\n• `web_fetch` 默认启用（除非明确禁用）。\n• 守护进程从 `~/.openclaw/.env` （或服务环境）读取环境变量。\n• 旧的 `tools.web.search.*` 提供商路径仍通过兼容层继续生效，但不应再用于新配置。\n\n文档：Web 工具。"
+  },
+  {
+    "query": "config.apply 清空了我的配置，如何恢复和避免",
+    "pos": "config.apply替换整个配置。如果你发送部分对象，其他所有内容都会被移除。\n\n恢复：\n\n• 从备份恢复（git 或复制的 `~/.openclaw/openclaw.json` ）。\n• 如果没有备份，重新运行 `openclaw doctor` 并重新配置渠道/模型。\n• 如果这是意外情况，提交 bug 并附上你最后已知的配置或任何备份。\n• 本地编码智能体通常可以从日志或历史中重建工作配置。\n\n避免方法：\n\n• 对小更改使用 `openclaw config set` 。\n• 对交互式编辑使用 `openclaw configure` 。\n\n文档：Config、Configure、Doctor。"
+  },
+  {
+    "query": "如何运行一个中心 Gateway 网关配合跨设备的专用工作节点",
+    "pos": "常见模式是一个 Gateway 网关（例如 Raspberry Pi）加上节点和智能体：\n\n• **Gateway 网关（中心）：** 拥有渠道（Signal/WhatsApp）、路由和会话。\n• **节点（设备）：** Mac/iOS/Android 作为外围设备连接，暴露本地工具（ `system.run` 、 `canvas` 、 `camera` ）。\n• **智能体（工作者）：** 用于特殊角色的独立大脑/工作区（例如“Hetzner 运维”、“个人数据”）。\n• **子智能体：** 需要并行处理时从主智能体生成后台工作。\n• **TUI：** 连接到 Gateway 网关并切换智能体/会话。\n\n文档：节点、远程访问、多智能体路由、子智能体、TUI。"
+  },
+  {
+    "query": "OpenClaw 浏览器可以无头运行吗",
+    "pos": "可以。这是一个配置选项：\n\n{ browser : { headless : true } , agents : { defaults : { sandbox : { browser : { headless : true } } , } , } , }\n\n默认为false（有头）。无头模式在某些网站上更容易触发反机器人检测。参阅浏览器。\n\n无头模式使用相同的 Chromium 引擎，适用于大多数自动化（表单、点击、抓取、登录）。主要区别：\n\n• 没有可见的浏览器窗口（如果需要视觉效果使用截图）。\n• 某些网站在无头模式下对自动化更严格（验证码、反机器人）。例如，X/Twitter 经常阻止无头会话。"
+  },
+  {
+    "query": "如何使用 Brave 进行浏览器控制",
+    "pos": "将browser.executablePath设置为你的 Brave 二进制文件（或任何基于 Chromium 的浏览器）并重启 Gateway 网关。\n参阅浏览器中的完整配置示例。\n\n​ 远程 Gateway 网关与节点"
+  },
+  {
+    "query": "命令如何在 Telegram、Gateway 网关和节点之间传播",
+    "pos": "Telegram 消息由Gateway 网关处理。Gateway 网关运行智能体，只有在需要节点工具时才通过Gateway 网关 WebSocket调用节点：\n\nTelegram → Gateway 网关 → 智能体 →node.*→ 节点 → Gateway 网关 → Telegram\n\n节点不会看到入站提供商流量；它们只接收节点 RPC 调用。"
+  },
+  {
+    "query": "如果 Gateway 网关托管在远程，我的智能体如何访问我的电脑",
+    "pos": "简短回答：将你的电脑配对为节点。Gateway 网关运行在其他地方，但它可以通过 Gateway 网关 WebSocket 在你的本地机器上调用node.*工具（屏幕、摄像头、系统）。\n\n典型设置：\n\n在常开主机（VPS/家庭服务器）上运行 Gateway 网关。 将 Gateway 网关主机和你的电脑放在同一个 tailnet 上。 确保 Gateway 网关 WS 可达（tailnet 绑定或 SSH 隧道）。 在本地打开 macOS 应用并以 远程 over SSH 模式连接（或直接 tailnet），使其可以注册为节点。 在 Gateway 网关上批准节点： openclaw nodes pending openclaw nodes approve < requestI d >\n\n不需要单独的 TCP 桥接；节点通过 Gateway 网关 WebSocket 连接。\n\n安全提醒：配对 macOS 节点允许在该机器上执行system.run。只配对你信任的设备，并查阅安全。\n\n文档：节点、Gateway 网关协议、macOS 远程模式、安全。"
+  },
+  {
+    "query": "Tailscale 已连接但收不到回复，怎么办",
+    "pos": "检查基础项：\n\n• Gateway 网关正在运行： `openclaw gateway status`\n• Gateway 网关健康： `openclaw status`\n• 渠道健康： `openclaw channels status`\n\n然后验证认证和路由：\n\n• 如果你使用 Tailscale Serve，确保 `gateway.auth.allowTailscale` 设置正确。\n• 如果你通过 SSH 隧道连接，确认本地隧道已启动并指向正确端口。\n• 确认你的允许列表（私信或群组）包含你的账户。\n\n文档：Tailscale、远程访问、渠道。"
+  },
+  {
+    "query": "两个 OpenClaw 实例（本地 + VPS）可以互相通信吗",
+    "pos": "可以。没有内置的“机器人对机器人”桥接，但你可以通过几种可靠的方式实现：\n\n最简单：使用两个机器人都能访问的普通聊天渠道（Telegram/Slack/WhatsApp）。让机器人 A 给机器人 B 发消息，然后让机器人 B 正常回复。\n\nCLI 桥接（通用）：运行一个脚本调用另一个 Gateway 网关，使用openclaw agent --message ... --deliver，定向到另一个机器人监听的聊天。如果一个机器人在远程 VPS 上，通过 SSH/Tailscale 将你的 CLI 指向该远程 Gateway 网关（参阅远程访问）。\n\n示例模式（从能到达目标 Gateway 网关的机器上运行）：\n\nopenclaw agent --message \"Hello from local bot\" --deliver --channel telegram --reply-to < chat-i d >\n\n提示：添加护栏防止两个机器人无限循环（仅提及、渠道允许列表或“不回复机器人消息”规则）。\n\n文档：远程访问、Agent CLI、Agent send。"
+  },
+  {
+    "query": "多个智能体需要独立的 VPS 吗",
+    "pos": "不需要。一个 Gateway 网关可以托管多个智能体，每个都有自己的工作区、模型默认值和路由。这是正常设置，比每个智能体一个 VPS 便宜且简单得多。\n\n只有在需要硬隔离（安全边界）或非常不同的配置（你不想共享）时才使用独立的 VPS。否则保持一个 Gateway 网关并使用多个智能体或子智能体。"
+  },
+  {
+    "query": "在个人笔记本电脑上使用节点而不是从 VPS SSH 有什么好处",
+    "pos": "有——节点是从远程 Gateway 网关到达你笔记本的首选方式，它们解锁的不仅仅是 shell 访问。Gateway 网关运行在 macOS/Linux（Windows 通过 WSL2）上且是轻量级的（小型 VPS 或 Raspberry Pi 级别的设备就够用；4 GB RAM 足够），所以常见设置是一个常开主机加上你的笔记本作为节点。\n\n• **无需入站 SSH。** 节点向 Gateway 网关 WebSocket 发起出站连接并使用设备配对。\n• **更安全的执行控制。** `system.run` 受该笔记本上节点允许列表/审批的限制。\n• **更多设备工具。** 节点除了 `system.run` 还暴露 `canvas` 、 `camera` 和 `screen` 。\n• **本地浏览器自动化。** 将 Gateway 网关保持在 VPS 上，但在本地运行 Chrome 并通过 Chrome 扩展 + 笔记本上的节点主机中继控制。\n\nSSH 对临时 shell 访问很好，但节点对于持续的智能体工作流和设备自动化更简单。\n\n文档：节点、节点 CLI、Chrome 扩展。"
+  },
+  {
+    "query": "应该在第二台笔记本上安装还是只添加一个节点",
+    "pos": "如果你只需要第二台笔记本上的本地工具（屏幕/摄像头/执行），将其添加为节点。这保持单一 Gateway 网关并避免重复配置。本地节点工具目前仅限 macOS，但我们计划扩展到其他操作系统。\n\n只有在需要硬隔离或两个完全独立的机器人时才安装第二个 Gateway 网关。\n\n文档：节点、节点 CLI、多 Gateway 网关。"
+  },
+  {
+    "query": "节点会运行 Gateway 网关服务吗",
+    "pos": "不会。每台主机上应该只运行一个 Gateway 网关，除非你有意运行隔离的配置文件（参阅多 Gateway 网关）。节点是连接到 Gateway 网关的外围设备（iOS/Android 节点，或 macOS 菜单栏应用的“节点模式”）。对于无头节点主机和 CLI 控制，参阅节点主机 CLI。\n\ngateway、discovery和canvasHost的更改需要完全重启。"
+  },
+  {
+    "query": "有 API / RPC 方式来应用配置吗",
+    "pos": "有。config.apply验证 + 写入完整配置，并在操作过程中重启 Gateway 网关。"
+  },
+  {
+    "query": "首次安装的最小“合理”配置是什么",
+    "pos": "{ agents : { defaults : { workspace : \"~/.openclaw/workspace\" } } , channels : { whatsapp : { allowFrom : [ \"+15555550123\" ] } } , }\n\n这设置了你的工作区并限制谁可以触发机器人。"
+  },
+  {
+    "query": "如何在 VPS 上设置 Tailscale 并从 Mac 连接",
+    "pos": "最简步骤：\n\n在 VPS 上安装并登录 curl -fsSL https://tailscale.com/install.sh | sh sudo tailscale up 在 Mac 上安装并登录 使用 Tailscale 应用并登录到同一个 tailnet。 启用 MagicDNS（推荐） 在 Tailscale 管理控制台中启用 MagicDNS，这样 VPS 有一个稳定的名称。 使用 tailnet 主机名 SSH： ssh user@your-vps.tailnet-xxxx.ts.net Gateway 网关 WS： ws://your-vps.tailnet-xxxx.ts.net:18789\n\n如果你想要无 SSH 的控制 UI，在 VPS 上使用 Tailscale Serve：\n\nopenclaw gateway --tailscale serve\n\n这保持 Gateway 网关绑定到 local loopback 并通过 Tailscale 暴露 HTTPS。参阅Tailscale。"
+  },
+  {
+    "query": "如何将 Mac 节点连接到远程 Gateway 网关（Tailscale Serve）",
+    "pos": "Serve 暴露Gateway 网关控制 UI + WS。节点通过同一个 Gateway 网关 WS 端点连接。\n\n推荐设置：\n\n确保 VPS + Mac 在同一个 tailnet 上 。 使用 macOS 应用的远程模式 （SSH 目标可以是 tailnet 主机名）。应用会隧道 Gateway 网关端口并作为节点连接。 在 Gateway 网关上批准节点 ： openclaw nodes pending openclaw nodes approve < requestI d >\n\n文档：Gateway 网关协议、发现、macOS 远程模式。\n\n​ 环境变量和 .env 加载"
+  },
+  {
+    "query": "OpenClaw 如何加载环境变量",
+    "pos": "OpenClaw 从父进程（shell、launchd/systemd、CI 等）读取环境变量，并额外加载：\n\n• 当前工作目录下的 `.env`\n• `~/.openclaw/.env` （即 `$OPENCLAW_STATE_DIR/.env` ）的全局回退 `.env`\n\n两个.env文件都不会覆盖已有的环境变量。\n\n你也可以在配置中定义内联环境变量（仅在进程环境中缺失时应用）：\n\n{ env : { OPENROUTER_API_KEY : \"sk-or-...\" , vars : { GROQ_API_KEY : \"gsk-...\" } , } , }\n\n参阅/environment了解优先级和来源详情。"
+  },
+  {
+    "query": "我通过服务启动了 Gateway 网关，但环境变量消失了，怎么办",
+    "pos": "两个常见修复方法：\n\n将缺失的密钥放在 ~/.openclaw/.env 中，这样即使服务不继承你的 shell 环境也能被获取。 启用 shell 导入（可选的便利功能）：\n\n{ env : { shellEnv : { enabled : true , timeoutMs : 15000 , } , } , }\n\n这会运行你的登录 shell 并仅导入缺失的预期键名（从不覆盖）。环境变量等效项：OPENCLAW_LOAD_SHELL_ENV=1、OPENCLAW_SHELL_ENV_TIMEOUT_MS=15000。"
+  },
+  {
+    "query": "我设置了 COPILOT_GITHUB_TOKEN，但 models status 显示”Shell env: off”，为什么",
+    "pos": "openclaw models status报告的是shell 环境导入是否启用。“Shell env: off”不意味着你的环境变量缺失——它只意味着 OpenClaw 不会自动加载你的登录 shell。\n\n如果 Gateway 网关作为服务（launchd/systemd）运行，它不会继承你的 shell 环境。通过以下方式之一修复：\n\n将令牌放在 ~/.openclaw/.env 中： COPILOT_GITHUB_TOKEN=... 或启用 shell 导入（ env.shellEnv.enabled: true ）。 或将其添加到配置的 env 块中（仅在缺失时应用）。\n\n然后重启 Gateway 网关并重新检查：\n\nopenclaw models status\n\nCopilot 令牌从COPILOT_GITHUB_TOKEN读取（也支持GH_TOKEN/GITHUB_TOKEN）。\n参阅/concepts/model-providers和/environment。\n\n​ 会话与多聊天"
+  },
+  {
+    "query": "如何开始一个新对话",
+    "pos": "发送/new或/reset作为独立消息。参阅会话管理。"
+  },
+  {
+    "query": "如果我从不发送 /new，会话会自动重置吗",
+    "pos": "会。会话在session.idleMinutes（默认60）后过期。下一条消息会为该聊天键开始一个新的会话 ID。这不会删除记录——只是开始一个新会话。\n\n{ session : { idleMinutes : 240 , } , }"
+  },
+  {
+    "query": "能否创建一个 OpenClaw 实例团队——一个 CEO 和多个智能体",
+    "pos": "可以，通过多智能体路由和子智能体。你可以创建一个协调器智能体和多个工作者智能体，每个都有自己的工作区和模型。\n\n话虽如此，最好将其视为一个有趣的实验。它消耗大量令牌，通常不如使用一个机器人配合不同会话的效率高。我们设想的典型模型是一个你与之对话的机器人，用不同的会话进行并行工作。该机器人也可以在需要时生成子智能体。\n\n文档：多智能体路由、子智能体、智能体 CLI。"
+  },
+  {
+    "query": "为什么上下文在任务中途被截断了？如何防止",
+    "pos": "会话上下文受模型窗口限制。长对话、大量工具输出或许多文件可能触发压缩或截断。\n\n有帮助的做法：\n\n• 要求机器人总结当前状态并写入文件。\n• 在长任务之前使用 `/compact` ，切换话题时使用 `/new` 。\n• 将重要上下文保存在工作区中，要求机器人读取。\n• 对长时间或并行工作使用子智能体，这样主聊天保持较小。\n• 如果这种情况经常发生，选择具有更大上下文窗口的模型。"
+  },
+  {
+    "query": "如何完全重置 OpenClaw 但保留安装",
+    "pos": "使用重置命令：\n\nopenclaw reset\n\n非交互式完整重置：\n\nopenclaw reset --scope full --yes --non-interactive\n\n然后重新运行新手引导：\n\nopenclaw onboard --install-daemon\n\n注意：\n\n• 新手引导在看到现有配置时也提供 **重置** 选项。参阅 CLI 新手引导(https://docs.openclaw.ai/start/wizard) 。\n• 如果你使用了配置文件（ `--profile` / `OPENCLAW_PROFILE` ），重置每个状态目录（默认为 `~/.openclaw-<profile>` ）。\n• 开发重置： `openclaw gateway --dev --reset` （仅限开发；清除开发配置 + 凭据 + 会话 + 工作区）。"
+  },
+  {
+    "query": "我遇到了 context too large 错误——如何重置或压缩",
+    "pos": "使用以下方式之一：\n\n• 压缩（保留对话但总结较早的轮次）： /compact 或/compact <instructions>来引导总结。\n• 重置（为同一聊天键开始新的会话 ID）： /new/reset\n\n如果持续出现：\n\n• 启用或调整 **会话修剪** （ `agents.defaults.contextPruning` ）以裁剪旧的工具输出。\n• 使用具有更大上下文窗口的模型。\n\n文档：压缩、会话修剪、会话管理。"
+  },
+  {
+    "query": "为什么我看到 LLM request rejected: messages.N.content.X.tool_use.input: Field required",
+    "pos": "这是一个提供商验证错误：模型发出了一个没有必需input的tool_use块。通常意味着会话历史已过时或损坏（通常在长线程或工具/模式变更后发生）。\n\n修复：使用/new（独立消息）开始新会话。"
+  },
+  {
+    "query": "为什么每 30 分钟收到一次心跳消息",
+    "pos": "心跳默认每30 分钟运行一次。调整或禁用：\n\n{ agents : { defaults : { heartbeat : { every : \"2h\" , // 或 \"0m\" 禁用 } , } , } , }\n\n如果HEARTBEAT.md存在但实际上为空（只有空行和 markdown 标题如# Heading），OpenClaw 会跳过心跳运行以节省 API 调用。如果文件不存在，心跳仍然运行，由模型决定做什么。\n\n按智能体覆盖使用agents.list[].heartbeat。文档：心跳。"
+  },
+  {
+    "query": "需要在 WhatsApp 群组中添加“机器人账号”吗",
+    "pos": "不需要。OpenClaw 运行在你自己的账户上，所以如果你在群组中，OpenClaw 就能看到它。\n默认情况下，群组回复被阻止，直到你允许发送者（groupPolicy: \"allowlist\"）。\n\n如果你只想你自己能触发群组回复：\n\n{ channels : { whatsapp : { groupPolicy : \"allowlist\" , groupAllowFrom : [ \"+15551234567\" ] , } , } , }"
+  },
+  {
+    "query": "如何获取 WhatsApp 群组的 JID",
+    "pos": "方法 1（最快）：跟踪日志并在群组中发送测试消息：\n\nopenclaw logs --follow --json\n\n查找以@g.us结尾的chatId（或from），如：1234567890-1234567890@g.us。\n\n方法 2（如果已配置/加入允许列表）：从配置中列出群组：\n\nopenclaw directory groups list --channel whatsapp\n\n文档：WhatsApp、目录、日志。"
+  },
+  {
+    "query": "为什么 OpenClaw 不在群组中回复",
+    "pos": "两个常见原因：\n\n• 提及限制已开启（默认）。你必须 @提及机器人（或匹配 `mentionPatterns` ）。\n• 你配置了 `channels.whatsapp.groups` 但没有 `\"*\"` 且该群组未加入允许列表。\n\n参阅群组和群组消息。"
+  },
+  {
+    "query": "群组/线程与私聊共享上下文吗",
+    "pos": "直接聊天默认折叠到主会话。群组/频道有自己的会话键，Telegram 话题 / Discord 线程是独立的会话。参阅群组和群组消息。"
+  },
+  {
+    "query": "可以创建多少个工作区和智能体",
+    "pos": "没有硬性限制。几十个（甚至几百个）都没问题，但请注意：\n\n• **磁盘增长：** 会话 + 记录位于 `~/.openclaw/agents/<agentId>/sessions/` 下。\n• **令牌成本：** 更多智能体意味着更多并发模型使用。\n• **运维开销：** 按智能体的认证配置文件、工作区和渠道路由。\n\n提示：\n\n• 每个智能体保持一个 **活跃** 工作区（ `agents.defaults.workspace` ）。\n• 如果磁盘增长，修剪旧会话（删除 JSONL 或存储条目）。\n• 使用 `openclaw doctor` 发现无用的工作区和配置文件不匹配。"
+  },
+  {
+    "query": "可以同时运行多个机器人或聊天（Slack）吗？应该如何设置",
+    "pos": "可以。使用多智能体路由运行多个隔离的智能体，并按渠道/账户/对等方路由入站消息。Slack 作为渠道受支持，可以绑定到特定智能体。\n\n浏览器访问功能强大，但不是“能做人类能做的一切”——反机器人、验证码和 MFA 仍然可以阻止自动化。为了最可靠的浏览器控制，在运行浏览器的机器上使用 Chrome 扩展中继（Gateway 网关可以在任何地方）。\n\n最佳实践设置：\n\n• 常开 Gateway 网关主机（VPS/Mac mini）。\n• 每个角色一个智能体（绑定）。\n• Slack 渠道绑定到这些智能体。\n• 需要时通过扩展中继（或节点）使用本地浏览器。\n\n文档：多智能体路由、Slack、浏览器、Chrome 扩展、节点。\n\n​ 模型：默认值、选择、别名、切换"
+  },
+  {
+    "query": "什么是“默认模型”",
+    "pos": "OpenClaw 的默认模型是你设置的：\n\nagents.defaults.model.primary\n\n模型以provider/model引用（示例：anthropic/claude-opus-4-5）。如果你省略提供商，OpenClaw 目前假设anthropic作为临时弃用回退——但你仍然应该明确设置provider/model。"
+  },
+  {
+    "query": "推荐什么模型",
+    "pos": "推荐默认：anthropic/claude-opus-4-5。好的替代：anthropic/claude-sonnet-4-5。可靠（个性较少）：openai/gpt-5.2——几乎和 Opus 一样好，只是个性较少。经济：zai/glm-4.7。\n\nMiniMax M2.1 有自己的文档：MiniMax和本地模型。\n\n经验法则：高风险工作使用你能负担的最好的模型，日常聊天或摘要使用更便宜的模型。你可以按智能体路由模型并使用子智能体并行处理长任务（每个子智能体消耗令牌）。参阅模型和子智能体。\n\n重要警告：较弱/过度量化的模型更容易受到提示注入和不安全行为的影响。参阅安全。\n\n更多上下文：模型。"
+  },
+  {
+    "query": "可以使用自托管模型（llama.cpp、vLLM、Ollama）吗",
+    "pos": "可以。如果你的本地服务器暴露了兼容 OpenAI 的 API，你可以将自定义提供商指向它。Ollama 直接支持，是最简单的路径。\n\n安全说明：较小或大幅量化的模型更容易受到提示注入的影响。我们强烈建议对任何可以使用工具的机器人使用大型模型。如果你仍然想使用小模型，启用沙箱和严格的工具允许列表。\n\n文档：Ollama、本地模型、模型提供商、安全、沙箱。"
+  },
+  {
+    "query": "如何在不清空配置的情况下切换模型",
+    "pos": "使用模型命令或只编辑模型字段。避免完整配置替换。\n\n安全选项：\n\n• 聊天中的 `/model` （快速，按会话）\n• `openclaw models set ...` （只更新模型配置）\n• `openclaw configure --section models` （交互式）\n• 编辑 `~/.openclaw/openclaw.json` 中的 `agents.defaults.model`\n\n避免使用部分对象执行config.apply，除非你打算替换整个配置。如果你确实覆盖了配置，从备份恢复或重新运行openclaw doctor来修复。\n\n文档：模型、Configure、Config、Doctor。"
+  },
+  {
+    "query": "OpenClaw、Flawd 和 Krill 使用什么模型",
+    "pos": "• **OpenClaw + Flawd：** Anthropic Opus（ `anthropic/claude-opus-4-5` ）——参阅 Anthropic(https://docs.openclaw.ai/providers/anthropic) 。\n• **Krill：** MiniMax M2.1（ `minimax/MiniMax-M2.1` ）——参阅 MiniMax(https://docs.openclaw.ai/providers/minimax) 。"
+  },
+  {
+    "query": "如何在运行中切换模型（无需重启）",
+    "pos": "使用/model命令作为独立消息：\n\n/model sonnet /model haiku /model opus /model gpt /model gpt-mini /model gemini /model gemini-flash\n\n你可以使用/model、/model list或/model status列出可用模型。\n\n/model（和/model list）显示紧凑的编号选择器。按编号选择：\n\n/model 3\n\n你也可以为提供商强制指定特定的认证配置文件（按会话）：\n\n/model opus@anthropic:default /model opus@anthropic:work\n\n提示：/model status显示哪个智能体是活跃的、正在使用哪个auth-profiles.json文件，以及接下来将尝试哪个认证配置文件。\n它还显示配置的提供商端点（baseUrl）和 API 模式（api）（如果可用）。\n\n如何取消用 @profile 设置的配置文件固定\n\n重新运行/model但不带@profile后缀：\n\n/model anthropic/claude-opus-4-5\n\n如果你想返回默认值，从/model中选择（或发送/model <default provider/model>）。\n使用/model status确认哪个认证配置文件是活跃的。"
+  },
+  {
+    "query": "能否日常任务用 GPT 5.2，编程用 Codex 5.2",
+    "pos": "可以。设置一个为默认并按需切换：\n\n• **快速切换（按会话）：** 日常任务用 `/model gpt-5.2` ，编程用 `/model gpt-5.2-codex` 。\n• **默认 + 切换：** 将 `agents.defaults.model.primary` 设置为 `openai-codex/gpt-5.2` ，然后编程时切换到 `openai-codex/gpt-5.2-codex` （或反过来）。\n• **子智能体：** 将编程任务路由到具有不同默认模型的子智能体。\n\n参阅模型和斜杠命令。"
+  },
+  {
+    "query": "为什么我看到”Model … is not allowed”然后没有回复",
+    "pos": "如果设置了agents.defaults.models，它成为/model和任何会话覆盖的允许列表。选择不在该列表中的模型会返回：\n\nModel \"provider/model\" is not allowed. Use /model to list available models.\n\n该错误代替正常回复返回。修复：将模型添加到agents.defaults.models，移除允许列表，或从/model list中选择一个模型。"
+  },
+  {
+    "query": "为什么我看到”Unknown model: minimax/MiniMax-M2.1”",
+    "pos": "这意味着提供商未配置（未找到 MiniMax 提供商配置或认证配置文件），因此模型无法解析。此检测的修复在2026.1.12（撰写本文时尚未发布）中。\n\n修复清单：\n\n升级到 2026.1.12 （或从源码 main 运行），然后重启 Gateway 网关。 确保 MiniMax 已配置（向导或 JSON），或者 MiniMax API 密钥存在于环境/认证配置文件中以便提供商可以被注入。 使用精确的模型 ID（区分大小写）： minimax/MiniMax-M2.1 或 minimax/MiniMax-M2.1-lightning 。 运行： openclaw models list 并从列表中选择（或在聊天中使用 /model list ）。\n\n参阅MiniMax和模型。"
+  },
+  {
+    "query": "能否将 MiniMax 设为默认，复杂任务用 OpenAI",
+    "pos": "可以。使用MiniMax 作为默认，需要时按会话切换模型。故障转移用于错误，而非“困难任务”，所以使用/model或单独的智能体。\n\n方案 A：按会话切换\n\n{ env : { MINIMAX_API_KEY : \"sk-...\" , OPENAI_API_KEY : \"sk-...\" } , agents : { defaults : { model : { primary : \"minimax/MiniMax-M2.1\" } , models : { \"minimax/MiniMax-M2.1\" : { alias : \"minimax\" } , \"openai/gpt-5.2\" : { alias : \"gpt\" } , } , } , } , }\n\n然后：\n\n/model gpt\n\n方案 B：分离智能体\n\n• 智能体 A 默认：MiniMax\n• 智能体 B 默认：OpenAI\n• 按智能体路由或使用 `/agent` 切换\n\n文档：模型、多智能体路由、MiniMax、OpenAI。"
+  },
+  {
+    "query": "opus / sonnet / gpt 是内置快捷方式吗",
+    "pos": "是的。OpenClaw 内置了一些默认简写（仅在模型存在于agents.defaults.models中时应用）：\n\n• `opus` → `anthropic/claude-opus-4-5`\n• `sonnet` → `anthropic/claude-sonnet-4-5`\n• `gpt` → `openai/gpt-5.2`\n• `gpt-mini` → `openai/gpt-5-mini`\n• `gemini` → `google/gemini-3-pro-preview`\n• `gemini-flash` → `google/gemini-3-flash-preview`\n\n如果你设置了同名的自定义别名，你的值优先。"
+  },
+  {
+    "query": "如何定义/覆盖模型快捷方式（别名）",
+    "pos": "别名来自agents.defaults.models.<modelId>.alias。示例：\n\n{ agents : { defaults : { model : { primary : \"anthropic/claude-opus-4-5\" } , models : { \"anthropic/claude-opus-4-5\" : { alias : \"opus\" } , \"anthropic/claude-sonnet-4-5\" : { alias : \"sonnet\" } , \"anthropic/claude-haiku-4-5\" : { alias : \"haiku\" } , } , } , } , }\n\n然后/model sonnet（或支持时的/<alias>）解析为该模型 ID。"
+  },
+  {
+    "query": "如何添加其他提供商（如 OpenRouter 或 Z.AI）的模型",
+    "pos": "OpenRouter（按令牌付费；多种模型）：\n\n{ agents : { defaults : { model : { primary : \"openrouter/anthropic/claude-sonnet-4-5\" } , models : { \"openrouter/anthropic/claude-sonnet-4-5\" : {} } , } , } , env : { OPENROUTER_API_KEY : \"sk-or-...\" } , }\n\nZ.AI（GLM 模型）：\n\n{ agents : { defaults : { model : { primary : \"zai/glm-4.7\" } , models : { \"zai/glm-4.7\" : {} } , } , } , env : { ZAI_API_KEY : \"...\" } , }\n\n如果你引用了 provider/model 但缺少所需的提供商密钥，你会收到运行时认证错误（例如No API key found for provider \"zai\"）。\n\n添加新智能体后提示 No API key found for provider\n\n这通常意味着新智能体的认证存储为空。认证是按智能体的，存储在：\n\n~/.openclaw/agents/<agentId>/agent/auth-profiles.json\n\n修复选项：\n\n• 运行 `openclaw agents add <id>` 并在向导中配置认证。\n• 或从主智能体的 `agentDir` 复制 `auth-profiles.json` 到新智能体的 `agentDir` 。\n\n不要在智能体之间重用agentDir；这会导致认证/会话冲突。\n\n​ 模型故障转移与”All models failed”"
+  },
+  {
+    "query": "故障转移是如何工作的",
+    "pos": "故障转移分两个阶段：\n\n同一提供商内的 认证配置文件轮换 。 模型回退 到 agents.defaults.model.fallbacks 中的下一个模型。\n\n冷却期适用于失败的配置文件（指数退避），因此 OpenClaw 即使在提供商被限速或临时失败时也能继续响应。"
+  },
+  {
+    "query": "这个错误是什么意思",
+    "pos": "No credentials found for profile \"anthropic:default\"\n\n这意味着系统尝试使用认证配置文件 IDanthropic:default，但在预期的认证存储中找不到它的凭据。"
+  },
+  {
+    "query": "No credentials found for profile “anthropic:default” 的修复清单",
+    "pos": "• **确认认证配置文件的位置** （新路径 vs 旧路径） 当前：~/.openclaw/agents/<agentId>/agent/auth-profiles.json旧版：~/.openclaw/agent/*（通过openclaw doctor迁移）\n• **确认环境变量被 Gateway 网关加载** 如果你在 shell 中设置了ANTHROPIC_API_KEY但通过 systemd/launchd 运行 Gateway 网关，它可能不会继承。将其放在~/.openclaw/.env中或启用env.shellEnv。\n• **确保你编辑的是正确的智能体** 多智能体设置意味着可能有多个auth-profiles.json文件。\n• **完整性检查模型/认证状态** 使用openclaw models status查看已配置的模型以及提供商是否已认证。\n\nNo credentials found for profile “anthropic” 的修复清单\n\n这意味着运行固定到 Anthropic 认证配置文件，但 Gateway 网关在其认证存储中找不到它。\n\n• **使用 setup-token** 运行claude setup-token，然后用openclaw models auth setup-token --provider anthropic粘贴。如果令牌在另一台机器上创建，使用openclaw models auth paste-token --provider anthropic。\n• **如果你想使用 API 密钥** 在Gateway 网关主机上将ANTHROPIC_API_KEY放入~/.openclaw/.env。清除任何强制缺失配置文件的固定顺序：openclawmodelsauthorderclear--provideranthropic\n• **确认你在 Gateway 网关主机上运行命令** 在远程模式下，认证配置文件位于 Gateway 网关机器上，而不是你的笔记本上。"
+  },
+  {
+    "query": "为什么还尝试了 Google Gemini 并且失败了",
+    "pos": "如果你的模型配置包含 Google Gemini 作为回退（或你切换到了 Gemini 简写），OpenClaw 会在模型回退期间尝试它。如果你没有配置 Google 凭据，你会看到No API key found for provider \"google\"。\n\n修复：提供 Google 认证，或从agents.defaults.model.fallbacks/ 别名中移除/避免 Google 模型，这样回退不会路由到那里。\n\nLLM request rejected message thinking signature required google antigravity\n\n原因：会话历史包含没有签名的 thinking 块（通常来自中止/部分流）。Google Antigravity 要求 thinking 块有签名。\n\n修复：OpenClaw 现在为 Google Antigravity Claude 剥离未签名的 thinking 块。如果仍然出现，开始新会话或为该智能体设置/thinking off。\n\n​ 认证配置文件：概念和管理方式\n\n相关：/concepts/oauth（OAuth 流程、令牌存储、多账户模式）"
+  },
+  {
+    "query": "什么是认证配置文件",
+    "pos": "认证配置文件是绑定到提供商的命名凭据记录（OAuth 或 API 密钥）。配置文件位于：\n\n~/.openclaw/agents/<agentId>/agent/auth-profiles.json"
+  },
+  {
+    "query": "典型的配置文件 ID 有哪些",
+    "pos": "OpenClaw 使用提供商前缀的 ID，如：\n\n• `anthropic:default` （没有邮箱身份时常见）\n• `anthropic:<email>` （用于 OAuth 身份）\n• 你自定义的 ID（例如 `anthropic:work` ）"
+  },
+  {
+    "query": "可以控制首先尝试哪个认证配置文件吗",
+    "pos": "可以。配置支持配置文件的可选元数据和按提供商的排序（auth.order.<provider>）。这不存储密钥；它将 ID 映射到 provider/mode 并设置轮换顺序。\n\n如果某个配置文件处于短期冷却（速率限制/超时/认证失败）或较长的禁用状态（计费/额度不足），OpenClaw 可能会临时跳过它。要检查这一点，运行openclaw models status --json并查看auth.unusableProfiles。调优：auth.cooldowns.billingBackoffHours*。\n\n你也可以通过 CLI 设置按智能体的顺序覆盖（存储在该智能体的auth-profiles.json中）：\n\n# 默认为配置的默认智能体（省略 --agent） openclaw models auth order get --provider anthropic # 将轮换锁定到单个配置文件（只尝试这一个） openclaw models auth order set --provider anthropic anthropic:default # 或设置明确的顺序（提供商内回退） openclaw models auth order set --provider anthropic anthropic:work anthropic:default # 清除覆盖（回退到配置 auth.order / 轮换） openclaw models auth order clear --provider anthropic\n\n要针对特定智能体：\n\nopenclaw models auth order set --provider anthropic --agent main anthropic:default"
+  },
+  {
+    "query": "OAuth 与 API 密钥：有什么区别",
+    "pos": "OpenClaw 两者都支持：\n\n• **OAuth** 通常利用订阅访问（如适用）。\n• **API 密钥** 使用按令牌付费的计费。\n\n向导明确支持 Anthropic setup-token 和 OpenAI Codex OAuth，也可以为你存储 API 密钥。\n\n​ Gateway 网关：端口、“已在运行”和远程模式"
+  },
+  {
+    "query": "Gateway 网关使用什么端口",
+    "pos": "gateway.port控制用于 WebSocket + HTTP（控制 UI、钩子等）的单个复用端口。\n\n优先级：\n\n--port > OPENCLAW_GATEWAY_PORT > gateway.port > 默认 18789"
+  },
+  {
+    "query": "为什么 openclaw gateway status 显示 Runtime: running 但 RPC probe: failed",
+    "pos": "因为”running”是supervisor的视角（launchd/systemd/schtasks）。RPC 探测是 CLI 实际连接到 Gateway 网关 WebSocket 并调用status。\n\n使用openclaw gateway status并关注这些行：\n\n• `Probe target:` （探测实际使用的 URL）\n• `Listening:` （端口上实际绑定的内容）\n• `Last gateway error:` （进程存活但端口未监听时的常见根因）"
+  },
+  {
+    "query": "为什么 openclaw gateway status 显示 Config (cli) 和 Config (service) 不同",
+    "pos": "你正在编辑一个配置文件，而服务运行的是另一个（通常是--profile/OPENCLAW_STATE_DIR不匹配）。\n\n修复：\n\nopenclaw gateway install --force\n\n从你希望服务使用的相同--profile/ 环境运行该命令。"
+  },
+  {
+    "query": "“another gateway instance is already listening”是什么意思",
+    "pos": "OpenClaw 通过在启动时立即绑定 WebSocket 监听器来强制运行时锁（默认ws://127.0.0.1:18789）。如果绑定因EADDRINUSE失败，它会抛出GatewayLockError表示另一个实例已在监听。\n\n修复：停止另一个实例，释放端口，或使用openclaw gateway --port <port>运行。"
+  },
+  {
+    "query": "如何以远程模式运行 OpenClaw（客户端连接到其他位置的 Gateway 网关）",
+    "pos": "设置gateway.mode: \"remote\"并指向远程 WebSocket URL，可选带令牌/密码：\n\n{ gateway : { mode : \"remote\" , remote : { url : \"ws://gateway.tailnet:18789\" , token : \"your-token\" , password : \"your-password\" , } , } , }\n\n注意：\n\n• `openclaw gateway` 仅在 `gateway.mode` 为 `local` 时启动（或你传递覆盖标志）。\n• macOS 应用监视配置文件，当这些值更改时实时切换模式。"
+  },
+  {
+    "query": "控制 UI 显示”unauthorized”或持续重连，怎么办",
+    "pos": "你的 Gateway 网关运行时启用了认证（gateway.auth.*），但 UI 没有发送匹配的令牌/密码。\n\n事实（来自代码）：\n\n• 控制 UI 将令牌存储在浏览器 localStorage 键 `openclaw.control.settings.v1` 中。\n• UI 可以导入一次 `?token=...` （和/或 `?password=...` ），然后从 URL 中剥离。\n\n修复：\n\n• 最快： `openclaw dashboard` （打印 + 复制带令牌的链接，尝试打开；如果无头则显示 SSH 提示）。\n• 如果你还没有令牌： `openclaw doctor --generate-gateway-token` 。\n• 如果是远程，先建隧道： `ssh -N -L 18789:127.0.0.1:18789 user@host` 然后打开 `http://127.0.0.1:18789/?token=...` 。\n• 在 Gateway 网关主机上设置 `gateway.auth.token` （或 `OPENCLAW_GATEWAY_TOKEN` ）。\n• 在控制 UI 设置中粘贴相同的令牌（或使用一次性 `?token=...` 链接刷新）。\n• 仍然卡住？运行 `openclaw status --all` 并按 故障排除(https://docs.openclaw.ai/gateway/troubleshooting) 操作。参阅 仪表板(https://docs.openclaw.ai/web/dashboard) 了解认证详情。"
+  },
+  {
+    "query": "我设置了 gateway.bind: “tailnet” 但无法绑定 / 什么都没监听",
+    "pos": "tailnet绑定从你的网络接口中选择 Tailscale IP（100.64.0.0/10）。如果机器没有在 Tailscale 上（或接口已关闭），就没有可绑定的地址。\n\n修复：\n\n• 在该主机上启动 Tailscale（使其拥有 100.x 地址），或\n• 切换到 `gateway.bind: \"loopback\"` / `\"lan\"` 。\n\n注意：tailnet是明确的。auto优先 local loopback；当你想要仅 tailnet 绑定时使用gateway.bind: \"tailnet\"。"
+  },
+  {
+    "query": "可以在同一主机上运行多个 Gateway 网关吗",
+    "pos": "通常不需要——一个 Gateway 网关可以运行多个消息渠道和智能体。仅在需要冗余（例如救援机器人）或硬隔离时使用多个 Gateway 网关。\n\n可以，但你必须隔离：\n\n• `OPENCLAW_CONFIG_PATH` （每实例配置）\n• `OPENCLAW_STATE_DIR` （每实例状态）\n• `agents.defaults.workspace` （工作区隔离）\n• `gateway.port` （唯一端口）\n\n快速设置（推荐）：\n\n• 每实例使用 `openclaw --profile <name> …` （自动创建 `~/.openclaw-<name>` ）。\n• 在每个配置文件配置中设置唯一的 `gateway.port` （或手动运行时传 `--port` ）。\n• 安装每配置文件的服务： `openclaw --profile <name> gateway install` 。\n\n配置文件还会为服务名称添加后缀（bot.molt.<profile>；旧版com.openclaw.*、openclaw-gateway-<profile>.service、OpenClaw Gateway 网关 (<profile>)）。\n完整指南：多 Gateway 网关。"
+  },
+  {
+    "query": "“invalid handshake” / code 1008 是什么意思",
+    "pos": "Gateway 网关是一个WebSocket 服务器，它期望第一条消息是connect帧。如果收到其他内容，它会以code 1008（策略违规）关闭连接。\n\n常见原因：\n\n• 你在浏览器中打开了 **HTTP** URL（ `http://...` ）而不是 WS 客户端。\n• 你使用了错误的端口或路径。\n• 代理或隧道剥离了认证头或发送了非 Gateway 网关请求。\n\n快速修复：\n\n使用 WS URL： ws://<host>:18789 （或 wss://... 如果 HTTPS）。 不要在普通浏览器标签页中打开 WS 端口。 如果认证已启用，在 connect 帧中包含令牌/密码。\n\n如果你使用 CLI 或 TUI，URL 应该类似：\n\nopenclaw tui --url ws://<host>:18789 --token <token>\n\n协议详情：Gateway 网关协议。\n\n​ 日志与调试"
+  },
+  {
+    "query": "日志在哪里",
+    "pos": "文件日志（结构化）：\n\n/tmp/openclaw/openclaw-YYYY-MM-DD.log\n\n你可以通过logging.file设置稳定路径。文件日志级别由logging.level控制。控制台详细度由--verbose和logging.consoleLevel控制。\n\n最快的日志跟踪：\n\nopenclaw logs --follow\n\n服务/supervisor 日志（当 Gateway 网关通过 launchd/systemd 运行时）：\n\n• macOS： `$OPENCLAW_STATE_DIR/logs/gateway.log` 和 `gateway.err.log` （默认： `~/.openclaw/logs/...` ；配置文件使用 `~/.openclaw-<profile>/logs/...` ）\n• Linux： `journalctl --user -u openclaw-gateway[-<profile>].service -n 200 --no-pager`\n• Windows： `schtasks /Query /TN \"OpenClaw Gateway 网关 (<profile>)\" /V /FO LIST`\n\n参阅故障排除了解更多。"
+  },
+  {
+    "query": "如何启动/停止/重启 Gateway 网关服务",
+    "pos": "使用 Gateway 网关辅助命令：\n\nopenclaw gateway status openclaw gateway restart\n\n如果你手动运行 Gateway 网关，openclaw gateway --force可以回收端口。参阅Gateway 网关。"
+  },
+  {
+    "query": "我在 Windows 上关闭了终端——如何重启 OpenClaw",
+    "pos": "有两种 Windows 安装模式：\n\n1) WSL2（推荐）：Gateway 网关运行在 Linux 内部。\n\n打开 PowerShell，进入 WSL，然后重启：\n\nwsl openclaw gateway status openclaw gateway restart\n\n如果你从未安装服务，在前台启动：\n\nopenclaw gateway run\n\n2) 原生 Windows（不推荐）：Gateway 网关直接在 Windows 中运行。\n\n打开 PowerShell 并运行：\n\nopenclaw gateway status openclaw gateway restart\n\n如果你手动运行（无服务），使用：\n\nopenclaw gateway run\n\n文档：Windows (WSL2)、Gateway 网关服务运维手册。"
+  },
+  {
+    "query": "Gateway 网关已启动但回复始终不到达，应该检查什么",
+    "pos": "从快速健康扫描开始：\n\nopenclaw status openclaw models status openclaw channels status openclaw logs --follow\n\n常见原因：\n\n• 模型认证未在 **Gateway 网关主机** 上加载（检查 `models status` ）。\n• 渠道配对/允许列表阻止回复（检查渠道配置 + 日志）。\n• WebChat/仪表板打开但没有正确的令牌。\n\n如果你在远程，确认隧道/Tailscale 连接正常且 Gateway 网关 WebSocket 可达。\n\n文档：渠道、故障排除、远程访问。"
+  },
+  {
+    "query": "“Disconnected from gateway: no reason”——怎么办",
+    "pos": "这通常意味着 UI 丢失了 WebSocket 连接。检查：\n\nGateway 网关在运行吗？ openclaw gateway status Gateway 网关健康吗？ openclaw status UI 有正确的令牌吗？ openclaw dashboard 如果是远程，隧道/Tailscale 链接正常吗？\n\n然后跟踪日志：\n\nopenclaw logs --follow\n\n文档：仪表板、远程访问、故障排除。"
+  },
+  {
+    "query": "Telegram setMyCommands 因网络错误失败，应该检查什么",
+    "pos": "从日志和渠道状态开始：\n\nopenclaw channels status openclaw channels logs --channel telegram\n\n如果你在 VPS 上或代理后面，确认出站 HTTPS 被允许且 DNS 正常工作。\n如果 Gateway 网关在远程，确保你在 Gateway 网关主机上查看日志。\n\n文档：Telegram、渠道故障排除。"
+  },
+  {
+    "query": "TUI 没有输出，应该检查什么",
+    "pos": "首先确认 Gateway 网关可达且智能体可以运行：\n\nopenclaw status openclaw models status openclaw logs --follow\n\n在 TUI 中，使用/status查看当前状态。如果你期望在聊天渠道中收到回复，确保投递已启用（/deliver on）。\n\n文档：TUI、斜杠命令。"
+  },
+  {
+    "query": "如何完全停止然后启动 Gateway 网关如果你安装了服务：",
+    "pos": "openclaw gateway stop openclaw gateway start\n\n这会停止/启动受监管的服务（macOS 上的 launchd，Linux 上的 systemd）。\n当 Gateway 网关作为守护进程在后台运行时使用此命令。\n\n如果你在前台运行，用 Ctrl‑C 停止，然后：\n\nopenclaw gateway run\n\n文档：Gateway 网关服务运维手册。"
+  },
+  {
+    "query": "通俗解释：openclaw gateway restart 与 openclaw gateway",
+    "pos": "• `openclaw gateway restart` ：重启 **后台服务** （launchd/systemd）。\n• `openclaw gateway` ：在这个终端会话中 **前台** 运行 Gateway 网关。\n\n如果你安装了服务，使用 Gateway 网关命令。想要一次性前台运行时使用openclaw gateway。"
+  },
+  {
+    "query": "出现故障时获取更多详情的最快方法是什么",
+    "pos": "使用--verbose启动 Gateway 网关以获取更多控制台详情。然后检查日志文件中的渠道认证、模型路由和 RPC 错误。\n\n​ 媒体与附件"
+  },
+  {
+    "query": "我的 Skills 生成了图片/PDF，但什么都没发送",
+    "pos": "智能体的出站附件必须包含MEDIA:<path-or-url>行（独占一行）。参阅OpenClaw 助手设置和Agent send。\n\nCLI 发送：\n\nopenclaw message send --target +15555550123 --message \"Here you go\" --media /path/to/file.png\n\n还要检查：\n\n• 目标渠道支持出站媒体且未被允许列表阻止。\n• 文件在提供商的大小限制内（图片会调整到最大 2048px）。\n\n参阅图片。\n\n​ 安全与访问控制"
+  },
+  {
+    "query": "将 OpenClaw 暴露给入站私信安全吗",
+    "pos": "将入站私信视为不可信输入。默认设计旨在降低风险：\n\n• 支持私信的渠道上的默认行为是 **配对** ： 未知发送者会收到配对码；机器人不处理他们的消息。批准方式：openclaw pairing approve <channel> <code>每个渠道的待处理请求上限为3 个；如果没收到代码，检查openclaw pairing list <channel>。\n• 公开开放私信需要明确选择加入（ `dmPolicy: \"open\"` 且允许列表 `\"*\"` ）。\n\n运行openclaw doctor以发现有风险的私信策略。"
+  },
+  {
+    "query": "提示注入只对公开机器人有影响吗",
+    "pos": "不是。提示注入是关于不可信内容，不仅仅是谁能给机器人发私信。如果你的助手读取外部内容（网络搜索/抓取、浏览器页面、邮件、文档、附件、粘贴的日志），这些内容可能包含试图劫持模型的指令。即使你是唯一的发送者，这也可能发生。\n\n最大的风险是在启用工具时：模型可能被诱导泄露上下文或代表你调用工具。通过以下方式减少影响范围：\n\n• 使用只读或禁用工具的“阅读器”智能体来总结不可信内容\n• 对启用工具的智能体关闭 `web_search` / `web_fetch` / `browser`\n• 沙箱隔离和严格的工具允许列表\n\n详情：安全。"
+  },
+  {
+    "query": "我的机器人应该有自己的邮箱、GitHub 账户或电话号码吗",
+    "pos": "是的，对于大多数设置来说。用独立的账户和电话号码隔离机器人可以在出问题时减少影响范围。这也使得轮换凭据或撤销访问更容易，而不影响你的个人账户。\n\n从小处开始。只授予你实际需要的工具和账户的访问权限，以后需要时再扩展。\n\n文档：安全、配对。"
+  },
+  {
+    "query": "我能让它自主管理我的短信吗？这安全吗",
+    "pos": "我们不建议完全自主管理你的个人消息。最安全的模式是：\n\n• 将私信保持在 **配对模式** 或严格的允许列表中。\n• 如果你希望它代表你发消息，使用 **独立的号码或账户** 。\n• 让它起草，然后 **发送前批准** 。\n\n如果你想实验，在专用账户上进行并保持隔离。参阅安全。"
+  },
+  {
+    "query": "个人助理任务可以使用更便宜的模型吗",
+    "pos": "可以，如果智能体仅用于聊天且输入是可信的。较小的模型更容易受到指令劫持，因此避免将它们用于启用工具的智能体或读取不可信内容时。如果你必须使用较小的模型，锁定工具并在沙箱中运行。参阅安全。"
+  },
+  {
+    "query": "我在 Telegram 中运行了 /start 但没收到配对码",
+    "pos": "配对码仅在未知发送者向机器人发消息且dmPolicy: \"pairing\"启用时发送。/start本身不会生成代码。\n\n检查待处理请求：\n\nopenclaw pairing list telegram\n\n如果你想立即获得访问权限，将你的发送者 ID 加入允许列表或为该账户设置dmPolicy: \"open\"。"
+  },
+  {
+    "query": "WhatsApp：会给我的联系人发消息吗？配对如何工作",
+    "pos": "不会。WhatsApp 的默认私信策略是配对。未知发送者只会收到配对码，他们的消息不会被处理。OpenClaw 只回复它收到的聊天或你明确触发的发送。\n\n批准配对：\n\nopenclaw pairing approve whatsapp < cod e >\n\n列出待处理请求：\n\nopenclaw pairing list whatsapp\n\n向导电话号码提示：它用于设置你的允许列表/所有者，以便你自己的私信被允许。它不用于自动发送。如果你在个人 WhatsApp 号码上运行，使用该号码并启用channels.whatsapp.selfChatMode。\n\n​ 聊天命令、中止任务和“停不下来”"
+  },
+  {
+    "query": "如何阻止内部系统消息显示在聊天中",
+    "pos": "大多数内部或工具消息只在该会话启用了verbose或reasoning时才出现。\n\n在你看到它的聊天中修复：\n\n/verbose off /reasoning off\n\n如果仍然嘈杂，检查控制 UI 中的会话设置并将 verbose 设为继承。同时确认你没有使用在配置中将verboseDefault设为on的机器人配置文件。\n\n文档：思考和详细输出、安全。"
+  },
+  {
+    "query": "如何停止/取消正在运行的任务",
+    "pos": "发送以下任一内容作为独立消息（不带斜杠）：\n\nstop abort esc wait exit interrupt\n\n这些是中止触发器（不是斜杠命令）。\n\n对于后台进程（来自 exec 工具），你可以要求智能体运行：\n\nprocess action:kill sessionId:XXX\n\n斜杠命令概览：参阅斜杠命令。\n\n大多数命令必须作为以/开头的独立消息发送，但一些快捷方式（如/status）对允许列表中的发送者也支持内联使用。"
+  },
+  {
+    "query": "如何从 Telegram 发送 Discord 消息？（“Cross-context messaging denied”）",
+    "pos": "OpenClaw 默认阻止跨提供商消息。如果工具调用绑定到 Telegram，除非你明确允许，否则不会发送到 Discord。\n\n为智能体启用跨提供商消息：\n\n{ agents : { defaults : { tools : { message : { crossContext : { allowAcrossProviders : true , marker : { enabled : true , prefix : \"[from {channel}] \" } , } , } , } , } , } , }\n\n编辑配置后重启 Gateway 网关。如果你只想为单个智能体设置，将其放在agents.list[].tools.message下。"
+  },
+  {
+    "query": "为什么感觉机器人“忽略”了快速连发的消息",
+    "pos": "队列模式控制新消息如何与正在进行的运行交互。使用/queue更改模式：\n\n• `steer` - 新消息重定向当前任务\n• `followup` - 逐条处理消息\n• `collect` - 批量消息并回复一次（默认）\n• `steer-backlog` - 立即转向，然后处理积压\n• `interrupt` - 中止当前运行并重新开始\n\n你可以为 followup 模式添加选项如debounce:2s cap:25 drop:summarize。\n\n​ 从截图/聊天记录中准确回答问题\n\n问：“使用 API 密钥时 Anthropic 的默认模型是什么？”\n\n答：在 OpenClaw 中，凭据和模型选择是分开的。设置ANTHROPIC_API_KEY（或在认证配置文件中存储 Anthropic API 密钥）启用认证，但实际的默认模型是你在agents.defaults.model.primary中配置的（例如anthropic/claude-sonnet-4-5或anthropic/claude-opus-4-5）。如果你看到No credentials found for profile \"anthropic:default\"，意味着 Gateway 网关在正在运行的智能体的预期auth-profiles.json中找不到 Anthropic 凭据。\n\n仍然卡住？在Discord中提问或发起GitHub 讨论。"
+  }
+]

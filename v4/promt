@@ -1,0 +1,88 @@
+數據集合在\NLP\v3\Acupuncture
+
+Qwen/Qwen3.5-0.8B-Base在
+\NLP\v3\models
+
+
+你生成一個SFT的腳本吧
+需要把train loss和validation loss記錄下載，最後輸出Loss Curve
+需要記錄準確率、召回率、精確率、F1等模型評估指標（如果這些不合適，請幫我找合適的記錄），最後輸出模型評估圖表分析
+
+​
+
+
+
+Script created at `\NLP\v3\train_continual.py`
+
+## 关键说明
+
+### 1. 这是"继续预训练"而非 SFT
+你的数据是**原始古籍文本**（无问答对），模型是 **Base**（非 Instruct），所以最合适的做法是 **领域继续预训练（Continual Pre-training）**，用 CLM（预测下一个 token）方式训练，让模型学习中医领域的语言模式和知识。
+
+### 2. 评估指标说明
+你提到的 **準確率/召回率/精確率/F1** 是**分类任务**指标，不适用于生成式语言模型预训练。脚本中使用的是 LM 标准指标：
+
+| 指标 | 含义 | 说明 |
+|------|------|------|
+| **Loss** | 交叉熵损失 | 训练和验证集分别记录 |
+| **Perplexity (PPL)** | 困惑度 = exp(Loss) | LM 最核心评估指标，越低越好 |
+| **Token Accuracy** | Token 预测准确率 | 下一个 token 预测的正确率 |
+
+如果后续你有分类任务需求（如文本分类、意图识别），可以用这个 Base 模型接分类头再做 SFT，那时才能算 Precision/Recall/F1。
+
+### 3. 脚本输出
+```
+results/
+├── training_metrics.csv    # 每步的 Loss/PPL/Acc 记录
+├── final_metrics.json      # 最终汇总指标
+├── training_metrics.png    # 四合一图表（Loss + PPL + Acc + 摘要）
+├── loss_curve.png          # 独立损失曲线图
+├── final_model/            # 训练后的模型权重
+└── checkpoints/            # 训练中间检查点
+```
+
+### 4. 运行
+```bash
+cd \NLP\v3
+python train_continual.py
+```
+
+需要的环境已就绪：transformers 5.3.0、torch 2.10.0、datasets 2.19.1、matplotlib 3.10.8。如果显存不足（低于 8GB），可在脚本中将 `BATCH_SIZE` 改为 1。
+
+
+
+
+
+
+OOM了
+我只有一張L20  想想辦法
+看看可以怎麼訓練
+
+已調整，主要改動：
+
+1. **`MAX_SEQ_LENGTH`**: 2048 → **512**（全注意層是 O(n²)，512 安全）
+2. **`BATCH_SIZE`**: 4 → **1**
+3. **`GRAD_ACCUM`**: 2 → **8**（等效 batch size = 8，不影響記憶體）
+4. **`PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True`**（減少記憶體碎片）
+
+移除 compute_metrics（不再收集全部 logits，這是 OOM 主因）
+evaluation_loop 改為兩階段：先用 prediction_loss_only=True 算 loss（低記憶體），再逐 batch 算 accuracy（每批算完就釋放）
+不走 log_history 解析 accuracy 的邏輯也已內建
+
+重新上傳再跑：
+
+```bash
+CUDA_VISIBLE_DEVICES=6 python train_continual.py
+```
+
+watch -n 1 nvidia-smi --format=csv --query-gpu=name,index,temperature.gpu,utilization.gpu,memory.total,memory.used,power.draw
+
+name, index, temperature.gpu, power.draw [W], utilization.gpu [%], memory.total [MiB], memory.used [MiB]
+NVIDIA L20, 0, 41, 84.56 W, 0 %, 46068 MiB, 40119 MiB
+NVIDIA L20, 1, 42, 83.83 W, 0 %, 46068 MiB, 40047 MiB
+NVIDIA L20, 2, 39, 83.07 W, 0 %, 46068 MiB, 40047 MiB
+NVIDIA L20, 3, 37, 80.49 W, 0 %, 46068 MiB, 40047 MiB
+NVIDIA L20, 4, 36, 74.67 W, 0 %, 46068 MiB, 39663 MiB
+NVIDIA L20, 5, 39, 79.13 W, 0 %, 46068 MiB, 39663 MiB
+NVIDIA L20, 6, 34, 110.42 W, 26 %, 46068 MiB, 7797 MiB
+NVIDIA L20, 7, 37, 75.96 W, 0 %, 46068 MiB, 36044 MiB
